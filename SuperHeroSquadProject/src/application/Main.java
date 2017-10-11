@@ -25,6 +25,7 @@ public class Main extends Application {
 	
 	{
 		System.out.println("I'm Brandon and this is my change");
+		System.out.println("I'm Austin and this is my change");
 		System.out.println("Patrick and this is my change");
 		launch(args);
 		
