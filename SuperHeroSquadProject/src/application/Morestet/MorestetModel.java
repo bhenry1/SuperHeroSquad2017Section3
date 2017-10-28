@@ -35,4 +35,19 @@ public class MorestetModel
 		
 	}
 	
+	
+	
+	
+	
+	public void goToMDungeon(ActionEvent event) throws IOException
+	{
+	
+		Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/MorestetDungeon.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+    	window.setScene(scene2);
+    	window.show();
+		
+	}
+	
 }

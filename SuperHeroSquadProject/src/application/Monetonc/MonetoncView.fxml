@@ -10,7 +10,7 @@
    <children>
       <ImageView fx:id="Morestet" fitHeight="823.0" fitWidth="1270.0" layoutX="-137.0" layoutY="-14.0" pickOnBounds="true">
          <image>
-            <Image url="file:/C:/Users/Brandon/Desktop/SuperHeroRepo/Super_Hero_Squad2017Section3/SuperHeroSquadProject/Images/Monetonc.png" />
+            <Image url="@../../../Images/Monetonc.png" />
          </image>
       </ImageView>
       <Label fx:id="morestetLabel" alignment="CENTER" layoutX="153.0" prefHeight="127.0" prefWidth="708.0" text="Monetonc">

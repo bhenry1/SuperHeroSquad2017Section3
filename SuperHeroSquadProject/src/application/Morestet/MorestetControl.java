@@ -57,9 +57,9 @@ public class MorestetControl
     }
 
     @FXML
-    void enterDungeon(ActionEvent event) 
+    void enterDungeon(ActionEvent event) throws IOException 
     {
-
+    	mm.goToMDungeon(event);
     }
 
     @FXML

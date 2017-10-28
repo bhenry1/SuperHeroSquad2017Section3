@@ -34,6 +34,11 @@ public class WorldMapControl
 
     @FXML
     private Button Aruthor;
+    
+    @FXML
+    private Button menuBtn;
+    
+    
 
     @FXML
     void enterMorestet(ActionEvent event) throws IOException 
@@ -78,6 +83,13 @@ public class WorldMapControl
     {
     	wm.goToGatesOfHell(event);
     		
+    }
+    
+
+    @FXML
+    void openMenu(ActionEvent event) 
+    {
+
     }
 
 }
