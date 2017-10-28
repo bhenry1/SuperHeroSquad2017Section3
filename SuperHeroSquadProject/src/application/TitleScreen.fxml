@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TitleScreenControl">
+   <children>
+      <Label fx:id="matlock1" alignment="CENTER" contentDisplay="CENTER" layoutX="-7.0" layoutY="8.0" prefHeight="119.0" prefWidth="1015.0" text="Matlock" textFill="#dd1717">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="96.0" />
+         </font>
+      </Label>
+      <Button fx:id="exitGameButton" layoutX="327.0" layoutY="613.0" mnemonicParsing="false" onAction="#exitGameOnClick" prefHeight="134.0" prefWidth="361.0" text="Exit Game" textFill="RED" wrapText="true">
+         <font>
+            <Font name="AutoREALM Blackletter" size="64.0" />
+         </font>
+      </Button>
+      <Button fx:id="loadGameButton" layoutX="327.0" layoutY="373.0" mnemonicParsing="false" onAction="#LoadGameOnClick" prefHeight="134.0" prefWidth="361.0" text="Load Game" textFill="#00ab5b">
+         <font>
+            <Font name="AutoREALM Blackletter" size="64.0" />
+         </font>
+      </Button>
+      <Button fx:id="newGameButton" layoutX="327.0" layoutY="158.0" mnemonicParsing="false" onAction="#newGameOnClick" prefHeight="134.0" prefWidth="361.0" text="New Game" wrapText="true">
+         <font>
+            <Font name="AutoREALM Blackletter" size="64.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

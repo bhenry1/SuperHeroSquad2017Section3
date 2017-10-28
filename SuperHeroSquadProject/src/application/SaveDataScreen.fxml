@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SaveFilesControl">
+   <children>
+      <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackToTitle" prefHeight="31.0" prefWidth="88.0" text="Back">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <TextField fx:id="saveFile1" alignment="CENTER" layoutX="-2.0" layoutY="139.0" onAction="#save" prefHeight="31.0" prefWidth="1000.0" promptText="Name Your Save File" />
+      <TextField fx:id="saveFile2" alignment="CENTER" layoutX="-2.0" layoutY="228.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
+      <TextField fx:id="saveFile3" alignment="CENTER" layoutX="-3.0" layoutY="321.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
+      <TextField fx:id="saveFile4" alignment="CENTER" layoutX="1.0" layoutY="427.0" onAction="#save" prefHeight="31.0" prefWidth="1000.0" promptText="Name Your Save File" />
+      <TextField fx:id="saveFile5" alignment="CENTER" layoutX="-2.0" layoutY="521.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
+      <TextField fx:id="saveFile6" alignment="CENTER" layoutX="-2.0" layoutY="624.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
+      <TextField fx:id="saveFile7" alignment="CENTER" layoutX="-2.0" layoutY="729.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
+      <Label fx:id="saveFileLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="30.0" prefHeight="21.0" prefWidth="345.0" text="Save Files" textAlignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="startButton" layoutX="910.0" mnemonicParsing="false" onAction="#goToWorldMap" prefHeight="31.0" prefWidth="88.0" text="Start">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Hifenour.HifenourControl">
+   <children>
+      <ImageView fx:id="Morestet" fitHeight="823.0" fitWidth="1482.0" layoutX="-241.0" layoutY="-14.0" pickOnBounds="true">
+         <image>
+            <Image url="file:/C:/Users/Brandon/Desktop/SuperHeroRepo/Super_Hero_Squad2017Section3/SuperHeroSquadProject/Images/Hifenour.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="cityLabel" alignment="CENTER" layoutX="152.0" prefHeight="127.0" prefWidth="708.0" text="Hifenour">
+         <font>
+            <Font name="AutoREALM Blackletter" size="96.0" />
+         </font>
+      </Label>
+      <Button fx:id="backToWMbtn" mnemonicParsing="false" onAction="#returnToWM" prefHeight="52.0" prefWidth="99.0" text="World Map" />
+      <Button fx:id="menuBtn" layoutX="17.0" layoutY="719.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="67.0" prefWidth="99.0" text="Menu" />
+      <Button fx:id="dungeonbtn" layoutX="649.0" layoutY="713.0" mnemonicParsing="false" onAction="#enterDungeon" text="Dungeon" />
+      <Button fx:id="puzzleBtn" layoutX="806.0" layoutY="376.0" mnemonicParsing="false" onAction="#startPuzzle" text="Riddle" />
+      <Button fx:id="tavernBtn" layoutX="383.0" layoutY="238.0" mnemonicParsing="false" onAction="#enterTavern" text="Tavern" />
+      <Button fx:id="shopButton" layoutX="565.0" layoutY="238.0" mnemonicParsing="false" onAction="#enterShop" text="Shop" />
+      <Button fx:id="innBtn" layoutX="455.0" layoutY="332.0" mnemonicParsing="false" onAction="#enterInn" prefHeight="31.0" prefWidth="65.0" text="Inn" />
+   </children>
+</AnchorPane>
