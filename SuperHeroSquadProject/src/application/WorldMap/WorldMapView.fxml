@@ -9,7 +9,7 @@
    <children>
       <ImageView fx:id="WorldMap" fitHeight="807.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/Brandon/Desktop/Super_Hero_Squad2017Section3/SuperHeroSquadProject/Images/worldmap.png" />
+            <Image url="@../../../Images/worldmap.png" />
          </image>
       </ImageView>
       <Button fx:id="Morestet" layoutX="332.0" layoutY="497.0" mnemonicParsing="false" onAction="#enterMorestet" prefHeight="41.0" prefWidth="108.0" text="Morestet" />
