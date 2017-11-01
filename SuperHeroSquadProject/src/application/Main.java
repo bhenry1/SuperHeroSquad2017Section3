@@ -23,6 +23,8 @@ public class Main extends Application
 		try 
 		{
 			System.out.println("Testing pull");
+			System.out.println("Testing another pull");
+
 			Parent mainPane = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
 			Scene scene = new Scene(mainPane, 1000, 800);
 			window.setScene(scene);
