@@ -30,7 +30,6 @@ Main view = new Main();
     void exitGameOnClick(ActionEvent event) 
     {
     	model.exitGame();
-   	
     }
 
     
