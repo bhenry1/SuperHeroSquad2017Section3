@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WorldMap.WorldMapControl">
+   <children>
+      <ImageView fx:id="WorldMap" fitHeight="807.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/worldmap.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="Morestet" layoutX="332.0" layoutY="497.0" mnemonicParsing="false" onAction="#enterMorestet" prefHeight="41.0" prefWidth="108.0" text="Morestet" />
+      <Button fx:id="Monetonc" layoutX="494.0" layoutY="583.0" mnemonicParsing="false" onAction="#enterMonetonc" prefHeight="31.0" prefWidth="137.0" text="Monetonc" />
+      <Button fx:id="Clourtav" layoutX="584.0" layoutY="350.0" mnemonicParsing="false" onAction="#enterCloutav" prefHeight="41.0" prefWidth="124.0" text="Clourtav" />
+      <Button fx:id="Hackipon" layoutX="714.0" layoutY="295.0" mnemonicParsing="false" onAction="#enterHackipon" prefHeight="41.0" prefWidth="100.0" text="Hackipon" />
+      <Button fx:id="Aruthor" layoutX="614.0" layoutY="213.0" mnemonicParsing="false" onAction="#enterArthor" prefHeight="31.0" prefWidth="108.0" text="Arthur" />
+      <Button fx:id="Hifenour" layoutX="405.0" layoutY="320.0" mnemonicParsing="false" onAction="#enterHifenour" prefHeight="31.0" prefWidth="100.0" text="Hifenour" />
+      <Button fx:id="gatesOfHell" layoutX="213.0" layoutY="244.0" mnemonicParsing="false" onAction="#enterGatesOfHell" prefHeight="41.0" prefWidth="150.0" text="Gates of Hell" />
+      <Button fx:id="menuBtn" layoutX="14.0" layoutY="599.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="67.0" prefWidth="99.0" text="Menu" />
+   </children>
+</Pane>
