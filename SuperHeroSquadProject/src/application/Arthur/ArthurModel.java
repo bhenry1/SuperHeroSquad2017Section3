@@ -21,7 +21,14 @@ public class ArthurModel
     	window.show();
 	}
 	
-	
+	public void goToAInn(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("CityElements/InnView.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+    	window.setScene(scene2);
+    	window.show();
+	}
 
 
 }

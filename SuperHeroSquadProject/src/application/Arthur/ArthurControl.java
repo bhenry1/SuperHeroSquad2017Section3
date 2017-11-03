@@ -78,8 +78,8 @@ public class ArthurControl
     }
 
     @FXML
-    void enterInn(ActionEvent event) {
-
+    void enterInn(ActionEvent event) throws IOException {
+    	arm.goToAInn(event);
     }
 
 }
