@@ -1,4 +1,4 @@
-package application.Arthur;
+package application.Monetonc;
 
 import java.io.IOException;
 
@@ -9,9 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class ArthurControl 
+public class MonetoncControl 
 {
-	ArthurModel arm = new ArthurModel();
+	MonetoncModel mt = new MonetoncModel();
 
     @FXML
     private Button dungeonbtn;
@@ -20,7 +20,7 @@ public class ArthurControl
     private Button tavernBtn;
 
     @FXML
-    private Label cityLabel;
+    private Label morestetLabel;
 
     @FXML
     private Button shopButton;
@@ -46,40 +46,43 @@ public class ArthurControl
     @FXML
     void returnToWM(ActionEvent event) throws IOException 
     {
-    	arm.rtnToWorldMap(event);
-
+    	mt.rtnToWorldMao(event);
     }
 
     @FXML
     void openMenu(ActionEvent event) 
     {
-    	
-    	
-    }
-
-    @FXML
-    void enterDungeon(ActionEvent event) {
 
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) {
+    void enterDungeon(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void enterTavern(ActionEvent event) {
+    void startPuzzle(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void enterShop(ActionEvent event) {
+    void enterTavern(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void enterInn(ActionEvent event) {
+    void enterShop(ActionEvent event) 
+    {
 
+    }
+
+    @FXML
+    void enterInn(ActionEvent event) throws IOException 
+    {
+    	mt.goToMcInn(event);
     }
 
 }

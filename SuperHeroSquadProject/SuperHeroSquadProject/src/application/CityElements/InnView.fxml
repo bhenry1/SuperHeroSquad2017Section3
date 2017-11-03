@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="innPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="721.0" prefWidth="1007.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CityElements.InnControl">
+   <children>
+      <ImageView fx:id="innImage" fitHeight="750.0" fitWidth="1031.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/MatlockInn.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="innYesButton" layoutX="578.0" layoutY="279.0" mnemonicParsing="false" onAction="#rest" text="Yes" />
+      <TextArea fx:id="innTextBox" layoutX="559.0" layoutY="170.0" prefHeight="95.0" prefWidth="234.0" text="Hey! Would you like to &#10;spend the night?&#10;&#10;It'll cost you 20 gold." />
+      <Button fx:id="innNoButton" layoutX="733.0" layoutY="279.0" mnemonicParsing="false" onAction="#noRest" text="No" />
+   </children>
+</Pane>

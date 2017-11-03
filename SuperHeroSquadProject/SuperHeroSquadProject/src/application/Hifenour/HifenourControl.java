@@ -1,4 +1,4 @@
-package application.Arthur;
+package application.Hifenour;
 
 import java.io.IOException;
 
@@ -9,9 +9,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class ArthurControl 
+public class HifenourControl 
 {
-	ArthurModel arm = new ArthurModel();
+	HifenourModel hm = new HifenourModel();
 
     @FXML
     private Button dungeonbtn;
@@ -46,40 +46,44 @@ public class ArthurControl
     @FXML
     void returnToWM(ActionEvent event) throws IOException 
     {
-    	arm.rtnToWorldMap(event);
-
+    	hm.rtnToWorldMap(event);
+    	
     }
 
     @FXML
     void openMenu(ActionEvent event) 
     {
-    	
-    	
-    }
-
-    @FXML
-    void enterDungeon(ActionEvent event) {
 
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) {
+    void enterDungeon(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void enterTavern(ActionEvent event) {
+    void startPuzzle(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void enterShop(ActionEvent event) {
+    void enterTavern(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void enterInn(ActionEvent event) {
+    void enterShop(ActionEvent event) 
+    {
 
+    }
+
+    @FXML
+    void enterInn(ActionEvent event) throws IOException 
+    {
+    	hm.goToHInn(event);
     }
 
 }

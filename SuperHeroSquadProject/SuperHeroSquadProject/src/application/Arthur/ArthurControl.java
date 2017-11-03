@@ -51,10 +51,8 @@ public class ArthurControl
     }
 
     @FXML
-    void openMenu(ActionEvent event) 
-    {
-    	
-    	
+    void openMenu(ActionEvent event) {
+
     }
 
     @FXML

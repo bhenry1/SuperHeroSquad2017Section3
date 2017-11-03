@@ -1,4 +1,4 @@
-package application.Arthur;
+package application.Hackipon;
 
 import java.io.IOException;
 
@@ -9,9 +9,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class ArthurControl 
+public class HackiponControl 
 {
-	ArthurModel arm = new ArthurModel();
+	
+	HackiponModel hpm = new HackiponModel();
 
     @FXML
     private Button dungeonbtn;
@@ -46,15 +47,13 @@ public class ArthurControl
     @FXML
     void returnToWM(ActionEvent event) throws IOException 
     {
-    	arm.rtnToWorldMap(event);
+    	hpm.rtnToWorldMap(event);
 
     }
 
     @FXML
-    void openMenu(ActionEvent event) 
-    {
-    	
-    	
+    void openMenu(ActionEvent event) {
+
     }
 
     @FXML

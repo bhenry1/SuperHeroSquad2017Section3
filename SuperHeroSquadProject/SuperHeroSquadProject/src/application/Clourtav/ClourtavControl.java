@@ -1,4 +1,4 @@
-package application.Arthur;
+package application.Clourtav;
 
 import java.io.IOException;
 
@@ -9,10 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class ArthurControl 
+public class ClourtavControl 
 {
-	ArthurModel arm = new ArthurModel();
 
+	ClourtavModel cvm = new ClourtavModel();
+	
     @FXML
     private Button dungeonbtn;
 
@@ -46,15 +47,13 @@ public class ArthurControl
     @FXML
     void returnToWM(ActionEvent event) throws IOException 
     {
-    	arm.rtnToWorldMap(event);
-
+    	
+    	cvm.rtnToWorldMap(event);
     }
 
     @FXML
-    void openMenu(ActionEvent event) 
-    {
-    	
-    	
+    void openMenu(ActionEvent event) {
+
     }
 
     @FXML
