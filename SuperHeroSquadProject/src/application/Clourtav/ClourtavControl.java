@@ -77,8 +77,8 @@ public class ClourtavControl
     }
 
     @FXML
-    void enterInn(ActionEvent event) {
-
+    void enterInn(ActionEvent event) throws IOException {
+    	cvm.goToInn(event);
     }
 
 }

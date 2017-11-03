@@ -77,8 +77,8 @@ public class HackiponControl
     }
 
     @FXML
-    void enterInn(ActionEvent event) {
-
+    void enterInn(ActionEvent event) throws IOException {
+    	hpm.goToAInn(event);
     }
 
 }

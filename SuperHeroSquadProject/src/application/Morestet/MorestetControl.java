@@ -83,7 +83,7 @@ public class MorestetControl
     @FXML
     void enterInn(ActionEvent event) throws IOException 
     {
-    	mm.goToMInn(event);
+    	mm.goToInn(event);
 
     }
 

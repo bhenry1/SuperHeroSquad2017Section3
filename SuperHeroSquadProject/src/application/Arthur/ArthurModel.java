@@ -25,9 +25,9 @@ public class ArthurModel
 	{
 		Parent root = FXMLLoader.load(Main.class.getResource("CityElements/InnView.fxml"));
     	Scene scene2 = new Scene(root);
-		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
-    	window.setScene(scene2);
-    	window.show();
+		Stage innWindow = new Stage();  
+    	innWindow.setScene(scene2);
+    	innWindow.show();
 	}
 
 

@@ -82,7 +82,7 @@ public class MonetoncControl
     @FXML
     void enterInn(ActionEvent event) throws IOException 
     {
-    	mt.goToMcInn(event);
+    	mt.goToInn(event);
     }
 
 }

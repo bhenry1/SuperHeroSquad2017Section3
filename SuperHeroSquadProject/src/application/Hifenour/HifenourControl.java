@@ -83,7 +83,7 @@ public class HifenourControl
     @FXML
     void enterInn(ActionEvent event) throws IOException 
     {
-    	hm.goToHInn(event);
+    	hm.goToInn(event);
     }
 
 }

@@ -35,7 +35,7 @@ public class InnControl {
     @FXML
     void noRest(ActionEvent event) 
     {
-
+    	im.leaveInn(event);
     }
 
 }
