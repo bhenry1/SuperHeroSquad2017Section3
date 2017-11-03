@@ -46,7 +46,6 @@ public class MorestetModel
 		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
     	window.setScene(scene2);
     	window.show();
-		System.out.println("Whats up");
 	}
 	
 	
