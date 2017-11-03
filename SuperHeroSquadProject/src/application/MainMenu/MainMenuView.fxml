@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.MainMenu.MainMenuControl">
+  <tabs>
+    <Tab fx:id="saveTab" text="Save Game">
+      <content>
+        <AnchorPane fx:id="savePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="saveTextArea" layoutX="29.0" layoutY="14.0" prefHeight="39.0" prefWidth="244.0" text="Would you like to save this game ?" />
+                  <Button fx:id="saveYesBtn" layoutX="72.0" layoutY="65.0" mnemonicParsing="false" onAction="#actionSaveYes" text="Yes" />
+                  <Button fx:id="saveNoBtn" layoutX="171.0" layoutY="65.0" mnemonicParsing="false" onAction="#actionSaveNo" text="No" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="loadTab" text="Load Game">
+      <content>
+        <AnchorPane fx:id="loadPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="loadTextArea" layoutX="26.0" layoutY="14.0" prefHeight="38.0" prefWidth="291.0" text="Name the save file that would like to load with?" />
+                  <TextField fx:id="loadTextField" layoutX="65.0" layoutY="70.0" />
+                  <TextArea fx:id="loadFileList" layoutX="26.0" layoutY="126.0" prefHeight="204.0" prefWidth="383.0" text="List the save files from the start page." />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="itemTab" text="Items">
+        <content>
+          <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab fx:id="weaponTab" text="Weapons">
+        <content>
+          <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab fx:id="armorTab" text="Armor">
+        <content>
+          <AnchorPane fx:id="armorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </content>
+      </Tab>
+      <Tab fx:id="exitTab" text="Exit Game">
+        <content>
+          <AnchorPane fx:id="exitPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="exitTextArea" layoutX="40.0" layoutY="20.0" prefHeight="40.0" prefWidth="253.0" text="Would you like to exit out of this game?&#10;" />
+                  <Button fx:id="exitYesBtn" layoutX="70.0" layoutY="85.0" mnemonicParsing="false" onAction="#actionExitYes" text="Yes" />
+                  <Button fx:id="exitNoBtn" layoutX="187.0" layoutY="85.0" mnemonicParsing="false" onAction="#actionExitNo" text="No" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

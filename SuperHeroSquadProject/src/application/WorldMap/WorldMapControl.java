@@ -88,9 +88,10 @@ public class WorldMapControl
     
 
     @FXML
-    void openMenu(ActionEvent event) 
+    void openMenu(ActionEvent event) throws IOException 
     {
 
+    	wm.goToMainMenu(event);
     }
 
 }
