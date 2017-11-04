@@ -220,6 +220,11 @@ public class ClourtavDungeonControl
     @FXML
     void moveUp(ActionEvent event) 
     {
+    	if(mdm.determineIfMove(this.roomNumber))
+    	{
+    		System.out.println("no");
+    	}
+    	
     	int roomNumber = mdm.getRoomNumber4MovingUp(this.roomNumber);
     	roomName.setText(mdm.getRoomName(roomNumber));
     	this.roomNumber = roomNumber;
@@ -448,7 +453,18 @@ public class ClourtavDungeonControl
     @FXML
     void examineRoom(ActionEvent event) 
     {
-
+    	ClourtavDungeonNavigationTextModel read = new ClourtavDungeonNavigationTextModel();
+    	
+    	read.openFile();
+    	navigationTextArea.setText(read.readFile());
+    	read.closeFile();
+    }
+    
+    @FXML
+    void setNavigationAssistArea()
+    {
+    	
+    
     }
 
   

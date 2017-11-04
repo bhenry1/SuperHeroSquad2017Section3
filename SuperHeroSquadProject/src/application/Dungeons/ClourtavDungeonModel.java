@@ -65,6 +65,8 @@ public class ClourtavDungeonModel
 			return 0;
 		}
 		
+		else
+		
 		return 1;
 			
 	}
@@ -256,13 +258,24 @@ public class ClourtavDungeonModel
 	
 	public void leaveDungeon(ActionEvent event) throws IOException 
 	{
-		Parent root = FXMLLoader.load(Main.class.getResource("Morestet/MorestetView.fxml"));
+		Parent root = FXMLLoader.load(Main.class.getResource("Clourtav/ClourtavView.fxml"));
     	Scene scene2 = new Scene(root);
 		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
     	window.setScene(scene2);
     	window.show();
 	}
 	
+	
+	public boolean determineIfMove(int roomNumber)
+	{
+		if((roomNumber==2) || (roomNumber==5) )
+		{
+			return true;
+		}
+		
+		return false;
+		
+	}
 	
 	
 }

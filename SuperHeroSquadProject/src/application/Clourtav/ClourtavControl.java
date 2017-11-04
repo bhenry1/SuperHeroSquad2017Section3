@@ -60,6 +60,7 @@ public class ClourtavControl
     void enterDungeon(ActionEvent event) throws IOException 
     {
     	cvm.goCDungeon(event);
+    	
     }
 
     @FXML

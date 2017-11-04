@@ -19,7 +19,6 @@
             <Font name="AutoREALM Blackletter" size="96.0" />
          </font>
       </Label>
-      <TextArea fx:id="navigationTextArea" layoutX="786.0" layoutY="568.0" prefHeight="200.0" prefWidth="200.0" text="Room Description&#10;//Scroll Pane" />
       <Label layoutX="830.0" layoutY="768.0" text="Navigation assist" textFill="#ff0707" />
       <ImageView fx:id="compassImage" fitHeight="150.0" fitWidth="200.0" layoutX="583.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -126,15 +125,43 @@
             <Image url="@../../../Images/Zaw.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="goblinMonsterImage" fitHeight="360.0" fitWidth="169.0" layoutX="424.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="streetRatMonsterImage" fitHeight="229.0" fitWidth="358.0" layoutX="339.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../Images/Goblin.png" />
+            <Image url="@../../../Images/StreetRat.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="bossImage" fitHeight="501.0" fitWidth="420.0" layoutX="265.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="clourtavBossImage" fitHeight="501.0" fitWidth="420.0" layoutX="265.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../../../Images/Goblin%20Commander.png" />
+            <Image url="@../../../Images/Zul.png" />
          </image>
       </ImageView>
+      <TabPane fx:id="userTabPane" layoutX="769.0" layoutY="564.0" prefHeight="208.0" prefWidth="231.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="navTab" text="Nav.">
+            <content>
+              <AnchorPane fx:id="navPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="navigationTextArea" prefHeight="200.0" prefWidth="231.0" promptText="Try clicking the &#10;&quot;Examine Room&quot; &#10;button to find out &#10;about where you are!&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="itemTab" text="Item">
+            <content>
+              <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+            <Tab fx:id="WeaponTab" text="Wep.">
+              <content>
+                <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab fx:id="ArmTab" text="Arm.">
+              <content>
+                <AnchorPane fx:id="armPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </Pane>
