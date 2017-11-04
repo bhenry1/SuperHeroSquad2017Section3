@@ -34,5 +34,14 @@ public class ClourtavModel
     	innWindow.setScene(scene2);
     	innWindow.show();
 	}
+	
+	public void goCDungeon(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/ClourtavDungeon.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage innWindow = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+    	innWindow.setScene(scene2);
+    	innWindow.show();
+	}
 
 }

@@ -57,8 +57,9 @@ public class ClourtavControl
     }
 
     @FXML
-    void enterDungeon(ActionEvent event) {
-
+    void enterDungeon(ActionEvent event) throws IOException 
+    {
+    	cvm.goCDungeon(event);
     }
 
     @FXML
