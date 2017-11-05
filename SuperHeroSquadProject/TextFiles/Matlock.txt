@@ -1,1 +1,6 @@
 You Just Descended down into the Dungeon's Entrance. You notice the room is cramped with wooden furniture. The only source of light is provided by a burning lamp.
+There are lamps and benches along the wall. On the North wall, stands an iron door, it is a prison.
+The room is lit by sunlight from a crack on the ceiling. There are several exits.
+The floor has a red carpet. The walls and ceiling are wooden. You searched this room and found a treasure chest containing 300 gold!
+This room by far is the smallest. The only thing noticeable is a paint of a old women dressed in a long white cloak. You searched this room and found a treasure chest containing 100 gold!
+The only thing you see is a broken chair in the middle of the room.

@@ -1,9 +1,19 @@
 package application.Dungeons;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.concurrent.SynchronousQueue;
 
+import application.Main;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -13,11 +23,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class ClourtavDungeonControl 
+public class ClourtavDungeonControl implements Initializable
 {
 
 	ClourtavDungeonModel mdm = new ClourtavDungeonModel();
+	ClourtavDungeonNavigationTextModel read = new ClourtavDungeonNavigationTextModel();
+
 	
     @FXML
     private Label room10MapLabel;
@@ -215,15 +229,17 @@ public class ClourtavDungeonControl
 
 
     public int roomNumber;
+    public String disoveredMonster = "You have found a moster! Prepare to fight.";
+    public String discoverdBoss = "You have discovered the Dungeon Master. Defeat him complete the Dungeon.";
+    public String promptText = "Try clicking the Examine Room button to find out about where you are!";
    
 
     @FXML
     void moveUp(ActionEvent event) 
     {
-    	if(mdm.determineIfMove(this.roomNumber))
-    	{
-    		System.out.println("no");
-    	}
+		navigationTextArea.setText("");
+		navigationTextArea.setPromptText(promptText);
+
     	
     	int roomNumber = mdm.getRoomNumber4MovingUp(this.roomNumber);
     	roomName.setText(mdm.getRoomName(roomNumber));
@@ -239,8 +255,12 @@ public class ClourtavDungeonControl
     		playerLocation1.setVisible(true);
     		
     		jiggyMonsterImage.setVisible(true);
-    		
+    		makeFadeOut();
+    		read.setTextArea(disoveredMonster, navigationTextArea);    		
     	}
+    	
+    	
+    	
     	
     	
     	if(roomNumber == 5)
@@ -252,7 +272,10 @@ public class ClourtavDungeonControl
     		playerLocation3.setVisible(true);
     		playerLocation2.setVisible(false);
     		
+    		read.setTextArea(disoveredMonster, navigationTextArea);    		
+
     		zawMonsterImage.setVisible(true);
+
     		
 
     	}
@@ -284,12 +307,16 @@ public class ClourtavDungeonControl
     	
      	
     	
-    	
     }
 
-    @FXML
+   
+
+	@FXML
     void moveDown(ActionEvent event) 
     {
+    	navigationTextArea.setText("");
+		navigationTextArea.setPromptText(promptText);
+
     	int roomNumber = mdm.getRoomNumber4MovingDown(this.roomNumber);
     	roomName.setText(mdm.getRoomName(roomNumber));
     	this.roomNumber = roomNumber;
@@ -332,6 +359,7 @@ public class ClourtavDungeonControl
     		playerLocation6.setVisible(false);
     		playerLocation61.setVisible(true);
     		
+    		read.setTextArea(disoveredMonster, navigationTextArea);    		
     		streetRatMonsterImage.setVisible(true);
        	}
        	
@@ -343,7 +371,6 @@ public class ClourtavDungeonControl
     		playerLocation5.setVisible(false);
     	}
     	
-    	
    
     	
     }
@@ -351,6 +378,9 @@ public class ClourtavDungeonControl
     @FXML
     void moveRight(ActionEvent event) 
     {
+    	navigationTextArea.setText("");
+		navigationTextArea.setPromptText(promptText);
+
     	int roomNumber = mdm.getRoomNumber4MovingRight(this.roomNumber);
     	roomName.setText(mdm.getRoomName(roomNumber));
     	this.roomNumber = roomNumber;
@@ -391,6 +421,8 @@ public class ClourtavDungeonControl
         		playerLocation4.setVisible(false);
         		playerLocation41.setVisible(true);
         		
+        		read.setTextAreaBoss(discoverdBoss, navigationTextArea);
+
         		clourtavBossImage.setVisible(true);
     	}
     	
@@ -399,6 +431,9 @@ public class ClourtavDungeonControl
     @FXML
     void moveLeft(ActionEvent event) 
     {
+    	navigationTextArea.setText("");
+		navigationTextArea.setPromptText(promptText);
+
     	int roomNumber = mdm.getRoomNumber4MovingLeft(this.roomNumber);
     	roomName.setText(mdm.getRoomName(roomNumber));
     	this.roomNumber = roomNumber;
@@ -453,19 +488,53 @@ public class ClourtavDungeonControl
     @FXML
     void examineRoom(ActionEvent event) 
     {
-    	ClourtavDungeonNavigationTextModel read = new ClourtavDungeonNavigationTextModel();
-    	
+    
     	read.openFile();
-    	navigationTextArea.setText(read.readFile());
+    	read.tyingAnimation(read.readFile(roomNumber), navigationTextArea);
     	read.closeFile();
     }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) 
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	 private void makeFadeOut() 
+	 {
+		 FadeTransition fadeTrans = new FadeTransition();
+		 fadeTrans.setDuration(Duration.millis(2000));
+		 fadeTrans.setNode(parentPane);
+		 fadeTrans.setFromValue(1);
+		 fadeTrans.setToValue(0);
+		 fadeTrans.play();
+		 
+		 fadeTrans.setOnFinished((ActionEvent event) ->
+		 {
+			try {
+				loadNextScene(event);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		 });
+		}
+
+
+
+	private void loadNextScene(ActionEvent event) throws IOException 
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("Combat/BattleView.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage innWindow = (Stage) parentPane.getScene().getWindow();
+    	innWindow.setScene(scene2);
     
-    @FXML
-    void setNavigationAssistArea()
-    {
-    	
+		
+	}
     
-    }
+   
 
   
 }
