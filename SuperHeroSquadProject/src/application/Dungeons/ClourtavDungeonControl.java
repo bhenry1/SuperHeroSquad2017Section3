@@ -232,6 +232,10 @@ public class ClourtavDungeonControl implements Initializable
     public String disoveredMonster = "You have found a moster! Prepare to fight.";
     public String discoverdBoss = "You have discovered the Dungeon Master. Defeat him complete the Dungeon.";
     public String promptText = "Try clicking the Examine Room button to find out about where you are!";
+    public String holdRoomName;
+    public String monsterName;
+    
+    public boolean monster;
    
 
     @FXML
@@ -242,8 +246,13 @@ public class ClourtavDungeonControl implements Initializable
 
     	
     	int roomNumber = mdm.getRoomNumber4MovingUp(this.roomNumber);
-    	roomName.setText(mdm.getRoomName(roomNumber));
+    	holdRoomName = mdm.getRoomName(roomNumber);
+    
+    	
+    	
+    	roomName.setText(holdRoomName);
     	this.roomNumber = roomNumber;
+    	
     	
     	if(roomNumber == 2)
     	{
@@ -253,9 +262,13 @@ public class ClourtavDungeonControl implements Initializable
     		exit1.setVisible(true);
     		playerLocation.setVisible(false);
     		playerLocation1.setVisible(true);
+
     		
     		jiggyMonsterImage.setVisible(true);
+    		
     		makeFadeOut();
+    		
+    		monsterName = "jiggy";
     		read.setTextArea(disoveredMonster, navigationTextArea);    		
     	}
     	
@@ -272,7 +285,8 @@ public class ClourtavDungeonControl implements Initializable
     		playerLocation3.setVisible(true);
     		playerLocation2.setVisible(false);
     		
-    		read.setTextArea(disoveredMonster, navigationTextArea);    		
+    		read.setTextArea(disoveredMonster, navigationTextArea);   
+    		makeFadeOut();
 
     		zawMonsterImage.setVisible(true);
 
@@ -305,11 +319,14 @@ public class ClourtavDungeonControl implements Initializable
     		playerLocation5.setVisible(true);
     	}
     	
-     	
+     
     	
     }
 
    
+
+	
+
 
 	@FXML
     void moveDown(ActionEvent event) 
@@ -359,7 +376,8 @@ public class ClourtavDungeonControl implements Initializable
     		playerLocation6.setVisible(false);
     		playerLocation61.setVisible(true);
     		
-    		read.setTextArea(disoveredMonster, navigationTextArea);    		
+    		read.setTextArea(disoveredMonster, navigationTextArea);    
+    		makeFadeOut();
     		streetRatMonsterImage.setVisible(true);
        	}
        	
@@ -422,6 +440,8 @@ public class ClourtavDungeonControl implements Initializable
         		playerLocation41.setVisible(true);
         		
         		read.setTextAreaBoss(discoverdBoss, navigationTextArea);
+        		
+        		makeFadeOut();
 
         		clourtavBossImage.setVisible(true);
     	}
@@ -503,6 +523,9 @@ public class ClourtavDungeonControl implements Initializable
 	
 	 private void makeFadeOut() 
 	 {
+			System.out.println(this.roomNumber + "here");
+
+
 		 FadeTransition fadeTrans = new FadeTransition();
 		 fadeTrans.setDuration(Duration.millis(2000));
 		 fadeTrans.setNode(parentPane);
@@ -513,7 +536,8 @@ public class ClourtavDungeonControl implements Initializable
 		 fadeTrans.setOnFinished((ActionEvent event) ->
 		 {
 			try {
-				loadNextScene(event);
+				System.out.println(this.roomNumber + "here");
+				loadNextScene(event, this.roomNumber);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -524,16 +548,25 @@ public class ClourtavDungeonControl implements Initializable
 
 
 
-	private void loadNextScene(ActionEvent event) throws IOException 
+	private void loadNextScene(ActionEvent event, int RoomNumber) throws IOException 
 	{
 		Parent root = FXMLLoader.load(Main.class.getResource("Combat/BattleView.fxml"));
     	Scene scene2 = new Scene(root);
 		Stage innWindow = (Stage) parentPane.getScene().getWindow();
     	innWindow.setScene(scene2);
+    	System.out.println(this.roomNumber + "Nani?");
+    	
+    	
+    	
     
 		
 	}
-    
+	
+	public int getRoomNumber(int roomNumber)
+	{
+		return roomNumber;
+	}
+
    
 
   

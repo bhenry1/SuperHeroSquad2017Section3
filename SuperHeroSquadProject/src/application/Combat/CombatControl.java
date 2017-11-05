@@ -1,8 +1,10 @@
 package application.Combat;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Dungeons.ClourtavDungeonControl;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,8 +19,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-public class CombatControl implements Initializable
+public class CombatControl extends ClourtavDungeonControl implements Initializable
 {
+	CombatModel cbm = new CombatModel();
 
     @FXML
     private Tab itemTab;
@@ -79,13 +82,16 @@ public class CombatControl implements Initializable
 
     @FXML
     private Button atkBtn;
+    
+    public String monster;
 
     
 
     @FXML
-    void flee(ActionEvent event) 
+    void flee(ActionEvent event) throws IOException 
     {
-
+    	cbm.fleeBattle(event);
+    	
     }
 
     @FXML
@@ -111,6 +117,13 @@ public class CombatControl implements Initializable
 	{
 		parentPane.setOpacity(0);
 		fadeInTransition();
+		
+		
+		System.out.println(roomNumber + "This is running first");		
+		
+		
+		
+		
 			
 	}
 
