@@ -277,5 +277,32 @@ public class ClourtavDungeonModel
 		
 	}
 	
+	public String getMonsterName(String roomName)
+	{
+		if(roomName.equals("Room 2"))
+		{
+			return "Jiggy";
+		}
+		
+		if(roomName.equals("Room 5"))
+		{
+			return "Zaw";
+		}
+		
+		if(roomName.equals("Room 6"))
+		{
+			return "Dungeon Master Zul";
+		}
+		
+		if(roomName.equals("Room 7"))
+		{
+			return "Street Rat";
+		}
+		
+		return "";
+		
+	}
+	
+	
 	
 }
