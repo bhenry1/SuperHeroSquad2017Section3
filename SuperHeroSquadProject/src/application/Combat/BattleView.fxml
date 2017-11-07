@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
@@ -68,11 +69,14 @@
                         <TextArea fx:id="WeaponTabView" layoutX="-2.0" layoutY="-15.0" prefHeight="208.0" prefWidth="240.0" />
                         <VBox layoutY="1.0" prefHeight="167.0" prefWidth="93.0" spacing="10.0">
                            <children>
-                              <RadioButton fx:id="knifeRadioButton" mnemonicParsing="false" onAction="#equipKnife" text="Knife" />
-                              <RadioButton fx:id="swordRadioButton" mnemonicParsing="false" onAction="#equipSword" text="Sword" />
-                              <RadioButton fx:id="longSwordRadioButton1" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#equipLongSword" text="L. Sword" />
-                              <RadioButton fx:id="gunBladeRadioButton11" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#equipGunBlade" text="G. Blade" />
-                              <RadioButton fx:id="mightyAxeRadioButton" layoutX="10.0" layoutY="73.0" mnemonicParsing="false" onAction="#equipMightyAxe" text="M. Axe" />
+                              <RadioButton fx:id="knifeRadioButton" mnemonicParsing="false" onAction="#equipKnife" text="Knife">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="Weapons" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="swordRadioButton" mnemonicParsing="false" onAction="#equipSword" text="Sword" toggleGroup="$Weapons" />
+                              <RadioButton fx:id="longSwordRadioButton1" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#equipLongSword" text="L. Sword" toggleGroup="$Weapons" />
+                              <RadioButton fx:id="gunBladeRadioButton11" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#equipGunBlade" text="G. Blade" toggleGroup="$Weapons" />
+                              <RadioButton fx:id="mightyAxeRadioButton" layoutX="10.0" layoutY="73.0" mnemonicParsing="false" onAction="#equipMightyAxe" text="M. Axe" toggleGroup="$Weapons" />
                            </children>
                         </VBox>
                      </children></AnchorPane>
@@ -85,10 +89,13 @@
                         <TextArea fx:id="ArmorTabView" layoutX="-6.0" layoutY="-15.0" prefHeight="200.0" prefWidth="241.0" />
                         <VBox layoutY="2.0" prefHeight="167.0" prefWidth="121.0" spacing="10.0">
                            <children>
-                              <RadioButton fx:id="robeRadioButton" mnemonicParsing="false" onAction="#equipRobe" text="Robe" />
-                              <RadioButton fx:id="leatherClothingRadioButton" mnemonicParsing="false" onAction="#equipLeatherClothing" text="L. Clothing" />
-                              <RadioButton fx:id="ironPlatingRadioButton" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#equipIronPlating" text="I. Plating" />
-                              <RadioButton fx:id="steelArmorRadioButton" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#equipsteelArmor" text="S. Armor" />
+                              <RadioButton fx:id="robeRadioButton" mnemonicParsing="false" onAction="#equipRobe" text="Robe">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="Armor" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="leatherClothingRadioButton" mnemonicParsing="false" onAction="#equipLeatherClothing" text="L. Clothing" toggleGroup="$Armor" />
+                              <RadioButton fx:id="ironPlatingRadioButton" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#equipIronPlating" text="I. Plating" toggleGroup="$Armor" />
+                              <RadioButton fx:id="steelArmorRadioButton" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#equipsteelArmor" text="S. Armor" toggleGroup="$Armor" />
                            </children>
                         </VBox>
                      </children></AnchorPane>
