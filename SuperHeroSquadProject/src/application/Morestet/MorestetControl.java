@@ -68,15 +68,16 @@ public class MorestetControl
     }
 
     @FXML
-    void enterTavern(ActionEvent event) 
+    void enterTavern(ActionEvent event) throws IOException 
     {
-
+    	mm.goToTavern(event);
+    	
     }
 
     @FXML
-    void enterShop(ActionEvent event) 
+    void enterShop(ActionEvent event) throws IOException 
     {
-
+    	mm.goToShop(event);
     }
 
     @FXML
