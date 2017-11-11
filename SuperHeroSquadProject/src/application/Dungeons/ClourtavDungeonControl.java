@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.SynchronousQueue;
 
 import application.Main;
+import application.Combat.CombatControl;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,204 +30,80 @@ import javafx.util.Duration;
 public class ClourtavDungeonControl implements Initializable
 {
 
-	ClourtavDungeonModel mdm = new ClourtavDungeonModel();
 	ClourtavDungeonNavigationTextModel read = new ClourtavDungeonNavigationTextModel();
+	ClourtavDungeonModel mdm = new ClourtavDungeonModel();
 
-	
-    @FXML
-    private Label room10MapLabel;
 
-    @FXML
-    private Circle playerLocation1;
+    @FXML private AnchorPane mapPane;
+    @FXML private ScrollPane mapView;
+    @FXML private Pane parentPane;
 
-    @FXML
-    private Circle playerLocation3;
+	@FXML private Label room10MapLabel;
+    @FXML private Label room7MapLabel;
+    @FXML private Label room9MapLabel;
+    @FXML private Label roomName;
+    @FXML private Label room3MapLabel;
+    @FXML private Label room5MapLabel;
+    @FXML private Label room2MapLabel;
+    @FXML private Label dungoenEntranceMapLabel;
+    @FXML private Label room8MapLabel;
+    @FXML private Label mapLabel;
+    @FXML private Label room4MapLabel;
+    @FXML private Label room6MapLabel;
 
-    @FXML
-    private Circle playerLocation2;
+	@FXML private Circle playerLocation1;
+    @FXML private Circle playerLocation3;
+    @FXML private Circle playerLocation2;
+    @FXML private Circle playerLocation62;
+    @FXML private Circle playerLocation5;
+    @FXML private Circle playerLocation61;
+    @FXML private Circle playerLocation4;
+    @FXML private Circle playerLocation41;
+    @FXML private Circle playerLocation;
+    @FXML private Circle playerLocation6;
 
-    @FXML
-    private Circle playerLocation62;
+    @FXML private Button examineRoomBtn;
+    @FXML private Button leftBtn;
+    @FXML private Button backToCity;
+    @FXML private Button downBtn;
+    @FXML private Button rightBtn;
+    @FXML private Button menuBtn;
+    @FXML private Button upBtn;
 
-    @FXML
-    private Circle playerLocation5;
+    @FXML private Rectangle exit5;
+    @FXML private Rectangle exit4;
+    @FXML private Rectangle exit3;
+    @FXML private Rectangle exit2;
+    @FXML private Rectangle exit1;
+    @FXML private Rectangle exit9;
+    @FXML private Rectangle exit8;
+    @FXML private Rectangle exit7;
+    @FXML private Rectangle exit6;
+    @FXML private Rectangle room5;
+    @FXML private Rectangle room6; 
+    @FXML private Rectangle room3;
+    @FXML public Rectangle room4;
+    @FXML private Rectangle room9;
+    @FXML private Rectangle room7;
+    @FXML private Rectangle room8;
+    @FXML private Rectangle dungeonEntrance;
+    @FXML public Rectangle room2;
+    @FXML private Rectangle room10;
 
-    @FXML
-    private Circle playerLocation61;
-
-    @FXML
-    private Circle playerLocation4;
-
-    @FXML
-    private Button examineRoomBtn;
-
-    @FXML
-    private Rectangle exit5;
-
-    @FXML
-    private Rectangle exit4;
-
-    @FXML
-    private Rectangle exit3;
-
-    @FXML
-    private Rectangle exit2;
-
-    @FXML
-    private Rectangle exit1;
-
-    @FXML
-    private ImageView monsTerSymbolImage;
-
-    @FXML
-    private Button leftBtn;
-
-    @FXML
-    private Rectangle exit9;
-
-    @FXML
-    private Rectangle exit8;
-
-    @FXML
-    private ImageView monsTerSymbolImage2;
-
-    @FXML
-    private Rectangle exit7;
-
-    @FXML
-    private ImageView monsTerSymbolImage3;
-
-    @FXML
-    private Rectangle exit6;
-
-    @FXML
-    private Button backToCity;
-
-    @FXML
-    private Label room7MapLabel;
-
-    @FXML
-    private ImageView TreasureChestImage2;
-
-    @FXML
-    private Label room9MapLabel;
-
-    @FXML
-    private ImageView compassImage;
-
-    @FXML
-    private Label roomName;
-
-    @FXML
-    private Label room3MapLabel;
-
-    @FXML
-    private AnchorPane mapPane;
-
-    @FXML
-    private Label room5MapLabel;
-
-    @FXML
-    private TextArea navigationTextArea;
-
-    @FXML
-    private Rectangle room5;
-
-    @FXML
-    private ScrollPane mapView;
-
-    @FXML
-    private Rectangle room6;
-
-    @FXML
-    private Rectangle room3;
-
-    @FXML
-    private Button downBtn;
-
-    @FXML
-	public Rectangle room4;
-
-    @FXML
-    private Rectangle room9;
-
-    @FXML
-    private Button rightBtn;
-
-    @FXML
-    private Rectangle room7;
-
-    @FXML
-    private Rectangle room8;
-
-    @FXML
-    private Rectangle dungeonEntrance;
-
-    @FXML
-    private Circle playerLocation41;
-
-    @FXML
-    public Rectangle room2;
-
-    @FXML
-    private Label room2MapLabel;
-
-    @FXML
-    private Button menuBtn;
-
-    @FXML
-    private ImageView bossSymbolImage1;
-
-    @FXML
-    private ImageView dungeonImage;
-
-    @FXML
-    private Pane parentPane;
-
-    @FXML
-    private Label dungoenEntranceMapLabel;
-
-    @FXML
-    private Circle playerLocation;
-
-    @FXML
-    private Rectangle room10;
-
-    @FXML
-    private Button upBtn;
-
-    @FXML
-    private Label room8MapLabel;
-
-    @FXML
-    private Label mapLabel;
-
-    @FXML
-    private Circle playerLocation6;
-
-    @FXML
-    private Label room4MapLabel;
-
-    @FXML
-    private ImageView TreasureChestImage;
-
-    @FXML
-    private Label room6MapLabel;
+    @FXML private ImageView monsTerSymbolImage;
+    @FXML private ImageView monsTerSymbolImage2;
+    @FXML private ImageView monsTerSymbolImage3;
+    @FXML private ImageView TreasureChestImage2;
+    @FXML private ImageView compassImage;
+    @FXML private ImageView bossSymbolImage1;
+    @FXML private ImageView dungeonImage;
+    @FXML private ImageView TreasureChestImage;
+    @FXML private ImageView jiggyMonsterImage;
+    @FXML private ImageView zawMonsterImage;
+    @FXML private ImageView streetRatMonsterImage;
+    @FXML private ImageView clourtavBossImage;
     
-    @FXML
-    private ImageView jiggyMonsterImage;
-    
-    @FXML
-    private ImageView zawMonsterImage;
-    
-    @FXML
-    private ImageView streetRatMonsterImage;
-    
-    @FXML
-    private ImageView clourtavBossImage;
-    
-
-
+    @FXML private TextArea navigationTextArea;
 
     public int roomNumber;
     public String disoveredMonster = "You have found a moster! Prepare to fight.";
@@ -248,11 +125,8 @@ public class ClourtavDungeonControl implements Initializable
     	int roomNumber = mdm.getRoomNumber4MovingUp(this.roomNumber);
     	holdRoomName = mdm.getRoomName(roomNumber);
     
-    	
-    	
     	roomName.setText(holdRoomName);
-    	this.roomNumber = roomNumber;
-    	
+    	this.roomNumber = roomNumber;	
     	
     	if(roomNumber == 2)
     	{
@@ -262,14 +136,15 @@ public class ClourtavDungeonControl implements Initializable
     		exit1.setVisible(true);
     		playerLocation.setVisible(false);
     		playerLocation1.setVisible(true);
-
-    		
     		jiggyMonsterImage.setVisible(true);
     		
-    		makeFadeOut();
+    		String monsterName = mdm.getMonsterName(holdRoomName);
+    		this.monsterName = monsterName;
     		
-    		monsterName = "jiggy";
     		read.setTextArea(disoveredMonster, navigationTextArea);    		
+
+    		
+    		makeFadeOut();
     	}
     	
     	
@@ -285,7 +160,9 @@ public class ClourtavDungeonControl implements Initializable
     		playerLocation3.setVisible(true);
     		playerLocation2.setVisible(false);
     		
-    		read.setTextArea(disoveredMonster, navigationTextArea);   
+    		read.setTextArea(disoveredMonster, navigationTextArea);
+    		String monsterName = mdm.getMonsterName(holdRoomName);
+    		this.monsterName = monsterName;
     		makeFadeOut();
 
     		zawMonsterImage.setVisible(true);
@@ -335,7 +212,9 @@ public class ClourtavDungeonControl implements Initializable
 		navigationTextArea.setPromptText(promptText);
 
     	int roomNumber = mdm.getRoomNumber4MovingDown(this.roomNumber);
-    	roomName.setText(mdm.getRoomName(roomNumber));
+    	holdRoomName = mdm.getRoomName(roomNumber);
+    	roomName.setText(holdRoomName);
+    	
     	this.roomNumber = roomNumber;
     	
     	if(roomNumber == 0)
@@ -375,10 +254,13 @@ public class ClourtavDungeonControl implements Initializable
     		monsTerSymbolImage3.setVisible(true);
     		playerLocation6.setVisible(false);
     		playerLocation61.setVisible(true);
-    		
-    		read.setTextArea(disoveredMonster, navigationTextArea);    
-    		makeFadeOut();
     		streetRatMonsterImage.setVisible(true);
+    		read.setTextArea(disoveredMonster, navigationTextArea);
+    		
+    		String monsterName = mdm.getMonsterName(holdRoomName);
+    		this.monsterName = monsterName;
+
+    		makeFadeOut();
        	}
        	
        	
@@ -400,7 +282,8 @@ public class ClourtavDungeonControl implements Initializable
 		navigationTextArea.setPromptText(promptText);
 
     	int roomNumber = mdm.getRoomNumber4MovingRight(this.roomNumber);
-    	roomName.setText(mdm.getRoomName(roomNumber));
+    	holdRoomName = mdm.getRoomName(roomNumber);
+    	roomName.setText(holdRoomName);
     	this.roomNumber = roomNumber;
     	
     	if(roomNumber == 4)
@@ -438,6 +321,9 @@ public class ClourtavDungeonControl implements Initializable
         	    bossSymbolImage1.setVisible(true);
         		playerLocation4.setVisible(false);
         		playerLocation41.setVisible(true);
+        		
+        		String monsterName = mdm.getMonsterName(holdRoomName);
+        		this.monsterName = monsterName;
         		
         		read.setTextAreaBoss(discoverdBoss, navigationTextArea);
         		
@@ -517,13 +403,19 @@ public class ClourtavDungeonControl implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
-		// TODO Auto-generated method stub
+		
 		
 	}
 	
+	
+	public String getRoomName(String roomName)
+	{
+		return roomName;
+	}
+
+	
 	 private void makeFadeOut() 
 	 {
-			System.out.println(this.roomNumber + "here");
 
 
 		 FadeTransition fadeTrans = new FadeTransition();
@@ -535,11 +427,12 @@ public class ClourtavDungeonControl implements Initializable
 		 
 		 fadeTrans.setOnFinished((ActionEvent event) ->
 		 {
-			try {
-				System.out.println(this.roomNumber + "here");
-				loadNextScene(event, this.roomNumber);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+			try 
+			{
+				loadNextScene(event);
+			} 
+			catch (IOException e) 
+			{
 				e.printStackTrace();
 			}
 			
@@ -548,26 +441,25 @@ public class ClourtavDungeonControl implements Initializable
 
 
 
-	private void loadNextScene(ActionEvent event, int RoomNumber) throws IOException 
+	private void loadNextScene(ActionEvent event) throws IOException 
 	{
-		Parent root = FXMLLoader.load(Main.class.getResource("Combat/BattleView.fxml"));
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
+		Parent root = (Parent) loader.load();
+		CombatControl cc = loader.getController();
+		cc.setMonsterArea(monsterName);
+		
     	Scene scene2 = new Scene(root);
-		Stage innWindow = (Stage) parentPane.getScene().getWindow();
-    	innWindow.setScene(scene2);
-    	System.out.println(this.roomNumber + "Nani?");
+		Stage newWindow = (Stage) parentPane.getScene().getWindow();
+		newWindow.setScene(scene2);
+		newWindow.show();
+
+
+		
+		//Parent root = FXMLLoader.load(Main.class.getResource("Combat/BattleView.fxml"));
     	
     	
     	
-    
+ 
 		
 	}
-	
-	public int getRoomNumber(int roomNumber)
-	{
-		return roomNumber;
-	}
-
-   
-
-  
 }

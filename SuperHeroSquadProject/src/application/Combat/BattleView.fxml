@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
@@ -22,24 +23,24 @@
       <Label layoutX="830.0" layoutY="768.0" text="Battle assist" textFill="#ff0707" />
       <Button fx:id="fleeBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#flee" prefHeight="52.0" prefWidth="112.0" text="Flee" />
       <Button fx:id="menuBtn" layoutX="17.0" layoutY="710.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="67.0" prefWidth="99.0" text="Menu" />
-      <ImageView fx:id="jiggyMonsterImage" fitHeight="413.0" fitWidth="334.0" layoutX="356.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="jiggyMonsterImage" fitHeight="413.0" fitWidth="334.0" layoutX="356.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Images/Jiggy.png" />
          </image>
       </ImageView>
       <ImageView fx:id="zawMonsterImage" fitHeight="317.0" fitWidth="452.0" layoutX="278.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@SuperHeroRepo/SuperHeroSquadProject/Images/Zaw.png" />
+            <Image url="@../../../Images/Zaw.png" />
          </image>
       </ImageView>
       <ImageView fx:id="streetRatMonsterImage" fitHeight="229.0" fitWidth="358.0" layoutX="339.0" layoutY="307.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@SuperHeroRepo/SuperHeroSquadProject/Images/StreetRat.png" />
+            <Image url="@../../../Images/StreetRat.png" />
          </image>
       </ImageView>
       <ImageView fx:id="clourtavBossImage" fitHeight="501.0" fitWidth="420.0" layoutX="265.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@SuperHeroRepo/SuperHeroSquadProject/Images/Zul.png" />
+            <Image url="@../../../Images/Zul.png" />
          </image>
       </ImageView>
       <TabPane fx:id="userTabPane" layoutX="769.0" layoutY="564.0" prefHeight="208.0" prefWidth="231.0" tabClosingPolicy="UNAVAILABLE">
@@ -55,17 +56,49 @@
           </Tab>
           <Tab fx:id="itemTab" text="Item">
             <content>
-              <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="itemTabView" prefHeight="200.0" prefWidth="231.0" />
+                     </children></AnchorPane>
             </content>
           </Tab>
             <Tab fx:id="WeaponTab" text="Wep.">
               <content>
-                <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="WeaponTabView" layoutX="-2.0" layoutY="-15.0" prefHeight="208.0" prefWidth="240.0" />
+                        <VBox layoutY="1.0" prefHeight="167.0" prefWidth="93.0" spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="knifeRadioButton" mnemonicParsing="false" onAction="#equipKnife" text="Knife">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="Weapons" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="swordRadioButton" mnemonicParsing="false" onAction="#equipSword" text="Sword" toggleGroup="$Weapons" />
+                              <RadioButton fx:id="longSwordRadioButton1" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#equipLongSword" text="L. Sword" toggleGroup="$Weapons" />
+                              <RadioButton fx:id="gunBladeRadioButton11" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#equipGunBlade" text="G. Blade" toggleGroup="$Weapons" />
+                              <RadioButton fx:id="mightyAxeRadioButton" layoutX="10.0" layoutY="73.0" mnemonicParsing="false" onAction="#equipMightyAxe" text="M. Axe" toggleGroup="$Weapons" />
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
               </content>
             </Tab>
             <Tab fx:id="ArmTab" text="Arm.">
               <content>
-                <AnchorPane fx:id="armPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane fx:id="armPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="ArmorTabView" layoutX="-6.0" layoutY="-15.0" prefHeight="200.0" prefWidth="241.0" />
+                        <VBox layoutY="2.0" prefHeight="167.0" prefWidth="121.0" spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="robeRadioButton" mnemonicParsing="false" onAction="#equipRobe" text="Robe">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="Armor" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton fx:id="leatherClothingRadioButton" mnemonicParsing="false" onAction="#equipLeatherClothing" text="L. Clothing" toggleGroup="$Armor" />
+                              <RadioButton fx:id="ironPlatingRadioButton" layoutX="10.0" layoutY="31.0" mnemonicParsing="false" onAction="#equipIronPlating" text="I. Plating" toggleGroup="$Armor" />
+                              <RadioButton fx:id="steelArmorRadioButton" layoutX="10.0" layoutY="52.0" mnemonicParsing="false" onAction="#equipsteelArmor" text="S. Armor" toggleGroup="$Armor" />
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>

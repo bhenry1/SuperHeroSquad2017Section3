@@ -25,14 +25,20 @@ public class CombatModel
 		}
 		
 		
-
-		public String getMonsterName()
+		public int attackMonster(int playerStrength, int equipedWeaponStrength)
 		{
-			ClourtavDungeonControl cdc = new ClourtavDungeonControl();
-			
-			return "test";
+			int damageDealt = playerStrength + equipedWeaponStrength;
+			return damageDealt;
 			
 		}
+		
+		
+		public int takeDamageFromMonster(int MonsterPower, int playerDefense)
+		{
+			int damageRecived = MonsterPower - playerDefense;
+			return damageRecived;
+		}
+
 		
 		
 	
