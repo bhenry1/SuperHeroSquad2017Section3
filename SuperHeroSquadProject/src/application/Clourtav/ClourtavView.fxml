@@ -20,7 +20,7 @@
       </Label>
       <Button fx:id="backToWMbtn" mnemonicParsing="false" onAction="#returnToWM" prefHeight="52.0" prefWidth="99.0" text="World Map" />
       <Button fx:id="menuBtn" layoutX="17.0" layoutY="719.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="67.0" prefWidth="99.0" text="Menu" />
-      <Button fx:id="dungeonbtn" layoutX="425.0" layoutY="763.0" mnemonicParsing="false" onAction="#enterDungeon" text="Dungeon" />
+      <Button fx:id="dungeonbtn" layoutX="425.0" layoutY="639.0" mnemonicParsing="false" onAction="#enterDungeon" text="Dungeon" />
       <Button fx:id="puzzleBtn" layoutX="845.0" layoutY="279.0" mnemonicParsing="false" onAction="#startPuzzle" text="Riddle" />
       <Button fx:id="tavernBtn" layoutX="438.0" layoutY="438.0" mnemonicParsing="false" onAction="#enterTavern" text="Tavern" />
       <Button fx:id="shopButton" layoutX="438.0" layoutY="332.0" mnemonicParsing="false" onAction="#enterShop" text="Shop" />

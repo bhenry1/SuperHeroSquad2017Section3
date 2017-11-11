@@ -21,8 +21,7 @@ public class Main extends Application
 	public void start(Stage window) 
 	{	
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		double height = screenSize.getHeight();
-		double width = screenSize.getWidth();
+		
 		try 
 		{
 			
