@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -7,6 +8,11 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SaveFilesControl">
    <children>
+      <ImageView fitHeight="856.0" fitWidth="1054.0" layoutX="-22.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/SaveScreen.jpg" />
+         </image>
+      </ImageView>
       <Button fx:id="backButton" mnemonicParsing="false" onAction="#goBackToTitle" prefHeight="31.0" prefWidth="88.0" text="Back">
          <font>
             <Font size="20.0" />
@@ -18,7 +24,7 @@
       <TextField fx:id="saveFile5" alignment="CENTER" layoutX="-2.0" layoutY="521.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
       <TextField fx:id="saveFile6" alignment="CENTER" layoutX="-2.0" layoutY="624.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
       <TextField fx:id="saveFile7" alignment="CENTER" layoutX="-2.0" layoutY="729.0" onAction="#save" prefHeight="31.0" prefWidth="1006.0" promptText="Name Your Save File" />
-      <Label fx:id="saveFileLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="30.0" prefHeight="21.0" prefWidth="345.0" text="Save Files" textAlignment="CENTER">
+      <Label fx:id="saveFileLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="30.0" prefHeight="21.0" prefWidth="345.0" text="Save Files" textAlignment="CENTER" textFill="RED">
          <font>
             <Font size="36.0" />
          </font>
