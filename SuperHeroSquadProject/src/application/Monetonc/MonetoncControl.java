@@ -77,6 +77,7 @@ public class MonetoncControl
     @FXML
     void enterShop(ActionEvent event) throws IOException 
     {
+    	System.out.println("git is dumb");
     	mt.goToShop(event);
     }
 
