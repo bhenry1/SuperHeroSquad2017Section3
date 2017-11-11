@@ -68,13 +68,15 @@ public class ArthurControl
     }
 
     @FXML
-    void enterTavern(ActionEvent event) {
-
+    void enterTavern(ActionEvent event) throws IOException 
+    {
+    	arm.goToTavern(event);
+    	
     }
 
     @FXML
-    void enterShop(ActionEvent event) {
-
+    void enterShop(ActionEvent event) throws IOException {
+    	arm.goToShop(event);
     }
 
     @FXML

@@ -32,6 +32,25 @@ public class HifenourModel
     	innWindow.setScene(scene2);
     	innWindow.show();
 	}
+	
+	public void goToTavern(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("CityElements/TavernView.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage innWindow = new Stage();  
+    	innWindow.setScene(scene2);
+    	innWindow.show();
+	}
+	
+	public void goToShop(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("CityElements/ShopView.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage innWindow = new Stage();  
+    	innWindow.setScene(scene2);
+    	innWindow.show();
+	}
+
 
 	
 }
