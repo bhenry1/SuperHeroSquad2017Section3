@@ -1,5 +1,7 @@
 package application;
 	
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -18,18 +20,18 @@ public class Main extends Application
 	@Override
 	public void start(Stage window) 
 	{	
-		
-		
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		double height = screenSize.getHeight();
+		double width = screenSize.getWidth();
 		try 
 		{
-
-			Parent mainPane = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
+			
+			AnchorPane mainPane = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
+			
 			Scene scene = new Scene(mainPane, 1000, 800);
 			window.setScene(scene);
 			window.setTitle("Matlock");
 			window.show();
-
-
 		} 
 		catch (IOException e) 
 		{
