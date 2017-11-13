@@ -29,7 +29,8 @@ public class RiddleControl {
     private ImageView scrollImage;
 
     @FXML
-    void validateAnswer(ActionEvent event) {
+    void validateAnswer(ActionEvent event) 
+    {
 
     }
 
