@@ -142,8 +142,6 @@ public class ClourtavDungeonControl implements Initializable
     		this.monsterName = monsterName;
     		
     		read.setTextArea(disoveredMonster, navigationTextArea);    		
-
-    		
     		makeFadeOut();
     	}
     	
