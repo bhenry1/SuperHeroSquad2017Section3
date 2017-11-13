@@ -1,16 +1,23 @@
 package application.Arthur;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class ArthurModel 
 {
+	Media media;
+	MediaPlayer mp;
 		
 	public void rtnToWorldMap(ActionEvent event) throws IOException
 	{
@@ -47,5 +54,10 @@ public class ArthurModel
     	innWindow.setScene(scene2);
     	innWindow.show();
 	}
+	
+	
+	
+	
+	
 
 }

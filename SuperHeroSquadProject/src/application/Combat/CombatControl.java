@@ -67,10 +67,6 @@ public class CombatControl implements Initializable
     @FXML private RadioButton mightyAxeRadioButton;
     
   
-
-
-
-  
     public String monsterName;
     Player player = new Player(1, 10, 1, 0, 0);
  

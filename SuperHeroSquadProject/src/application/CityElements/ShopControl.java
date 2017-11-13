@@ -11,7 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ShopControl {
+public class ShopControl 
+
+{
 
     @FXML
     private Label swordLabel;
@@ -98,12 +100,14 @@ public class ShopControl {
     private Button buyMightyAxeButton;
 
     @FXML
-    void buyKnife(ActionEvent event) {
+    void buyKnife(ActionEvent event) 
+    {
 
     }
 
     @FXML
-    void buySword(ActionEvent event) {
+    void buySword(ActionEvent event) 
+    {
 
     }
 
