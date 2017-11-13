@@ -63,9 +63,9 @@ public class HifenourControl
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) 
+    void startPuzzle(ActionEvent event) throws IOException 
     {
-
+    	hm.goToRiddle(event);
     }
 
     @FXML

@@ -62,9 +62,9 @@ public class MorestetControl
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) 
+    void startPuzzle(ActionEvent event) throws IOException 
     {
-
+    	mm.goToRiddle(event);
     }
 
     @FXML

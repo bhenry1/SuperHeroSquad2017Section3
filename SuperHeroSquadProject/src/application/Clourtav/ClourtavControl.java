@@ -64,8 +64,9 @@ public class ClourtavControl
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) {
-
+    void startPuzzle(ActionEvent event) throws IOException
+    {
+    	cvm.goToRiddle(event);
     }
 
     @FXML

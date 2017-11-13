@@ -62,10 +62,11 @@ public class MonetoncControl
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) 
+    void startPuzzle(ActionEvent event) throws IOException 
     {
-
+    	mt.goToRiddle(event);
     }
+    
 
     @FXML
     void enterTavern(ActionEvent event) throws IOException 

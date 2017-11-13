@@ -64,17 +64,15 @@ public class ArthurControl
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) {
-
+    void startPuzzle(ActionEvent event) throws IOException 
+    {
+    	arm.goToRiddle(event);
     }
 
     @FXML
     void enterTavern(ActionEvent event) throws IOException, URISyntaxException 
     {
     	arm.goToTavern(event);
-    	
-    	
-    	
     }
 
     @FXML

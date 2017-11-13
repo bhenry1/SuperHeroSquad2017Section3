@@ -62,8 +62,9 @@ public class HackiponControl
     }
 
     @FXML
-    void startPuzzle(ActionEvent event) {
-
+    void startPuzzle(ActionEvent event) throws IOException 
+    {
+    	hpm.goToRiddle(event);
     }
 
     @FXML

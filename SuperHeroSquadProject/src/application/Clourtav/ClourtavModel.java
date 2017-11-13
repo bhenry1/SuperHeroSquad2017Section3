@@ -53,6 +53,15 @@ public class ClourtavModel
     	innWindow.show();
 	}
 	
+	public void goToRiddle(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("CityElements/riddleView.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage innWindow = new Stage();  
+    	innWindow.setScene(scene2);
+    	innWindow.show();
+	}
+	
 	public void goCDungeon(ActionEvent event) throws IOException
 	{
 		Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/ClourtavDungeon.fxml"));
