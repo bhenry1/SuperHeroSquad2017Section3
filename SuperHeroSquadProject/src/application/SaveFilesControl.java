@@ -1,19 +1,25 @@
 package application;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-public class SaveFilesControl 
+public class SaveFilesControl implements Initializable
 {
 	SaveFilesModel  model2 = new SaveFilesModel ();
 
@@ -30,11 +36,12 @@ public class SaveFilesControl
 	  @FXML private TextField saveFile6;
 	  @FXML private TextField saveFile7;
     
-
+MediaPlayer mp;
     @FXML
     void goBackToTitle(ActionEvent event) throws IOException 
     {
-		model2.goBack(event);	
+		model2.goBack(event);
+		mp.stop();
     }
 
     @FXML
@@ -49,6 +56,26 @@ public class SaveFilesControl
     void goToWorldMap(ActionEvent event) throws IOException 
     {
     	model2.start(event);
+    	mp.stop();
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) 
+	{
+
+		Media media;
+		try 
+		{
+			media = new Media(getClass().getResource("/music/SaveFileMusic.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.2);
+			mp.play();
+		} 
+		catch (URISyntaxException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }

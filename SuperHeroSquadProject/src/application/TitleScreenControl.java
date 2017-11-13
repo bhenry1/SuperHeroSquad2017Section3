@@ -2,6 +2,7 @@ package application;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,13 +18,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-public class TitleScreenControl
+public class TitleScreenControl implements Initializable
 {
 TitleScreenModel model = new TitleScreenModel();
 Main view = new Main();
-	
+MediaPlayer mp;
    
     @FXML private Button exitGameButton;
     @FXML private Button loadGameButton;
@@ -42,10 +45,11 @@ Main view = new Main();
 
     
     @FXML
-    void LoadGameOnClick(ActionEvent event) throws IOException 
+    void LoadGameOnClick(ActionEvent event) throws IOException, URISyntaxException 
     {
 
     	model.changeToSaveScreen(event);
+    	mp.stop();
     	
 
     }
@@ -56,14 +60,39 @@ Main view = new Main();
     void newGameOnClick(ActionEvent event) throws IOException 
     {
     	model.changeToSaveScreen(event);
+    	mp.stop();
     }
     
     @FXML
-    void expirement2(ActionEvent event) 
+    void playMusic(ActionEvent event) 
     {
     	System.out.println("Do stuff");
     		
     }
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) 
+	{
+		Media media;
+		try 
+		{
+			media = new Media(getClass().getResource("/music/introMusic.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.2);
+			mp.play();
+		} 
+		catch (URISyntaxException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+
+
 
 
 

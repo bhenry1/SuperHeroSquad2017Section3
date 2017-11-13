@@ -1,6 +1,7 @@
 package application.Arthur;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,9 +69,11 @@ public class ArthurControl
     }
 
     @FXML
-    void enterTavern(ActionEvent event) throws IOException 
+    void enterTavern(ActionEvent event) throws IOException, URISyntaxException 
     {
     	arm.goToTavern(event);
+    	
+    	
     	
     }
 
