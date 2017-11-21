@@ -1,7 +1,19 @@
 package application.CityElements;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.ResourceBundle;
+
+import Items.Inventory;
+import application.Main;
+import application.MainMenu.MainMenuControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -11,7 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ShopControl 
+public class ShopControl extends Observable
 
 {
 
@@ -98,53 +110,76 @@ public class ShopControl
 
     @FXML
     private Button buyMightyAxeButton;
+    
+    
+    Inventory ivn = new Inventory();
+   
 
     @FXML
-    void buyKnife(ActionEvent event) 
+    void buyKnife(ActionEvent event) throws IOException 
+    {	
+    	ivn.addKnife();
+    }
+
+    @FXML
+    void buySword(ActionEvent event) throws IOException 
     {
-
+    	ivn.addSword();
     }
 
     @FXML
-    void buySword(ActionEvent event) 
+    void buyLongSword(ActionEvent event) 
     {
+    	ivn.addLongSword();
+    }
+
+    @FXML
+    void buyGunBlade(ActionEvent event) 
+    {
+    	ivn.addGunBlade();
+    }
+
+    @FXML
+    void buyMightyAxe(ActionEvent event) 
+    {
+    	ivn.addMightyAxe();
+    }
+
+    @FXML
+    void buyRobe(ActionEvent event) 
+    {
+    	ivn.addRobe();
+    }
+
+    @FXML
+    void buyLeatherClothes(ActionEvent event) 
+    {
+    	ivn.addLeatherClothes();
+    }
+
+    @FXML
+    void buyIronPlating(ActionEvent event) 
+    {
+    	ivn.addIronPlating();
 
     }
 
     @FXML
-    void buyLongSword(ActionEvent event) {
-
+    void buySteelArmor(ActionEvent event) 
+    {
+    	ivn.addSteelArmor();
     }
 
-    @FXML
-    void buyGunBlade(ActionEvent event) {
+	
 
-    }
+		
 
-    @FXML
-    void buyMightyAxe(ActionEvent event) {
 
-    }
 
-    @FXML
-    void buyRobe(ActionEvent event) {
 
-    }
 
-    @FXML
-    void buyLeatherClothes(ActionEvent event) {
 
-    }
 
-    @FXML
-    void buyIronPlating(ActionEvent event) {
-
-    }
-
-    @FXML
-    void buySteelArmor(ActionEvent event) {
-
-    }
 
   
 

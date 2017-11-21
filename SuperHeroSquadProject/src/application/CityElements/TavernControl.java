@@ -1,5 +1,7 @@
 package application.CityElements;
 
+import Items.Inventory;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,16 +12,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class TavernControl {
+public class TavernControl 
+{
 
     @FXML
     private Tab potionTab;
 
     @FXML
-    private Button buyPowerPotion;
-
-    @FXML
-    private Button buyDefPotion;
+    private Button buyDefPotionBtn;
 
     @FXML
     private Label potion;
@@ -55,15 +55,44 @@ public class TavernControl {
     private Label powerPotion;
 
     @FXML
+    private Button buyPotionBtn;
+
+    @FXML
     private Label tavernLabel;
 
     @FXML
-    private Button buyHighPotion;
+    private Button buyHighPotionBtn;
+
+    @FXML
+    private Button buyPowerPotionBtn;
 
     @FXML
     private Label defPotion;
 
+    Inventory ivn = new Inventory();
+
     @FXML
-    private Button buyPotion;
+    void buyPotion(ActionEvent event) 
+    {
+    	ivn.addPotion();
+    }
+
+    @FXML
+    void buyHighPotion(ActionEvent event) 
+    {
+    	ivn.addHighPotion();
+    }
+
+    @FXML
+    void buyPowerPotion(ActionEvent event) 
+    {
+    	ivn.addPowerPotion();
+    }
+
+    @FXML
+    void buyDefPotion(ActionEvent event)
+    {
+    	ivn.addDefensePotion();
+    }
 
 }

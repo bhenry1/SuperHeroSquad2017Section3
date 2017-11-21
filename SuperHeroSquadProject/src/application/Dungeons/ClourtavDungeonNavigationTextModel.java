@@ -70,7 +70,7 @@ public class ClourtavDungeonNavigationTextModel
 	
 	public void tyingAnimation(String roomDescription, TextArea navigationTextArea)
 	{
-    final Animation animation = new Transition() 
+    final Animation animation = new Transition()
     {
         {
             setCycleDuration(Duration.seconds(7.0));

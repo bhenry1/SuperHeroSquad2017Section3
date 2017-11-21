@@ -23,6 +23,7 @@ public class Main extends Application
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		try 
 		{
+
 			AnchorPane mainPane = FXMLLoader.load(getClass().getResource("TitleScreen.fxml"));
 			Scene scene = new Scene(mainPane, 1000, 800);
 			window.setScene(scene);

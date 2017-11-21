@@ -38,6 +38,18 @@ public class CombatModel
 			int damageRecived = MonsterPower - playerDefense;
 			return damageRecived;
 		}
+		
+		public void goToMainMenu(ActionEvent event) throws IOException
+		{
+			Parent root = FXMLLoader.load(Main.class.getResource("MainMenu/MainMenuView.fxml"));
+	    	Scene scene2 = new Scene(root);
+			Stage window = new Stage();  
+	    	window.setScene(scene2);
+	    	window.setTitle("Main Menu");
+	    	window.show();
+			
+		}
+		
 
 		
 		

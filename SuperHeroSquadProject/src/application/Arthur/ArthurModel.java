@@ -64,6 +64,29 @@ public class ArthurModel
     	innWindow.show();
 	}
 	
+	public void goToMainMenu(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("MainMenu/MainMenuView.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage window = new Stage();  
+    	window.setScene(scene2);
+    	window.setTitle("Main Menu");
+    	window.show();
+		
+	}
+	
+	public void goToDungeon(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/ArthurDungeon.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+    	window.setScene(scene2);
+    	window.setTitle("Main Menu");
+    	window.show();
+		
+	}
+	
+	
 	
 	
 	

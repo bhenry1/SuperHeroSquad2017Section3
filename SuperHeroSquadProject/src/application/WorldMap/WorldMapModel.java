@@ -96,8 +96,9 @@ public class WorldMapModel
 	{
 		Parent root = FXMLLoader.load(Main.class.getResource("MainMenu/MainMenuView.fxml"));
     	Scene scene2 = new Scene(root);
-		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+		Stage window = new Stage();  
     	window.setScene(scene2);
+    	window.setTitle("Main Menu");
     	window.show();
 		
 	}
