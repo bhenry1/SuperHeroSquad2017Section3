@@ -21,9 +21,10 @@
       <Button fx:id="Hifenour" layoutX="400.0" layoutY="350.0" mnemonicParsing="false" onAction="#enterHifenour" prefHeight="31.0" prefWidth="100.0" text="Enter" visible="false" />
       <Button fx:id="gatesOfHell" layoutX="211.0" layoutY="275.0" mnemonicParsing="false" onAction="#enterGatesOfHell" prefHeight="41.0" prefWidth="150.0" text="Enter" visible="false" />
       <Button fx:id="menuBtn" layoutX="14.0" layoutY="599.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="67.0" prefWidth="99.0" text="Menu" />
-      <Text layoutX="901.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-      <Text layoutX="907.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gold" />
-      <Text layoutX="907.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exp" />
-      <Text layoutX="896.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Pieces" />
+      <TextArea layoutX="823.0" layoutY="122.0" prefHeight="143.0" prefWidth="173.0" />
+      <Text layoutX="834.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
+      <Text layoutX="839.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gold" />
+      <Text layoutX="842.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exp" />
+      <Text layoutX="834.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Pieces" />
    </children>
 </Pane>
