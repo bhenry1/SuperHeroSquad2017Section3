@@ -25,9 +25,10 @@
       <Button fx:id="tavernBtn" layoutX="438.0" layoutY="438.0" mnemonicParsing="false" onAction="#enterTavern" text="Tavern" />
       <Button fx:id="shopButton" layoutX="438.0" layoutY="332.0" mnemonicParsing="false" onAction="#enterShop" text="Shop" />
       <Button fx:id="innBtn" layoutX="337.0" layoutY="376.0" mnemonicParsing="false" onAction="#enterInn" prefHeight="31.0" prefWidth="65.0" text="Inn" />
-      <Text layoutX="903.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
-      <Text layoutX="909.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gold" />
-      <Text layoutX="909.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exp" />
-      <Text layoutX="898.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Pieces" />
+      <TextArea layoutX="817.0" layoutY="2.0" prefHeight="137.0" prefWidth="178.0" />
+      <Text layoutX="828.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Health" />
+      <Text layoutX="832.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gold" />
+      <Text layoutX="835.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exp" />
+      <Text layoutX="827.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Boat Pieces" />
    </children>
 </AnchorPane>
