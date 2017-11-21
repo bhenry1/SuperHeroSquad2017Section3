@@ -51,6 +51,7 @@ public class WorldMapControl implements Initializable
     
   String value;
   MediaPlayer mp;
+  public int boatpieces = 12;
     
    
     @FXML
@@ -127,6 +128,32 @@ public class WorldMapControl implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		
+		if (boatpieces == 12) {
+			gatesOfHell.setVisible(true);
+			Hackipon.setVisible(true);
+			Aruthor.setVisible(true);
+			Hifenour.setVisible(true);
+			Clourtav.setVisible(true);
+		}
+		else if (boatpieces >= 10) {
+			Hackipon.setVisible(true);
+			Aruthor.setVisible(true);
+			Hifenour.setVisible(true);
+			Clourtav.setVisible(true);
+		}
+		else if (boatpieces >= 8) {
+			Aruthor.setVisible(true);
+			Hifenour.setVisible(true);
+			Clourtav.setVisible(true);
+		}
+		else if (boatpieces >= 6) {
+			Hifenour.setVisible(true);
+			Clourtav.setVisible(true);
+		}
+		else if (boatpieces >= 4) {
+			Clourtav.setVisible(true);
+		}
 		try
 		{
 			Media media = new Media(getClass().getResource("/music/WorldMapMusic.mp3").toURI().toString());
