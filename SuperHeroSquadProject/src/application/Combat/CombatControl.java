@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
-public class CombatControl implements Initializable
+public class CombatControl extends Character implements Initializable
 {
 	CombatModel cbm = new CombatModel();
 
@@ -45,6 +45,7 @@ public class CombatControl implements Initializable
     @FXML private TextArea ArmorTabView;
     
     @FXML private Label monsterLabel;
+    @FXML private Label  damageLabel;
 
     @FXML private AnchorPane weaponPane;
     @FXML private AnchorPane armPane;
@@ -69,7 +70,8 @@ public class CombatControl implements Initializable
     
   
     public String monsterName;
-    Player player = new Player(1, 10, 1, 0, 0);
+    public int damageDealt;
+    public int damageRecived;
  
     
 
@@ -126,9 +128,18 @@ public class CombatControl implements Initializable
     @FXML
     void attackMonster(ActionEvent event) 
     {
-    	//int damageDealt = cbm.attackMonster(player.playerstrength );
+    	//if knife is equiped
+    	damageDealt = playerstrength + knifePower;
     	
-    	//System.out.println("You did " + damageDealt + " to the monster");
+    	//if sword is equpiied
+    	damageDealt = playerstrength + swordPower;
+    	
+    	//if longsword is equpiied
+    	damageDealt = playerstrength + longSwordPower;
+    	
+    	//if gunBlade is equpied
+    	damageDealt = playerstrength + mightyAxePower;
+
     	
     	
     }

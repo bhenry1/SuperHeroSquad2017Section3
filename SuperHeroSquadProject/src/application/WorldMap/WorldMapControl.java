@@ -51,6 +51,7 @@ public class WorldMapControl implements Initializable
     
   String value;
   MediaPlayer mp;
+  
     
    
     @FXML
@@ -127,6 +128,8 @@ public class WorldMapControl implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		
+			
 		try
 		{
 			Media media = new Media(getClass().getResource("/music/WorldMapMusic.mp3").toURI().toString());
