@@ -2,10 +2,13 @@ package application.Combat;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import application.Dungeons.ClourtavDungeonControl;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +27,7 @@ import javafx.util.Duration;
 public class CombatControl extends Character implements Initializable
 {
 	CombatModel cbm = new CombatModel();
+	CombatTextModel cbmtm = new CombatTextModel();
 
     @FXML private Pane parentPane;
 
@@ -45,7 +49,7 @@ public class CombatControl extends Character implements Initializable
     @FXML private TextArea ArmorTabView;
     
     @FXML private Label monsterLabel;
-    @FXML private Label  damageLabel;
+    @FXML private Label damageLabel;
 
     @FXML private AnchorPane weaponPane;
     @FXML private AnchorPane armPane;
@@ -56,6 +60,8 @@ public class CombatControl extends Character implements Initializable
     @FXML private Button fleeBtn;
     @FXML private Button menuBtn;
     @FXML private Button examineMonsterBtn;
+    @FXML private Button defendBtn;
+
     
     @FXML private RadioButton robeRadioButton;
     @FXML private RadioButton leatherClothingRadioButton;
@@ -72,6 +78,10 @@ public class CombatControl extends Character implements Initializable
     public String monsterName;
     public int damageDealt;
     public int damageRecived;
+    Random rand = new Random(); 
+    public String displayDamageDealt = "You attacked the monster and dealt ";
+    public String displayDamageRecived = "The monster counterattacked and dealt ";
+
  
     
 
@@ -128,20 +138,83 @@ public class CombatControl extends Character implements Initializable
     @FXML
     void attackMonster(ActionEvent event) 
     {
-    	//if knife is equiped
-    	damageDealt = playerstrength + knifePower;
+    	if(knifeEquipped)
+    	{
+        	damageDealt = playerstrength + knifePower;
+        	damageDealt = 1 + (int)(Math.random() * ((damageDealt - 1) + 1));        	
+        	damageLabel.setText("" + damageDealt);
+        	damageLabel.setVisible(true);
+        	makeFadeOut();
+        	cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
+        	atkBtn.setVisible(false);
+        	defendBtn.setVisible(false);
+        	
+        	 monsterCounterAtk(monsterName);
+        	//cbmtm.typingAnimationForBattles(displayDamageRecived + damageRecived + " damage", battleTextArea);
+    	}
     	
-    	//if sword is equpiied
-    	damageDealt = playerstrength + swordPower;
-    	
-    	//if longsword is equpiied
-    	damageDealt = playerstrength + longSwordPower;
-    	
-    	//if gunBlade is equpied
-    	damageDealt = playerstrength + mightyAxePower;
+    	if(swordEquipped)
+    	{
+    		damageDealt = playerstrength + swordPower;
+    		damageDealt = 4 + (int)(Math.random() * ((damageDealt - 4) + 1));
+    		damageLabel.setText("" + damageDealt);
+    		damageLabel.setVisible(true);
+    		
+    		
+    		makeFadeOut();
+    		cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
+        	atkBtn.setVisible(false);
+        	defendBtn.setVisible(false);
+       	 	monsterCounterAtk(monsterName);
 
+    	}
+    	if(longSwordEquipped)
+    	{
+    		damageDealt = playerstrength + longSwordPower;
+    		damageDealt = 6 + (int)(Math.random() * ((damageDealt - 6) + 1));
+    		damageLabel.setText("" + damageDealt);
+    		damageLabel.setVisible(true);
+    		
+    		
+    		makeFadeOut();
+    		cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
+        	atkBtn.setVisible(false);
+        	defendBtn.setVisible(false);
+       	 	monsterCounterAtk(monsterName);
+    	}
+    	if(gunBladeEquipped)
+    	{
+    		damageDealt = playerstrength + gunBladePower;
+    		damageDealt = 10 + (int)(Math.random() * ((damageDealt - 10) + 1));
+    		damageLabel.setText("" + damageDealt);
+        	damageLabel.setVisible(true);
+        	makeFadeOut();
+        	
+        	cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
+        	atkBtn.setVisible(false);
+        	defendBtn.setVisible(false);
+       	 	monsterCounterAtk(monsterName);
+    	}
+    	if(mightyAxeEquipped)
+    	{
+        damageDealt = playerstrength + mightyAxePower;
+		damageDealt = 14 + (int)(Math.random() * ((damageDealt - 14) + 1));
+    	damageLabel.setText("" + damageDealt);
+    	damageLabel.setVisible(true);
+    	makeFadeOut();
     	
-    	
+    	cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
+    	atkBtn.setVisible(false);
+    	defendBtn.setVisible(false);
+   	 	monsterCounterAtk(monsterName);
+
+    	}
+    	else if((knifeEquipped== false) && (swordEquipped== false) && (longSwordEquipped== false) &&  (gunBladeEquipped== false) && (mightyAxeEquipped== false)  )
+    	{
+    	cbmtm.openFile();
+    	cbmtm.typingAnimationForBattles(cbmtm.readFile(), battleTextArea);
+    	cbmtm.closeFile();
+    	}
     }
 
     @FXML
@@ -153,31 +226,51 @@ public class CombatControl extends Character implements Initializable
     @FXML
     void equipKnife(ActionEvent event) 
     {
-
+    	knifeEquipped = true;
+    	swordEquipped = false;
+    	longSwordEquipped = false;
+    	gunBladeEquipped = false;
+    	mightyAxeEquipped = false;
     }
     
     @FXML
     void equipSword(ActionEvent event) 
     {
-
+    	swordEquipped = true;
+    	knifeEquipped = false;
+    	longSwordEquipped = false;
+    	gunBladeEquipped = false;
+    	mightyAxeEquipped = false;
     }
     
     @FXML
     void equipLongSword(ActionEvent event) 
     {
-
+    	longSwordEquipped = true;
+    	swordEquipped = false;
+    	knifeEquipped = false;
+    	gunBladeEquipped = false;
+    	mightyAxeEquipped = false;
     }
     
     @FXML
     void equipGunBlade(ActionEvent event) 
     {
-
+    	gunBladeEquipped = true;
+    	swordEquipped = false;
+    	knifeEquipped = false;
+    	longSwordEquipped = false;
+    	mightyAxeEquipped = false;
     }
     
     @FXML
     void equipMightyAxe(ActionEvent event) 
     {
-
+    	mightyAxeEquipped = true;
+    	gunBladeEquipped = false;
+    	swordEquipped = false;
+    	knifeEquipped = false;
+    	longSwordEquipped = false;
     }
     
     @FXML
@@ -212,7 +305,31 @@ public class CombatControl extends Character implements Initializable
     }
 
 
+    private void makeFadeOut() 
+	 {
 
+
+		 FadeTransition fadeTrans = new FadeTransition();
+		 fadeTrans.setDuration(Duration.millis(3000));
+		 fadeTrans.setNode(damageLabel);
+		 fadeTrans.setFromValue(1);
+		 fadeTrans.setToValue(0);
+		 fadeTrans.play();
+		 
+		 fadeTrans.setOnFinished((ActionEvent event) ->
+		 {
+			 int damageRecived = monsterCounterAtk(monsterName);
+			cbmtm.typingAnimationForCounterAttakcs(displayDamageRecived + damageRecived + " damage" , battleTextArea);
+			
+			
+			atkBtn.setVisible(true);
+			defendBtn.setVisible(true);
+			
+		 });
+		 
+	 }
+    
+  
 	
 
 	
