@@ -6,8 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<Pane fx:id="tavernPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="tavernPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CityElements.TavernControl">
    <children>
       <ImageView fx:id="tavernImage" fitHeight="439.0" fitWidth="614.0" layoutX="-6.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,10 +33,10 @@
                         <Label fx:id="highpotion" layoutX="11.0" layoutY="40.0" text="High Potion" />
                         <Label fx:id="powerPotion" layoutX="11.0" layoutY="67.0" text="Power Potion" />
                         <Label fx:id="defPotion" layoutX="11.0" layoutY="92.0" text="Defense Potion" />
-                        <Button fx:id="buyPotion" layoutX="199.0" layoutY="9.0" mnemonicParsing="false" text="Buy" />
-                        <Button fx:id="buyHighPotion" layoutX="199.0" layoutY="35.0" mnemonicParsing="false" text="Buy" />
-                        <Button fx:id="buyPowerPotion" layoutX="199.0" layoutY="62.0" mnemonicParsing="false" text="Buy" />
-                        <Button fx:id="buyDefPotion" layoutX="199.0" layoutY="87.0" mnemonicParsing="false" text="Buy" />
+                        <Button fx:id="buyPotionBtn" layoutX="199.0" layoutY="9.0" mnemonicParsing="false" onAction="#buyPotion" text="Buy" />
+                        <Button fx:id="buyHighPotionBtn" layoutX="199.0" layoutY="35.0" mnemonicParsing="false" onAction="#buyHighPotion" text="Buy" />
+                        <Button fx:id="buyPowerPotionBtn" layoutX="199.0" layoutY="62.0" mnemonicParsing="false" onAction="#buyPowerPotion" text="Buy" />
+                        <Button fx:id="buyDefPotionBtn" layoutX="199.0" layoutY="87.0" mnemonicParsing="false" onAction="#buyDefPotion" text="Buy" />
                      </children>
                   </AnchorPane>
             </content>

@@ -1,55 +1,264 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.MainMenu.MainMenuControl">
+<TabPane fx:id="menuPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainMenu.MainMenuControl">
   <tabs>
-    <Tab fx:id="saveTab" text="Save Game">
+    <Tab fx:id="saveTab" text="Game">
       <content>
         <AnchorPane fx:id="savePane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea fx:id="saveTextArea" layoutX="29.0" layoutY="14.0" prefHeight="39.0" prefWidth="244.0" text="Would you like to save this game ?" />
-                  <Button fx:id="saveYesBtn" layoutX="72.0" layoutY="65.0" mnemonicParsing="false" onAction="#actionSaveYes" text="Yes" />
-                  <Button fx:id="saveNoBtn" layoutX="171.0" layoutY="65.0" mnemonicParsing="false" onAction="#actionSaveNo" text="No" />
-               </children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab fx:id="loadTab" text="Load Game">
-      <content>
-        <AnchorPane fx:id="loadPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-               <children>
-                  <TextArea fx:id="loadTextArea" layoutX="26.0" layoutY="14.0" prefHeight="38.0" prefWidth="291.0" text="Name the save file that would like to load with?" />
-                  <TextField fx:id="loadTextField" layoutX="65.0" layoutY="70.0" />
-                  <TextArea fx:id="loadFileList" layoutX="26.0" layoutY="126.0" prefHeight="204.0" prefWidth="383.0" text="List the save files from the start page." />
+                  <ImageView fx:id="menuBackGroundImage" fitHeight="458.0" fitWidth="677.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/menuBackGround.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="menuButtonContainer" alignment="TOP_CENTER" prefHeight="361.0" prefWidth="600.0" spacing="30.0">
+                     <children>
+                        <Button fx:id="saveGameButton" mnemonicParsing="false" onAction="#saveGame" prefHeight="65.0" prefWidth="412.0" text="Save Game">
+                           <font>
+                              <Font name="AutoREALM Blackletter" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="loadGameButton" mnemonicParsing="false" onAction="#loadGame" prefHeight="65.0" prefWidth="412.0" text="Load Game">
+                           <font>
+                              <Font name="AutoREALM Blackletter" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="exitGameButton1" mnemonicParsing="false" onAction="#exitGame" prefHeight="65.0" prefWidth="412.0" text="Exit Game">
+                           <font>
+                              <Font name="AutoREALM Blackletter" size="30.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="resumeGameButton" mnemonicParsing="false" onAction="#resumeGame" prefHeight="65.0" prefWidth="412.0" text="Resume Game">
+                           <font>
+                              <Font name="AutoREALM Blackletter" size="30.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
                </children></AnchorPane>
       </content>
     </Tab>
       <Tab fx:id="itemTab" text="Items">
         <content>
-          <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="menuBackGroundImage2" fitHeight="458.0" fitWidth="677.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/menuBackGround.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="itemContainer" layoutX="95.0" layoutY="46.0" prefHeight="270.0" prefWidth="421.0" spacing="30.0">
+                     <children>
+                        <ToolBar fx:id="potionToolBar" prefHeight="45.0" prefWidth="205.0">
+                          <items>
+                            <Button fx:id="usePotionBtn" mnemonicParsing="false" onAction="#usePotion" text="Use" />
+                              <Label fx:id="potionLabel" prefHeight="21.0" prefWidth="49.0" text="Potion" />
+                              <Label fx:id="potionAmount" text="0x" />
+                              <Label fx:id="potionDescription" prefHeight="21.0" prefWidth="180.0" text="Heals 25% Health" />
+                          </items>
+                        </ToolBar>
+                        <ToolBar fx:id="highPotionToolBar" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="useHighPotionBtn" mnemonicParsing="false" onAction="#useHighPotion" text="Use" />
+                              <Label fx:id="highPotionLabel" prefHeight="21.0" prefWidth="90.0" text="High Potion" />
+                              <Label fx:id="highPotionAmount" text="0x" />
+                              <Label fx:id="highPotionDescription" text="Heals 50% Health" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="powerPotionToolBar" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="usePowerPotionBtn" mnemonicParsing="false" onAction="#usePowerPotion" text="Use" />
+                              <Label fx:id="powerPotionLabel" prefHeight="21.0" prefWidth="99.0" text="Power Potion" />
+                              <Label fx:id="powerPotionAmount" text="0x" />
+                              <Label fx:id="powerPotionDescription" text="+2 Strength &amp; Heals 25% Health" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="defensePotionToolBar" layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="useDefensePotionBtn" mnemonicParsing="false" onAction="#useDefensePotion" text="Use" />
+                              <Label fx:id="defensePotionLabel" prefHeight="21.0" prefWidth="111.0" text="Defense Potion" />
+                              <Label fx:id="defensePotionAmount" text="0x" />
+                              <Label fx:id="defensePotionDescription" text="+2 Defense &amp; Heals 25% Health" />
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="potionImage" fitHeight="60.0" fitWidth="56.0" layoutX="36.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/potion.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="highPotionImage" fitHeight="60.0" fitWidth="56.0" layoutX="36.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/hiPotion.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="powerPotionImage" fitHeight="60.0" fitWidth="56.0" layoutX="36.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/powerPotion.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="defensePotionImage" fitHeight="60.0" fitWidth="53.0" layoutX="46.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/defensePotion.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab fx:id="weaponTab" text="Weapons">
         <content>
-          <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="menuBackGroundImage3" fitHeight="458.0" fitWidth="677.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/menuBackGround.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="weaponContainer" layoutX="99.0" layoutY="8.0" prefHeight="267.0" prefWidth="440.0" spacing="30.0">
+                     <children>
+                        <ToolBar fx:id="knifeToolBar" prefHeight="45.0" prefWidth="205.0">
+                           <items>
+                              <Button fx:id="equipKnifeBtn" mnemonicParsing="false" onAction="#equipKnife" text="Equip" />
+                              <Label fx:id="knifeLabel" prefHeight="21.0" prefWidth="49.0" text="Knife" />
+                              <Label fx:id="knifeAmount" text="0x" />
+                              <Label fx:id="knifeDescription" alignment="CENTER" prefHeight="21.0" prefWidth="180.0" text="3 Power" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="swordToolBar" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipSwordBtn" mnemonicParsing="false" onAction="#equipSword" text="Equip" />
+                              <Label fx:id="swordLabel" prefHeight="21.0" prefWidth="90.0" text="Sword" />
+                              <Label fx:id="swordAmount" text="0x" />
+                              <Label fx:id="swordDescription" text="5 Power" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="longSwordToolBar" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipLongSwordBtn" mnemonicParsing="false" onAction="#equipLongSword" text="Equip" />
+                              <Label fx:id="longSwordLabel" prefHeight="21.0" prefWidth="99.0" text="L. Sword" />
+                              <Label fx:id="longSwordAmount" text="0x" />
+                              <Label fx:id="longSwordDescription" alignment="CENTER" text="7 Power" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="gunBladeToolBar" layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipGunBladeBtn" mnemonicParsing="false" onAction="#equipGunBlade" text="Equip" />
+                              <Label fx:id="gunBladeLabel" prefHeight="21.0" prefWidth="111.0" text="G. Blade" />
+                              <Label fx:id="gunBladeAmount" text="0x" />
+                              <Label fx:id="gunBladeDescription" alignment="CENTER" text="12 Power" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="mightyAxeToolBar" layoutX="10.0" layoutY="235.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipMightyAxeBtn" mnemonicParsing="false" onAction="#equipMightyAxe" text="Equip" />
+                              <Label fx:id="mightyAxeLabel" prefHeight="21.0" prefWidth="111.0" text="M. Axe" />
+                              <Label fx:id="mightyAxeAmount" text="0x" />
+                              <Label fx:id="mightyAxeDescription" alignment="CENTER" text="15 Power" />
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="knifeImage" fitHeight="60.0" fitWidth="56.0" layoutX="43.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/knife.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="swordImage" fitHeight="60.0" fitWidth="56.0" layoutX="43.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/sword.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="longSwordImage" fitHeight="77.0" fitWidth="65.0" layoutX="43.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/longSword.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="gunBladeImage" fitHeight="77.0" fitWidth="65.0" layoutX="38.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/gunBlade.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="mightyAxeImage" fitHeight="77.0" fitWidth="65.0" layoutX="38.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/mightyAxe.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab fx:id="armorTab" text="Armor">
         <content>
-          <AnchorPane fx:id="armorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </content>
-      </Tab>
-      <Tab fx:id="exitTab" text="Exit Game">
-        <content>
-          <AnchorPane fx:id="exitPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <AnchorPane fx:id="armorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea fx:id="exitTextArea" layoutX="40.0" layoutY="20.0" prefHeight="40.0" prefWidth="253.0" text="Would you like to exit out of this game?&#10;" />
-                  <Button fx:id="exitYesBtn" layoutX="70.0" layoutY="85.0" mnemonicParsing="false" onAction="#actionExitYes" text="Yes" />
-                  <Button fx:id="exitNoBtn" layoutX="187.0" layoutY="85.0" mnemonicParsing="false" onAction="#actionExitNo" text="No" />
-               </children>
-            </AnchorPane>
+                  <ImageView fx:id="menuBackGroundImage4" fitHeight="458.0" fitWidth="677.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/menuBackGround.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox fx:id="armorContainer" layoutX="105.0" layoutY="37.0" prefHeight="289.0" prefWidth="453.0" spacing="30.0">
+                     <children>
+                        <ToolBar fx:id="robeToolBar" prefHeight="45.0" prefWidth="205.0">
+                           <items>
+                              <Button fx:id="equipRobeBtn" mnemonicParsing="false" onAction="#equipRobe" text="Equip" />
+                              <Label fx:id="robeLabel" prefHeight="21.0" prefWidth="49.0" text="Robe" />
+                              <Label fx:id="robeAmount" text="0x" />
+                              <Label fx:id="robeDescription" prefHeight="21.0" prefWidth="180.0" text="1 Defense" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="leatherClothesToolBar" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipLeatherClothesBtn" mnemonicParsing="false" onAction="#equipLeatherClothes" text="Equip" />
+                              <Label fx:id="leatherClothesLabel" prefHeight="21.0" prefWidth="90.0" text="L. Clothes" />
+                              <Label fx:id="leatherClothesAmount" text="0x" />
+                              <Label fx:id="leatherClothesDescription" text="2 Defense" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="ironPlatingToolBar" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipIronPlatingBtn" mnemonicParsing="false" onAction="#equipIronPlating" text="Equip" />
+                              <Label fx:id="ironPlatingLabel" prefHeight="21.0" prefWidth="99.0" text="I. Plating" />
+                              <Label fx:id="ironPlatingAmount" text="0x" />
+                              <Label fx:id="ironPlatingDescription" text="3 Defense" />
+                           </items>
+                        </ToolBar>
+                        <ToolBar fx:id="steelArmorToolBar" layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="325.0">
+                           <items>
+                              <Button fx:id="equipSteelArmorBtn" mnemonicParsing="false" onAction="#equipSteelArmor" text="Equip" />
+                              <Label fx:id="steelArmorLabel" prefHeight="21.0" prefWidth="111.0" text="S.Armor" />
+                              <Label fx:id="steelArmorAmount" text="0x" />
+                              <Label fx:id="steelArmorDescription" text="5 Defense" />
+                           </items>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <ImageView fx:id="robeImage" fitHeight="60.0" fitWidth="56.0" layoutX="53.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/robe.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="leatherClothesImage" fitHeight="60.0" fitWidth="56.0" layoutX="45.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/leatherClothes.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="ironPlatingImage" fitHeight="60.0" fitWidth="56.0" layoutX="45.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/ironPlating.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="steelArmorImage" fitHeight="60.0" fitWidth="56.0" layoutX="45.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/steelArmor.png" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
         </content>
       </Tab>
   </tabs>

@@ -21,6 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class TitleScreenControl implements Initializable
 {
@@ -59,7 +60,7 @@ MediaPlayer mp;
     @FXML
     void newGameOnClick(ActionEvent event) throws IOException 
     {
-    	model.changeToSaveScreen(event);
+    	model.newGameScreen(event);
     	mp.stop();
     }
     
@@ -79,8 +80,11 @@ MediaPlayer mp;
 		{
 			media = new Media(getClass().getResource("/music/introMusic.mp3").toURI().toString());
 			mp = new MediaPlayer(media);
-			mp.setVolume(0.2);
+			mp.setVolume(0.5);
 			mp.play();
+			
+			
+		
 		} 
 		catch (URISyntaxException e) 
 		{

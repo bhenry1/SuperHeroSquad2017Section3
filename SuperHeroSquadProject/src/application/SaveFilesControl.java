@@ -68,7 +68,7 @@ MediaPlayer mp;
 		{
 			media = new Media(getClass().getResource("/music/SaveFileMusic.mp3").toURI().toString());
 			mp = new MediaPlayer(media);
-			mp.setVolume(0.2);
+			mp.setVolume(0.5);
 			mp.play();
 		} 
 		catch (URISyntaxException e) 

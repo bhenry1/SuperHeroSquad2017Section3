@@ -3,6 +3,7 @@ package application.CityElements;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.WorldMap.WorldMapControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,24 +17,25 @@ import javafx.scene.layout.Pane;
 public class RiddleControl implements Initializable {
 
     @FXML
-    private TextField riddleTextfield;
+    public TextField riddleTextfield;
 
     @FXML
-    private Pane riddlePane;
+    public Pane riddlePane;
 
     @FXML
-    private Label riddleHintDisplay;
+    public Label riddleHintDisplay;
 
     @FXML
-    private Button checkButton;
+    public Button checkButton;
 
     @FXML
-    private TextArea riddleTextField;
+    public TextArea riddleTextField;
 
     @FXML
-    private ImageView scrollImage;
+    public ImageView scrollImage;
     
     RiddleModel rm = new RiddleModel();
+    
     
     @FXML
     void validateAnswer(ActionEvent event) 
@@ -45,6 +47,7 @@ public class RiddleControl implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
 	{
+		
 		rm.openRiddleText();
 		String riddle = rm.readPuzzle();
 		rm.closeFile();

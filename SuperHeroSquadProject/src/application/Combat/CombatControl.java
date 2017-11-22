@@ -54,6 +54,7 @@ public class CombatControl implements Initializable
     @FXML private Button atkBtn;
     @FXML private Button fleeBtn;
     @FXML private Button menuBtn;
+    @FXML private Button examineMonsterBtn;
     
     @FXML private RadioButton robeRadioButton;
     @FXML private RadioButton leatherClothingRadioButton;
@@ -117,9 +118,9 @@ public class CombatControl implements Initializable
     }
 
     @FXML
-    void openMenu(ActionEvent event) 
+    void openMenu(ActionEvent event) throws IOException 
     {
-
+    	cbm.goToMainMenu(event);
     }
 
     @FXML
@@ -190,6 +191,13 @@ public class CombatControl implements Initializable
     void equipsteelArmor(ActionEvent event) 
     {
 
+    }
+    
+
+    @FXML
+    void examineMonster(ActionEvent event) 
+    {
+    	System.out.println("Return Monster Description and Heatlh");
     }
 
 

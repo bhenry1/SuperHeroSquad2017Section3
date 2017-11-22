@@ -11,7 +11,8 @@ public class RiddleModel
 	
 	public void openRiddleText()
 	{
-		try {
+		try 
+		{
 			rInput = new Scanner(new File("TextFiles/Riddles.txt"));
 		} 
 			catch (FileNotFoundException e) 
@@ -25,7 +26,6 @@ public class RiddleModel
 		while(rInput.hasNext())
 		{
 			String clourtavRiddle = rInput.nextLine();
-			
 			return clourtavRiddle;
 			
 			
@@ -38,4 +38,6 @@ public class RiddleModel
 	{
 		rInput.close();
 	}
+	
+	
 }

@@ -36,6 +36,7 @@ public class InnControl {
     void noRest(ActionEvent event) 
     {
     	im.leaveInn(event);
+    
     }
 
 }

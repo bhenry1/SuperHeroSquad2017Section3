@@ -384,9 +384,9 @@ public class ClourtavDungeonControl implements Initializable
     }
 
     @FXML
-    void openMenu(ActionEvent event) 
+    void openMenu(ActionEvent event) throws IOException 
     {
-
+    	mdm.goToMainMenu(event);
     }
 
     @FXML
@@ -401,7 +401,7 @@ public class ClourtavDungeonControl implements Initializable
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
-		
+		//do stuff 
 		
 	}
 	

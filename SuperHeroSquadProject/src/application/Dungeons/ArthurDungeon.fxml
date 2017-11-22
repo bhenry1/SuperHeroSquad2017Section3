@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Dungeons.ArthurDungeonControl">
+   <children>
+      <ImageView fx:id="dungeonImage" fitHeight="800.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/ArthurDungeon.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="roomName" alignment="CENTER" layoutX="146.0" layoutY="14.0" prefHeight="127.0" prefWidth="708.0" text="Dungeon Entrance" textFill="RED">
+         <font>
+            <Font name="AutoREALM Blackletter" size="96.0" />
+         </font>
+      </Label>
+      <Label fx:id="navigationLabel" layoutX="830.0" layoutY="768.0" text="Navigation assist" textFill="WHITE" />
+      <ImageView fx:id="compassImage" fitHeight="150.0" fitWidth="200.0" layoutX="583.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/Compass.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="upBtn2" layoutX="628.0" layoutY="593.0" mnemonicParsing="false" onAction="#moveUp2" prefHeight="20.0" prefWidth="60.0" text="Up" />
+      <Button fx:id="downBtn2" layoutX="628.0" layoutY="712.0" mnemonicParsing="false" onAction="#moveDown2" prefHeight="20.0" prefWidth="60.0" text="Down" />
+      <Button fx:id="rightBtn2" layoutX="693.0" layoutY="653.0" mnemonicParsing="false" onAction="#moveRight2" prefHeight="20.0" prefWidth="60.0" text="Right" />
+      <Button fx:id="leftBtn2" layoutX="563.0" layoutY="653.0" mnemonicParsing="false" onAction="#moveLeft2" prefHeight="20.0" prefWidth="60.0" text="Left" />
+      <Label fx:id="movementLabel" layoutX="625.0" layoutY="768.0" text="Movement" textFill="WHITE" />
+      <Button fx:id="backToCity2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#exitDungeon2" prefHeight="52.0" prefWidth="112.0" text="Exit Dungeon" />
+      <Button fx:id="menuBtn" layoutX="17.0" layoutY="710.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="67.0" prefWidth="99.0" text="Menu" />
+      <Button fx:id="examineRoomBtn2" layoutX="146.0" layoutY="728.0" mnemonicParsing="false" onAction="#examineRoom" text="Examine Room" />
+      <Label fx:id="mapLabel" alignment="CENTER" layoutX="69.0" layoutY="434.0" prefHeight="31.0" prefWidth="82.0" text="Map" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="mercenaryMonsterImage" fitHeight="413.0" fitWidth="334.0" layoutX="333.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/Mercenary.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="hellScoutMonsterImage" fitHeight="389.0" fitWidth="195.0" layoutX="422.0" layoutY="204.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/HellScout.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="slimeKingMonsterImage" fitHeight="359.0" fitWidth="316.0" layoutX="364.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/SlimeKing.png" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="userTabPane" layoutX="769.0" layoutY="564.0" prefHeight="208.0" prefWidth="231.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="navTab" text="Nav.">
+            <content>
+              <AnchorPane fx:id="navPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="navigationTextArea" prefHeight="200.0" prefWidth="231.0" promptText="Try clicking the &#10;&quot;Examine Room&quot; &#10;button to find out &#10;about where you are!&#10;" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="itemTab" text="Item">
+            <content>
+              <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="itemTextArea" layoutX="-9.0" layoutY="-15.0" prefHeight="200.0" prefWidth="241.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="WeaponTab" text="Wep.">
+              <content>
+                <AnchorPane fx:id="weaponPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="weaponTextArea" layoutY="-1.0" prefHeight="170.0" prefWidth="231.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="ArmTab" text="Arm.">
+              <content>
+                <AnchorPane fx:id="armPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="armorTextArea" layoutX="-9.0" layoutY="-1.0" prefHeight="171.0" prefWidth="241.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ScrollPane fx:id="mapView" layoutY="466.0" prefHeight="200.0" prefWidth="241.0">
+         <content>
+            <AnchorPane fx:id="mapPane" minHeight="0.0" minWidth="0.0" prefHeight="492.0" prefWidth="629.0">
+               <children>
+                  <Rectangle fx:id="dungeonEntrance" arcHeight="5.0" arcWidth="5.0" height="88.0" layoutX="117.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+                  <Label fx:id="dungoenEntranceMapLabel" layoutX="121.0" layoutY="73.0" prefHeight="58.0" prefWidth="92.0" text="Dungeon &#10;Entrance" textFill="WHITE" />
+                  <Circle fx:id="playerLocation1" fill="#ff1f1f" layoutX="158.0" layoutY="151.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Rectangle fx:id="room3" arcHeight="5.0" arcWidth="5.0" height="88.0" layoutX="214.0" layoutY="142.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="99.0" />
+                  <Label fx:id="room3MapLabel" layoutX="248.0" layoutY="150.0" text="Room 3" textFill="WHITE" visible="false" />
+                  <Rectangle fx:id="exit3" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="211.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Rectangle fx:id="room2" arcHeight="5.0" arcWidth="5.0" height="88.0" layoutX="118.0" layoutY="-10.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="99.0" />
+                  <Rectangle fx:id="exit1" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="193.0" layoutY="63.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Label fx:id="room2MapLabel" layoutX="132.0" layoutY="4.0" text="Room 2" textFill="WHITE" visible="false" />
+                  <Rectangle fx:id="room4" arcHeight="5.0" arcWidth="5.0" height="88.0" layoutX="14.0" layoutY="142.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="99.0" />
+                  <Rectangle fx:id="exit2" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="111.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Label fx:id="room4MapLabel" layoutX="30.0" layoutY="150.0" text="Room 4" textFill="WHITE" visible="false" />
+                  <Rectangle fx:id="room5" arcHeight="5.0" arcWidth="5.0" height="111.0" layoutX="122.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="86.0" />
+                  <Rectangle fx:id="exit5" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="178.0" layoutY="155.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Label fx:id="room5MapLabel" layoutX="137.0" layoutY="180.0" prefHeight="33.0" prefWidth="67.0" text="Room 5" textFill="WHITE" visible="false" />
+                  <Rectangle fx:id="exit6" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="171.0" layoutY="278.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Rectangle fx:id="room7" arcHeight="5.0" arcWidth="5.0" height="88.0" layoutX="125.0" layoutY="296.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="99.0" />
+                  <Label fx:id="room7MapLabel" layoutX="144.0" layoutY="299.0" prefHeight="32.0" prefWidth="61.0" text="Room 7" textFill="WHITE" visible="false" />
+                  <ImageView fx:id="monsTerSymbolImage7" fitHeight="62.0" fitWidth="84.0" layoutX="153.0" layoutY="322.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../Images/monsterSymbol.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="monsTerSymbolImage2" fitHeight="54.0" fitWidth="53.0" layoutX="132.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../Images/monsterSymbol.png" />
+                     </image>
+                  </ImageView>
+                  <Circle fx:id="playerLocation2" fill="#ff1f1f" layoutX="200.0" layoutY="48.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Circle fx:id="playerLocation4" fill="#ff1f1f" layoutX="82.0" layoutY="196.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Circle fx:id="playerLocation3" fill="#ff1f1f" layoutX="265.0" layoutY="202.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Circle fx:id="playerLocation5" fill="#ff1f1f" layoutX="177.0" layoutY="265.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Circle fx:id="playerLocation7" fill="#ff1f1f" layoutX="137.0" layoutY="361.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Rectangle fx:id="room6" arcHeight="5.0" arcWidth="5.0" height="85.0" layoutX="218.0" layoutY="-9.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="93.0" />
+                  <Circle fx:id="playerLocation6" fill="#ff1f1f" layoutX="265.0" layoutY="48.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label fx:id="room6MapLabel" layoutX="238.0" layoutY="4.0" text="Room 6" textFill="WHITE" visible="false" />
+                  <Rectangle fx:id="exit4" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="212.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Rectangle fx:id="room11" arcHeight="5.0" arcWidth="5.0" height="51.0" layoutX="76.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="207.0" />
+                  <Rectangle fx:id="exit7" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="51.0" layoutX="170.0" layoutY="361.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="15.0" />
+                  <Circle fx:id="playerLocation11" fill="#ff1f1f" layoutX="146.0" layoutY="420.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label fx:id="room11MapLabel" layoutX="170.0" layoutY="396.0" prefHeight="32.0" prefWidth="61.0" text="Room 11" textFill="WHITE" visible="false" />
+                  <Rectangle fx:id="exit8" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="69.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Rectangle fx:id="exit9" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="31.0" layoutX="277.0" layoutY="396.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="13.0" />
+                  <Rectangle fx:id="exit11" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="51.0" layoutX="170.0" layoutY="412.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="15.0" />
+                  <Rectangle fx:id="room8" arcHeight="5.0" arcWidth="5.0" height="88.0" layoutX="-26.0" layoutY="382.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="99.0" />
+                  <Label fx:id="room8MapLabel" layoutX="11.0" layoutY="379.0" prefHeight="32.0" prefWidth="61.0" text="Room 8" textFill="WHITE" visible="false" />
+                  <Circle fx:id="playerLocation8" fill="#ff1f1f" layoutX="30.0" layoutY="454.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Rectangle fx:id="room9" arcHeight="5.0" arcWidth="5.0" height="79.0" layoutX="288.0" layoutY="374.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="87.0" />
+                  <Label fx:id="room9MapLabel" layoutX="300.0" layoutY="371.0" prefHeight="32.0" prefWidth="61.0" text="Room 9" textFill="WHITE" visible="false" />
+                  <Circle fx:id="playerLocation9" fill="#ff1f1f" layoutX="331.0" layoutY="426.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Rectangle fx:id="room10" arcHeight="5.0" arcWidth="5.0" height="79.0" layoutX="140.0" layoutY="443.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="87.0" />
+                  <Label fx:id="room10MapLabel" layoutX="149.0" layoutY="438.0" prefHeight="32.0" prefWidth="61.0" text="Room 10" textFill="WHITE" visible="false" />
+                  <Circle fx:id="playerLocation10" fill="#ff1f1f" layoutX="217.0" layoutY="471.0" radius="9.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <ImageView fx:id="bossSymbolImage1" fitHeight="41.0" fitWidth="50.0" layoutX="157.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../../Images/bossSymbol.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</Pane>
