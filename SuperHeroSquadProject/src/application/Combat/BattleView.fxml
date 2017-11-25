@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
@@ -15,7 +16,7 @@
             <Image url="@../../../Images/MorestetDungeon.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="monsterLabel" alignment="CENTER" layoutX="146.0" layoutY="14.0" prefHeight="127.0" prefWidth="708.0" text="Dungeon Entrance" textFill="RED">
+      <Label fx:id="monsterLabel" alignment="CENTER" layoutX="146.0" layoutY="14.0" prefHeight="127.0" prefWidth="708.0" text="Dungeon Entrance" textFill="RED" wrapText="true">
          <font>
             <Font name="AutoREALM Blackletter" size="96.0" />
          </font>
@@ -49,7 +50,7 @@
             <content>
               <AnchorPane fx:id="navPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea fx:id="battleTextArea" prefHeight="200.0" prefWidth="231.0" wrapText="true" />
+                        <TextArea fx:id="battleTextArea" prefHeight="200.0" prefWidth="231.0" promptText="It's your turn. Attack the &#10;monster by clicking the&#10;&quot;Attack&quot; button, or &#10;defend from the &#10;monsters ferocious attacks by clicking&#10;&quot;Defend&quot;" wrapText="true" />
                      </children>
                   </AnchorPane>
             </content>
@@ -59,6 +60,34 @@
               <AnchorPane fx:id="itemPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextArea fx:id="itemTabView" prefHeight="200.0" prefWidth="231.0" />
+                        <VBox fx:id="itemVBox" layoutX="2.0" layoutY="-7.0" prefHeight="178.0" prefWidth="231.0">
+                           <children>
+                              <ToolBar fx:id="potionToolBar" prefHeight="40.0" prefWidth="200.0">
+                                <items>
+                                  <Button fx:id="potionBtn" mnemonicParsing="false" onAction="#usePotion" text="Use" />
+                                    <Label fx:id="potionLabel" text="Potion" />
+                                </items>
+                              </ToolBar>
+                              <ToolBar fx:id="highPotionToolBar" prefHeight="40.0" prefWidth="200.0">
+                                <items>
+                                  <Button fx:id="highPotionBtn" mnemonicParsing="false" onAction="#useHighPotion" text="Use" />
+                                    <Label fx:id="highPotionLabel" prefHeight="21.0" prefWidth="132.0" text="High Potion" />
+                                </items>
+                              </ToolBar>
+                              <ToolBar fx:id="powerPotionToolBar" prefHeight="40.0" prefWidth="200.0">
+                                <items>
+                                  <Button fx:id="powerPotionBtn" mnemonicParsing="false" onAction="#usePowerPotion" text="Use" />
+                                    <Label fx:id="powerPotionLabel" text="Power Potion" />
+                                </items>
+                              </ToolBar>
+                              <ToolBar fx:id="defensePotionToolBar" prefHeight="40.0" prefWidth="200.0">
+                                <items>
+                                  <Button fx:id="defensePotionBtn" mnemonicParsing="false" onAction="#useDefensePotion" text="Use" />
+                                    <Label fx:id="defensePotionLabel" text="Defense Potion" />
+                                </items>
+                              </ToolBar>
+                           </children>
+                        </VBox>
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -103,8 +132,46 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button fx:id="atkBtn" layoutX="500.0" layoutY="692.0" mnemonicParsing="false" onAction="#attackMonster" prefHeight="52.0" prefWidth="93.0" text="Attack" />
-      <Button fx:id="atkBtn" layoutX="639.0" layoutY="692.0" mnemonicParsing="false" onAction="#defendFromMonster" prefHeight="52.0" prefWidth="93.0" text="Defend" />
+      <Button fx:id="attkBtn" layoutX="604.0" layoutY="668.0" mnemonicParsing="false" onAction="#attackMonster" prefHeight="52.0" prefWidth="93.0" text="Attack" />
       <Button fx:id="examineMonsterBtn" layoutX="143.0" layoutY="729.0" mnemonicParsing="false" onAction="#examineMonster" text="Examine Monster" />
+      <Label fx:id="damageLabel" layoutX="474.0" layoutY="134.0" text="0" textFill="RED" visible="false">
+         <font>
+            <Font size="96.0" />
+         </font>
+         <effect>
+            <Bloom threshold="0.73" />
+         </effect>
+      </Label>
+      <Button fx:id="examineMonsterBtn" layoutX="143.0" layoutY="729.0" mnemonicParsing="false" onAction="#examineMonster" text="Examine Monster" />
+      <Label fx:id="healthLabel" layoutX="311.0" layoutY="689.0" text="Health: " textFill="WHITE">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="batMonsterImage" fitHeight="488.0" fitWidth="462.0" layoutX="226.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" visible="false">
+         <image>
+            <Image url="@../../../Images/Bat.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="goblinComMonsterImage" fitHeight="375.0" fitWidth="462.0" layoutX="199.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/Goblin%20Commander.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="elephantKinMonsterImage" fitHeight="379.0" fitWidth="323.0" layoutX="312.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/ElephantKin.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="thiefMonsterImage" fitHeight="426.0" fitWidth="303.0" layoutX="347.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/Thief.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="GuardsmanBossImage" fitHeight="451.0" fitWidth="248.0" layoutX="366.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../../../Images/Guardsmen.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

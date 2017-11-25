@@ -18,7 +18,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
-public class WorldMapControl implements Initializable
+public class WorldMapControl implements  Initializable
 {
 	WorldMapModel wm = new WorldMapModel();
 
@@ -51,6 +51,8 @@ public class WorldMapControl implements Initializable
     
   String value;
   MediaPlayer mp;
+  
+
   public int boatpieces = 12;
     
    
@@ -129,29 +131,44 @@ public class WorldMapControl implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
 		
-		if (boatpieces == 12) {
+
+		{
+		if (boatpieces == 12) 
+		{
 			gatesOfHell.setVisible(true);
 			Hackipon.setVisible(true);
 			Aruthor.setVisible(true);
 			Hifenour.setVisible(true);
 			Clourtav.setVisible(true);
 		}
-		else if (boatpieces >= 10) {
+		
+		else if (boatpieces >= 10) 
+		{
 			Hackipon.setVisible(true);
 			Aruthor.setVisible(true);
 			Hifenour.setVisible(true);
 			Clourtav.setVisible(true);
 		}
-		else if (boatpieces >= 8) {
+		
+		else if (boatpieces >= 8) 
+		{
 			Aruthor.setVisible(true);
 			Hifenour.setVisible(true);
 			Clourtav.setVisible(true);
 		}
-		else if (boatpieces >= 6) {
+		else if (boatpieces >= 6) 
+		{
 			Hifenour.setVisible(true);
 			Clourtav.setVisible(true);
 		}
-		else if (boatpieces >= 4) {
+		
+		else if (boatpieces >= 6) 
+		{
+			Hifenour.setVisible(true);
+			Clourtav.setVisible(true);
+		}
+		else if (boatpieces >= 4)
+		{
 			Clourtav.setVisible(true);
 		}
 		try
@@ -178,4 +195,5 @@ public class WorldMapControl implements Initializable
 		}
 	}
 
+	}
 }

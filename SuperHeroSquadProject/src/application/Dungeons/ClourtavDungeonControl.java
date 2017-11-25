@@ -34,76 +34,76 @@ public class ClourtavDungeonControl implements Initializable
 	ClourtavDungeonModel mdm = new ClourtavDungeonModel();
 
 
-    @FXML private AnchorPane mapPane;
-    @FXML private ScrollPane mapView;
-    @FXML private Pane parentPane;
+    @FXML public AnchorPane mapPane;
+    @FXML public ScrollPane mapView;
+    @FXML public Pane parentPane;
 
-	@FXML private Label room10MapLabel;
-    @FXML private Label room7MapLabel;
-    @FXML private Label room9MapLabel;
-    @FXML private Label roomName;
-    @FXML private Label room3MapLabel;
-    @FXML private Label room5MapLabel;
-    @FXML private Label room2MapLabel;
-    @FXML private Label dungoenEntranceMapLabel;
-    @FXML private Label room8MapLabel;
-    @FXML private Label mapLabel;
-    @FXML private Label room4MapLabel;
-    @FXML private Label room6MapLabel;
+	@FXML public Label room10MapLabel;
+    @FXML public Label room7MapLabel;
+    @FXML public Label room9MapLabel;
+    @FXML public Label roomName;
+    @FXML public Label room3MapLabel;
+    @FXML public Label room5MapLabel;
+    @FXML public Label room2MapLabel;
+    @FXML public Label dungoenEntranceMapLabel;
+    @FXML public Label room8MapLabel;
+    @FXML public Label mapLabel;
+    @FXML public Label room4MapLabel;
+    @FXML public Label room6MapLabel;
 
-	@FXML private Circle playerLocation1;
-    @FXML private Circle playerLocation3;
-    @FXML private Circle playerLocation2;
-    @FXML private Circle playerLocation62;
-    @FXML private Circle playerLocation5;
-    @FXML private Circle playerLocation61;
-    @FXML private Circle playerLocation4;
-    @FXML private Circle playerLocation41;
-    @FXML private Circle playerLocation;
-    @FXML private Circle playerLocation6;
+	@FXML public Circle playerLocation1;
+    @FXML public Circle playerLocation3;
+    @FXML public Circle playerLocation2;
+    @FXML public Circle playerLocation62;
+    @FXML public Circle playerLocation5;
+    @FXML public Circle playerLocation61;
+    @FXML public Circle playerLocation4;
+    @FXML public Circle playerLocation41;
+    @FXML public Circle playerLocation;
+    @FXML public Circle playerLocation6;
 
-    @FXML private Button examineRoomBtn;
-    @FXML private Button leftBtn;
-    @FXML private Button backToCity;
-    @FXML private Button downBtn;
-    @FXML private Button rightBtn;
-    @FXML private Button menuBtn;
-    @FXML private Button upBtn;
+    @FXML public Button examineRoomBtn;
+    @FXML public Button leftBtn;
+    @FXML public Button backToCity;
+    @FXML public Button downBtn;
+    @FXML public Button rightBtn;
+    @FXML public Button menuBtn;
+    @FXML public Button upBtn;
 
-    @FXML private Rectangle exit5;
-    @FXML private Rectangle exit4;
-    @FXML private Rectangle exit3;
-    @FXML private Rectangle exit2;
-    @FXML private Rectangle exit1;
-    @FXML private Rectangle exit9;
-    @FXML private Rectangle exit8;
-    @FXML private Rectangle exit7;
-    @FXML private Rectangle exit6;
-    @FXML private Rectangle room5;
-    @FXML private Rectangle room6; 
-    @FXML private Rectangle room3;
+    @FXML public Rectangle exit5;
+    @FXML public Rectangle exit4;
+    @FXML public Rectangle exit3;
+    @FXML public Rectangle exit2;
+    @FXML public Rectangle exit1;
+    @FXML public Rectangle exit9;
+    @FXML public Rectangle exit8;
+    @FXML public Rectangle exit7;
+    @FXML public Rectangle exit6;
+    @FXML public Rectangle room5;
+    @FXML public Rectangle room6; 
+    @FXML public Rectangle room3;
     @FXML public Rectangle room4;
-    @FXML private Rectangle room9;
-    @FXML private Rectangle room7;
-    @FXML private Rectangle room8;
-    @FXML private Rectangle dungeonEntrance;
+    @FXML public Rectangle room9;
+    @FXML public Rectangle room7;
+    @FXML public Rectangle room8;
+    @FXML public Rectangle dungeonEntrance;
     @FXML public Rectangle room2;
-    @FXML private Rectangle room10;
+    @FXML public Rectangle room10;
 
-    @FXML private ImageView monsTerSymbolImage;
-    @FXML private ImageView monsTerSymbolImage2;
-    @FXML private ImageView monsTerSymbolImage3;
-    @FXML private ImageView TreasureChestImage2;
-    @FXML private ImageView compassImage;
-    @FXML private ImageView bossSymbolImage1;
-    @FXML private ImageView dungeonImage;
-    @FXML private ImageView TreasureChestImage;
-    @FXML private ImageView jiggyMonsterImage;
-    @FXML private ImageView zawMonsterImage;
-    @FXML private ImageView streetRatMonsterImage;
-    @FXML private ImageView clourtavBossImage;
+    @FXML public ImageView monsTerSymbolImage;
+    @FXML public ImageView monsTerSymbolImage2;
+    @FXML public ImageView monsTerSymbolImage3;
+    @FXML public ImageView TreasureChestImage2;
+    @FXML public ImageView compassImage;
+    @FXML public ImageView bossSymbolImage1;
+    @FXML public ImageView dungeonImage;
+    @FXML public ImageView TreasureChestImage;
+    @FXML public ImageView jiggyMonsterImage;
+    @FXML public ImageView zawMonsterImage;
+    @FXML public ImageView streetRatMonsterImage;
+    @FXML public ImageView clourtavBossImage;
     
-    @FXML private TextArea navigationTextArea;
+    @FXML public TextArea navigationTextArea;
 
     public int roomNumber;
     public String disoveredMonster = "You have found a moster! Prepare to fight.";
@@ -441,9 +441,14 @@ public class ClourtavDungeonControl implements Initializable
 
 	private void loadNextScene(ActionEvent event) throws IOException 
 	{
+
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
 		Parent root = (Parent) loader.load();
+
 		CombatControl cc = loader.getController();
+
+		cc.monsterName = this.monsterName;
+
 		cc.setMonsterArea(monsterName);
 		
     	Scene scene2 = new Scene(root);
@@ -459,5 +464,12 @@ public class ClourtavDungeonControl implements Initializable
     	
  
 		
+	}
+	
+	
+	
+	public void getRoomVisiblity()
+	{
+		room2.setVisible(true);
 	}
 }
