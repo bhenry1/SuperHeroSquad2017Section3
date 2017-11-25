@@ -1,9 +1,19 @@
 package application.Dungeons;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import application.Main;
+import application.Combat.CombatControl;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -13,245 +23,250 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class ArthurDungeonControl {
-
-    @FXML
-    private Label room10MapLabel;
-
-    @FXML
-    private Circle playerLocation1;
+public class ArthurDungeonControl implements Initializable
+{
 
     @FXML
-    private Circle playerLocation3;
+    public Label room10MapLabel;
 
     @FXML
-    private Circle playerLocation2;
+    public Circle playerLocation1;
 
     @FXML
-    private AnchorPane armPane;
+    public Circle playerLocation3;
 
     @FXML
-    private Circle playerLocation5;
+    public Circle playerLocation2;
 
     @FXML
-    private Circle playerLocation4;
+    public AnchorPane armPane;
 
     @FXML
-    private Rectangle exit4;
+    public Circle playerLocation5;
 
     @FXML
-    private Rectangle exit5;
+    public Circle playerLocation4;
 
     @FXML
-    private Rectangle exit2;
+    public Rectangle exit4;
 
     @FXML
-    private Rectangle exit1;
+    public Rectangle exit5;
 
     @FXML
-    private TextArea itemTextArea;
+    public Rectangle exit2;
 
     @FXML
-    private Button leftBtn2;
+    public Rectangle exit1;
 
     @FXML
-    private ImageView monsTerSymbolImage7;
+    public TextArea itemTextArea;
 
     @FXML
-    private Rectangle exit11;
+    public Button leftBtn2;
 
     @FXML
-    private Rectangle exit9;
+    public ImageView monsTerSymbolImage7;
 
     @FXML
-    private ImageView monsTerSymbolImage2;
+    public Rectangle exit11;
 
     @FXML
-    private Rectangle exit8;
+    public Rectangle exit9;
 
     @FXML
-    private Rectangle exit7;
+    public ImageView monsTerSymbolImage2;
 
     @FXML
-    private Button downBtn2;
+    public Rectangle exit8;
 
     @FXML
-    private Rectangle exit6;
+    public Rectangle exit7;
+
+    @FXML
+    public Button downBtn2;
+
+    @FXML
+    public Rectangle exit6;
     
     @FXML
-    private Rectangle exit3;
+    public Rectangle exit3;
 
     @FXML
-    private Tab itemTab;
+    public Tab itemTab;
 
     @FXML
-    private Label room7MapLabel;
+    public Label room7MapLabel;
 
     @FXML
-    private ImageView mercenaryMonsterImage;
+    public ImageView mercenaryMonsterImage;
 
     @FXML
-    private Circle playerLocation11;
+    public Circle playerLocation11;
 
     @FXML
-    private ImageView slimeKingMonsterImage;
+    public ImageView slimeKingMonsterImage;
 
     @FXML
-    private Circle playerLocation10;
+    public Circle playerLocation10;
 
     @FXML
-    private Label room9MapLabel;
+    public Label room9MapLabel;
 
     @FXML
-    private ImageView compassImage;
+    public ImageView compassImage;
 
     @FXML
-    private Label roomName;
+    public Label roomName;
 
     @FXML
-    private Tab navTab;
+    public Tab navTab;
 
     @FXML
-    private Label room3MapLabel;
+    public Label room3MapLabel;
 
     @FXML
-    private AnchorPane navPane;
+    public AnchorPane navPane;
 
 
     @FXML
-    private AnchorPane itemPane;
+    public AnchorPane itemPane;
 
     @FXML
-    private TabPane userTabPane;
+    public TabPane userTabPane;
 
     @FXML
-    private AnchorPane mapPane;
+    public AnchorPane mapPane;
 
     @FXML
-    private Label room5MapLabel;
+    public Label room5MapLabel;
 
     @FXML
-    private TextArea navigationTextArea;
+    public TextArea navigationTextArea;
 
     @FXML
-    private Rectangle room5;
+    public Rectangle room5;
 
     @FXML
-    private ScrollPane mapView;
+    public ScrollPane mapView;
 
     @FXML
-    private Rectangle room6;
+    public Rectangle room6;
 
     @FXML
-    private Rectangle room3;
+    public Rectangle room3;
 
     @FXML
-    private Rectangle room4;
+    public Rectangle room4;
 
     @FXML
-    private Rectangle room9;
+    public Rectangle room9;
 
     @FXML
-    private Rectangle room7;
+    public Rectangle room7;
 
     @FXML
-    private Label room11MapLabel;
+    public Label room11MapLabel;
 
     @FXML
-    private Rectangle room8;
+    public Rectangle room8;
 
     @FXML
-    private Rectangle dungeonEntrance;
+    public Rectangle dungeonEntrance;
 
     @FXML
-    private TextArea armorTextArea;
+    public TextArea armorTextArea;
 
     @FXML
-    private Rectangle room2;
+    public Rectangle room2;
 
     @FXML
-    private Button backToCity2;
+    public Button backToCity2;
 
     @FXML
-    private Label room2MapLabel;
+    public Label room2MapLabel;
 
     @FXML
-    private Button menuBtn;
+    public Button menuBtn;
 
     @FXML
-    private ImageView bossSymbolImage1;
+    public ImageView bossSymbolImage1;
 
     @FXML
-    private ImageView dungeonImage;
+    public ImageView dungeonImage;
 
     @FXML
-    private Pane parentPane;
+    public Pane parentPane;
 
     @FXML
-    private Tab ArmTab;
+    public Tab ArmTab;
 
     @FXML
-    private Button upBtn2;
+    public Button upBtn2;
 
     @FXML
-    private Label dungoenEntranceMapLabel;
+    public Label dungoenEntranceMapLabel;
 
     @FXML
-    private Rectangle room10;
+    public Rectangle room10;
 
     @FXML
-    private Button rightBtn2;
+    public Button rightBtn2;
 
     @FXML
-    private Rectangle room11;
+    public Rectangle room11;
 
     @FXML
-    private AnchorPane weaponPane;
+    public AnchorPane weaponPane;
 
     @FXML
-    private Label navigationLabel;
+    public Label navigationLabel;
 
     @FXML
-    private Label room8MapLabel;
+    public Label room8MapLabel;
 
     @FXML
-    private Label movementLabel;
+    public Label movementLabel;
 
     @FXML
-    private Label mapLabel;
+    public Label mapLabel;
 
     @FXML
-    private Circle playerLocation7;
+    public Circle playerLocation7;
 
     @FXML
-    private TextArea weaponTextArea;
+    public TextArea weaponTextArea;
 
     @FXML
-    private Circle playerLocation6;
+    public Circle playerLocation6;
 
     @FXML
-    private Circle playerLocation9;
+    public Circle playerLocation9;
 
     @FXML
-    private Circle playerLocation8;
+    public Circle playerLocation8;
 
     @FXML
-    private ImageView hellScoutMonsterImage;
+    public ImageView hellScoutMonsterImage;
 
     @FXML
-    private Label room4MapLabel;
+    public Label room4MapLabel;
 
     @FXML
-    private Tab WeaponTab;
+    public Tab WeaponTab;
 
     @FXML
-    private Button examineRoomBtn2;
+    public Button examineRoomBtn2;
 
     @FXML
-    private Label room6MapLabel;
+    public Label room6MapLabel;
 
     ArthurDungeonModel adm = new ArthurDungeonModel();
     ArthurDungeonNavigationTextModel adntm = new ArthurDungeonNavigationTextModel();
@@ -261,7 +276,10 @@ public class ArthurDungeonControl {
 
     
     
+    public String monsterName;
     public int roomNumber;
+    
+    MediaPlayer mp;
     
     @FXML
     void moveUp2(ActionEvent event) 
@@ -280,6 +298,11 @@ public class ArthurDungeonControl {
     		monsTerSymbolImage2.setVisible(true);
     		hellScoutMonsterImage.setVisible(true);
     		adntm.setDiscoveredMonsterText(discoveredMonster, navigationTextArea);
+    		
+    		monsterName = adm.getMonsterName(adm.getRoomName(roomNumber));
+    		makeFadeOut();
+
+
     	}
     	
     	if(roomNumber == 0)
@@ -333,7 +356,9 @@ public class ArthurDungeonControl {
     	
     }
 
-    @FXML
+    
+
+	@FXML
     void moveDown2(ActionEvent event) 
     {
     	int roomNumber = adm.getRoomNumber4MovingDown(this.roomNumber);
@@ -371,6 +396,10 @@ public class ArthurDungeonControl {
     		//Change mon visiblity here?
     		mercenaryMonsterImage.setVisible(true);
     		adntm.setDiscoveredMonsterText(discoveredMonster, navigationTextArea);
+    		
+    		monsterName = adm.getMonsterName(adm.getRoomName(roomNumber));
+    		
+    		makeFadeOut();
 
     		
     	}
@@ -396,6 +425,10 @@ public class ArthurDungeonControl {
     		bossSymbolImage1.setVisible(true);
     		slimeKingMonsterImage.setVisible(true);
     		adntm.setDiscoveredMonsterText(discoveredBoss, navigationTextArea);
+    		
+    		monsterName = adm.getMonsterName(adm.getRoomName(roomNumber));
+    		
+    		makeFadeOut();
 
     		
     	}
@@ -483,6 +516,10 @@ public class ArthurDungeonControl {
 		room2MapLabel.setVisible(true);
 		hellScoutMonsterImage.setVisible(true);
 		adntm.setDiscoveredMonsterText(discoveredMonster, navigationTextArea);
+		
+		monsterName = adm.getMonsterName(adm.getRoomName(roomNumber));
+		
+		makeFadeOut();
 
 		
 	}
@@ -533,7 +570,9 @@ public class ArthurDungeonControl {
     @FXML
     void exitDungeon2(ActionEvent event) throws IOException 
     {
-    	adm.leaveDungeon(event);    
+		mp.stop();
+    	adm.leaveDungeon(event); 
+
     }
 
     @FXML
@@ -550,6 +589,81 @@ public class ArthurDungeonControl {
     	adntm.closeFile();
     }
 
+    private void makeFadeOut() 
+    {
+
+		 FadeTransition fadeTrans = new FadeTransition();
+		 fadeTrans.setDuration(Duration.millis(2000));
+		 fadeTrans.setNode(parentPane);
+		 fadeTrans.setFromValue(1);
+		 fadeTrans.setToValue(0);
+		 fadeTrans.play();
+		 
+		 fadeTrans.setOnFinished((ActionEvent event) ->
+		 {
+			try 
+			{
+				mp.stop();
+				loadNextScene(event);
+				
+			} 
+			catch (IOException | URISyntaxException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		 });		
+	}
+
+
+
+	private void loadNextScene(ActionEvent event) throws IOException, URISyntaxException 
+	{
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
+		Parent root = (Parent) loader.load();
+
+		CombatControl cc = loader.getController();
+
+		cc.monsterName = this.monsterName;
+
+		cc.setMonsterArea(monsterName);
+		
+    	Scene scene2 = new Scene(root);
+		Stage newWindow = (Stage) parentPane.getScene().getWindow();
+		newWindow.setScene(scene2);
+		newWindow.show();
+
+		
+	}
+
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) 
+	{
+		try
+		{
+			Media media = new Media(getClass().getResource("/music/Dungeon.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.play();
+			mp.setVolume(0.5);
+			
+			//Test this and add to rest of classes with music
+			mp.setOnEndOfMedia(new Runnable() 
+			{
+			       public void run() 
+			       {
+			         mp.seek(Duration.ZERO);
+			       }
+			   });
+			  mp.play();
+		}
+		catch (URISyntaxException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	// TODO Auto-generated method stub		
+	}
     
 
 }

@@ -135,6 +135,35 @@ public class HackiponDungeonModel
     	window.show();
 	}
 	
+	public String getMonsterName(String roomName)
+	{
+		if(roomName.equals("Room 2"))
+		{
+			return "Angry Slime";
+		}
+		
+		if(roomName.equals("Room 5"))
+		{
+			return "Bugo";
+		}
+		
+		if(roomName.equals("Room 6"))
+		{
+			return "Trickster";
+		}
+		
+		if(roomName.equals("Room 10"))
+		{
+			return "DM: Ogre";
+		}
+		
+		
+	
+		
+		return "";
+		
+	}
+	
 	
 	
 }

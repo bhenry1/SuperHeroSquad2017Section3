@@ -42,6 +42,37 @@ public class CombatModel extends Character
 			window.setScene(scene2);
 			window.show();
 		}
+
+		
+		public void fleeHackiponBattle(ActionEvent event) throws IOException
+		{
+			Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/HackiponDungeon.fxml"));
+			Scene scene2 = new Scene(root);
+			Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+			window.setScene(scene2);
+			window.show();
+		}
+		
+		public void fleeArthurBattle(ActionEvent event) throws IOException
+		{
+			Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/ArthurDungeon.fxml"));
+			Scene scene2 = new Scene(root);
+			Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+			window.setScene(scene2);
+			window.show();
+		}
+		
+		public void fleeHifenourBattle(ActionEvent event) throws IOException
+		{
+			Parent root = FXMLLoader.load(Main.class.getResource("Dungeons/HifenourDungeon.fxml"));
+			Scene scene2 = new Scene(root);
+			Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+			window.setScene(scene2);
+			window.show();
+		}
+	
+	
+
 	
 		
 		
@@ -117,6 +148,20 @@ public class CombatModel extends Character
 				case "Elephant Kin" : return 10;
 				case "Thief" : return 10;
 				case "DM: Guardsman" : return 17;
+
+				case "Angry Slime" : return 25;
+				case "Bugo" : return 23;
+				case "Trickster" : return 24;
+				case "DM: Ogre" : return 45;
+				case "Hell Scout" : return  15;
+				case "Mercenary" : return 17;
+				case "DM: Slime King" : return 35;
+				case "Devourer" : return 31;
+				case "Succubus" : return 33;
+				case "DM: Dark Knight" : return 55;
+				
+				
+
 				default : return 0;
 
 				

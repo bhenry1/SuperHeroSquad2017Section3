@@ -1,6 +1,7 @@
 package application.Combat;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -25,6 +26,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 public class CombatControl extends Character implements Initializable
@@ -50,6 +54,19 @@ public class CombatControl extends Character implements Initializable
     @FXML private ImageView elephantKinMonsterImage;
     @FXML private ImageView thiefMonsterImage;
     @FXML private ImageView GuardsmanBossImage;
+
+    @FXML private ImageView ogreBossImage;
+    @FXML private ImageView angrySlimeMonsterImage;
+    @FXML private ImageView bugoMonsterImage;
+    @FXML private ImageView tricksterMonsterImage;
+    @FXML private ImageView hellScoutMonsterImage;
+    @FXML private ImageView mercenaryMonsterImage;
+    @FXML private ImageView slimeKingMonsterImage;
+    @FXML private ImageView darkKnightBossImage;
+    @FXML private ImageView devourerMonsterImage;
+    @FXML private ImageView succubusMonsterImage;
+    
+    
 
 
     @FXML private TextArea battleTextArea;
@@ -121,17 +138,35 @@ public class CombatControl extends Character implements Initializable
 
 
 
+	MediaPlayer mp;
+	MediaPlayer mp2;
 
-
-    
-    
-
- 
-    
-
-	@Override
+    @Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
+		System.out.println(monsterName);
+		try
+	{
+		Media media = new Media(getClass().getResource("/music/Battle.mp3").toURI().toString());
+		mp = new MediaPlayer(media);
+		mp.play();
+		mp.setVolume(0.5);
+		
+		mp.setOnEndOfMedia(new Runnable() 
+		{
+		       public void run() 
+		       {
+		         mp.seek(Duration.ZERO);
+		       }
+		   });
+		  mp.play();
+	}
+		catch (URISyntaxException e) 
+	{
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}	// TODO Auto-genera
+	
 		parentPane.setOpacity(0);
 		healthLabel.setText("Health: " + playerHealth);
 		fadeInTransition();		
@@ -148,20 +183,29 @@ public class CombatControl extends Character implements Initializable
 		
 	}
 	
-	public void setMonsterArea(String monsterName)
+	public void setMonsterArea(String monsterName) throws URISyntaxException
 	{
 		this.monsterName = monsterName;
 		
 		monsterLabel.setText(this.monsterName);
 		
 		if(this.monsterName.equals("Jiggy"))
-		jiggyMonsterImage.setVisible(true);
-		
+		{
+			jiggyMonsterImage.setVisible(true);
+		}
 		if(this.monsterName.equals("Zaw"))
 		zawMonsterImage.setVisible(true);
 		
 		if(this.monsterName.equals("Dungeon Master Zul"))
-		clourtavBossImage.setVisible(true);
+		{
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/DungeonMaster.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+
+			clourtavBossImage.setVisible(true);
+		}
 		
 		if(this.monsterName.equals("Street Rat"))
 		streetRatMonsterImage.setVisible(true);
@@ -175,9 +219,18 @@ public class CombatControl extends Character implements Initializable
 		
 		if(this.monsterName.equals("DM: Goblin Capt."))
 		{
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/DungeonMaster.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+
 			goblinComMonsterImage.setVisible(true);
 			Image img = new Image("file:Images/ClourtavDungeon.jpg");
 			dungeonImage.setImage(img);
+
+
+
 		}
 		
 		if(this.monsterName.equals("Elephant Kin"))
@@ -198,12 +251,115 @@ public class CombatControl extends Character implements Initializable
 		
 		if(this.monsterName.equals("DM: Guardsman"))
 		{
+
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/DungeonMaster.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+
+
 			GuardsmanBossImage.setVisible(true);
 			Image img = new Image("file:Images/MonetoncDungeon.jpg");
 			dungeonImage.setImage(img);
 
 		}
 		
+
+		if(this.monsterName.equals("Angry Slime"))
+		{
+			angrySlimeMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/HackiponDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("Bugo"))
+		{
+			bugoMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/HackiponDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("Trickster"))
+		{
+			tricksterMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/HackiponDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("DM: Ogre"))
+		{
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/DungeonMaster.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+
+			ogreBossImage.setVisible(true);
+			Image img = new Image("file:Images/HackiponDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+
+		if(this.monsterName.equals("Hell Scout"))
+		{
+			hellScoutMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/ArthurDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+
+		if(this.monsterName.equals("Mercenary"))
+		{
+			mercenaryMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/ArthurDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("DM: Slime King"))
+		{
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/DungeonMaster.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+
+			slimeKingMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/ArthurDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("Devourer"))
+		{
+			devourerMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/HifenourDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("Succubus"))
+		{
+			succubusMonsterImage.setVisible(true);
+			Image img = new Image("file:Images/HifenourDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		if(this.monsterName.equals("DM: Dark Knight"))
+		{
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/DungeonMaster.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+
+			darkKnightBossImage.setVisible(true);
+			Image img = new Image("file:Images/HifenourDungeon.jpg");
+			dungeonImage.setImage(img);
+		}
+		
+		
+		
+		
+
     	 monsterHealth = cbm.getMonsterHealth(this.monsterName);
     	 
 
@@ -215,6 +371,7 @@ public class CombatControl extends Character implements Initializable
     @FXML
     void flee(ActionEvent event) throws IOException 
     {
+
     	if(monsterName.equals("Bat") || monsterName.equals("DM: Goblin Capt."))
     	cbm.fleeMorstetBattle(event);
     	
@@ -222,7 +379,30 @@ public class CombatControl extends Character implements Initializable
     	cbm.fleeMonetoncBattle(event);
     	
     	else	
+
+    	mp.stop();
+    	
+    	if( (monsterName.equals("Bat")) || (monsterName.equals("DM: Goblin Capt.")) )
+    	{
+    	cbm.fleeMorstetBattle(event);
+    	}
+    	else if((monsterName.equals("Elephant Kin")) || (monsterName.equals("Thief")) || (monsterName.equals("DM: Guardsman")) )
+    	cbm.fleeMonetoncBattle(event);
+    	
+    	else if((monsterName.equals("Angry Slime")) || (monsterName.equals("Bugo")) || (monsterName.equals("Trickster")) || (monsterName.equals("DM: Ogre")) )
+        cbm.fleeHackiponBattle(event);
+    	
+    	else if((monsterName.equals("Hell Scout")) || (monsterName.equals("Mercenary")) || (monsterName.equals("DM: Slime King")) )
+    	cbm.fleeArthurBattle(event);
+    	
+    	else if((monsterName.equals("Devourer")) || (monsterName.equals("Succubus")) || (monsterName.equals("DM: Dark Knight")) )
+        cbm.fleeHifenourBattle(event);
+    	
+    	else
+    	{
+
     	cbm.fleeBattle(event);
+    	}
     	
     }
 
@@ -233,10 +413,16 @@ public class CombatControl extends Character implements Initializable
     }
 
     @FXML
-    void attackMonster(ActionEvent event) throws IOException 
+
+  
+    void attackMonster(ActionEvent event) throws IOException, URISyntaxException 
     {
     	if(knifeEquipped)
     	{
+    		Media media = new Media(getClass().getResource("/music/knifeAttack.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media);
+            mp2.play();
+            
         	damageDealt = playerstrength + knifePower;
         	damageDealt = 1 + (int)(Math.random() * ((damageDealt - 1) + 1));        	
         	damageLabel.setText("" + damageDealt);
@@ -263,6 +449,12 @@ public class CombatControl extends Character implements Initializable
     	
     	if(swordEquipped)
     	{
+
+    		Media media = new Media(getClass().getResource("/music/swordAttack.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media);
+            mp2.play();
+            
+
     		damageDealt = playerstrength + swordPower;
     		damageDealt = 4 + (int)(Math.random() * ((damageDealt - 4) + 1));
     		damageLabel.setText("" + damageDealt);
@@ -291,6 +483,12 @@ public class CombatControl extends Character implements Initializable
     	}
     	if(longSwordEquipped)
     	{
+
+    		Media media = new Media(getClass().getResource("/music/longswordAttack.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media);
+            mp2.play();
+            
+
     		damageDealt = playerstrength + longSwordPower;
     		damageDealt = 6 + (int)(Math.random() * ((damageDealt - 6) + 1));
     		damageLabel.setText("" + damageDealt);
@@ -319,6 +517,12 @@ public class CombatControl extends Character implements Initializable
     	}
     	if(gunBladeEquipped)
     	{
+
+    		Media media = new Media(getClass().getResource("/music/gunBladeAttack.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media);
+            mp2.play();
+            
+
     		damageDealt = playerstrength + gunBladePower;
     		damageDealt = 10 + (int)(Math.random() * ((damageDealt - 10) + 1));
     		damageLabel.setText("" + damageDealt);
@@ -351,7 +555,12 @@ public class CombatControl extends Character implements Initializable
     	}
     	if(mightyAxeEquipped)
     	{
-        damageDealt = playerstrength + mightyAxePower;
+
+    		Media media = new Media(getClass().getResource("/music/axeAttack.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media);
+            mp2.play();
+            
+            damageDealt = playerstrength + mightyAxePower;
 		damageDealt = 14 + (int)(Math.random() * ((damageDealt - 14) + 1));
     	damageLabel.setText("" + damageDealt);
     	damageLabel.setVisible(true);
@@ -365,6 +574,7 @@ public class CombatControl extends Character implements Initializable
     		winBattle(event, monsterName);
     	}
 
+
     	
     	makeFadeOut();
     	
@@ -375,6 +585,18 @@ public class CombatControl extends Character implements Initializable
     	newHealth = getNewHealth(damageRecived); 
     	healthLabel.setText("Health: " + newHealth);
     	
+
+    	
+    	makeFadeOut();
+    	
+    	cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
+    	attkBtn.setVisible(false);
+    	
+    	damageRecived = monsterCounterAtk(monsterName);
+    	newHealth = getNewHealth(damageRecived); 
+    	healthLabel.setText("Health: " + newHealth);
+    	
+
     	//playerHealth = playerHealth - damageRecived;
 
 
@@ -389,6 +611,7 @@ public class CombatControl extends Character implements Initializable
 
     private void winBattle(ActionEvent event, String monsterName) throws IOException 
     {
+    	mp.stop();
     	cbm.showVictoryScreen(event, monsterName);
     	
 	}
@@ -399,7 +622,11 @@ public class CombatControl extends Character implements Initializable
     
     
     @FXML
-    void equipKnife(ActionEvent event) throws IOException 
+
+   
+
+    void equipKnife(ActionEvent event) throws IOException, URISyntaxException 
+
     {
     	if( (map.get("Knife") == null) || (map.get("Knife") == 0) )
     	{
@@ -408,7 +635,14 @@ public class CombatControl extends Character implements Initializable
     	}
     	else
     	{
+
     	System.out.println("How am i getting here");
+
+		Media media = new Media(getClass().getResource("/music/drawKnife.mp3").toURI().toString());
+		mp2 = new MediaPlayer(media);
+		mp2.play();
+
+
     	knifeEquipped = true;
     	swordEquipped = false;
     	longSwordEquipped = false;
@@ -418,7 +652,11 @@ public class CombatControl extends Character implements Initializable
     }
     
     @FXML
-    void equipSword(ActionEvent event) throws IOException 
+
+   
+
+    void equipSword(ActionEvent event) throws IOException, URISyntaxException 
+
     {
     	if( (map.get("Sword") == null) || (map.get("Sword") == 0) )
     	{
@@ -428,6 +666,12 @@ public class CombatControl extends Character implements Initializable
     	
     	else 
     	{
+
+    	Media media = new Media(getClass().getResource("/music/drawSword.mp3").toURI().toString());
+    	mp2 = new MediaPlayer(media);
+    	mp2.play();
+    	
+
     	swordEquipped = true;
     	knifeEquipped = false;
     	longSwordEquipped = false;
@@ -437,7 +681,11 @@ public class CombatControl extends Character implements Initializable
     }
     
     @FXML
-    void equipLongSword(ActionEvent event) throws IOException 
+
+   
+
+    void equipLongSword(ActionEvent event) throws IOException, URISyntaxException 
+
     {
     	if( (map.get("LongSword") == null) || (map.get("LongSword") == 0) )
     	{
@@ -446,6 +694,12 @@ public class CombatControl extends Character implements Initializable
     	}
     	else
     	{
+
+    	Media media = new Media(getClass().getResource("/music/DrawLongSword.mp3").toURI().toString());
+        mp2 = new MediaPlayer(media);
+        mp2.play();
+        
+
     	longSwordEquipped = true;
     	swordEquipped = false;
     	knifeEquipped = false;
@@ -455,7 +709,11 @@ public class CombatControl extends Character implements Initializable
     }
     
     @FXML
-    void equipGunBlade(ActionEvent event) throws IOException 
+
+    
+
+    void equipGunBlade(ActionEvent event) throws IOException, URISyntaxException 
+
     {
     	if( (map.get("GunBlade") == null) || (map.get("GunBlade") == 0) )
     	{
@@ -465,6 +723,12 @@ public class CombatControl extends Character implements Initializable
     	
     	else
     	{
+
+    	Media media = new Media(getClass().getResource("/music/DrawGunBlade.mp3").toURI().toString());
+        mp2 = new MediaPlayer(media);
+        mp2.play();
+    		
+
     	gunBladeEquipped = true;
     	swordEquipped = false;
     	knifeEquipped = false;
@@ -474,7 +738,11 @@ public class CombatControl extends Character implements Initializable
     }
     
     @FXML
-    void equipMightyAxe(ActionEvent event) throws IOException 
+
+  
+
+    void equipMightyAxe(ActionEvent event) throws IOException, URISyntaxException 
+
     {
     	if( (map.get("MightyAxe") == null) || (map.get("MightyAxe") == 0) )
     	{
@@ -484,12 +752,19 @@ public class CombatControl extends Character implements Initializable
     	
     	else
     	{
+
+    	Media media = new Media(getClass().getResource("/music/DrawAxe.mp3").toURI().toString());
+        mp2 = new MediaPlayer(media);
+        mp2.play();
+        	
+
     	mightyAxeEquipped = true;
     	gunBladeEquipped = false;
     	swordEquipped = false;
     	knifeEquipped = false;
     	longSwordEquipped = false;
     	}
+
     }
     
     @FXML
@@ -506,10 +781,14 @@ public class CombatControl extends Character implements Initializable
     	playerDefense = 2;
     }
     
+   
+   
+    
     @FXML
     void equipLeatherClothing(ActionEvent event) throws IOException 
     {
     	
+
     	if( (map.get("LeatherClothes") == null) || (map.get("LeatherClothes") == 0)  )
     	{
         cbm.outOfItems(event);

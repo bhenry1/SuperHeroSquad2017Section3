@@ -1,6 +1,9 @@
 package application.Dungeons;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import application.Main;
 import application.Combat.CombatControl;
@@ -8,6 +11,8 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,12 +24,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class MorestetDungeonControl 
+public class MorestetDungeonControl implements Initializable 
 {
 
     @FXML
@@ -183,6 +190,9 @@ public class MorestetDungeonControl
     private String discoveredBoss = "You have discovered the Dungeon Master. Prepare for a tough fight.";
     public int roomNumber;
     public String monsterName;
+
+    
+    MediaPlayer mp;
     @FXML
     void moveUp2(ActionEvent event) 
     {
@@ -289,6 +299,7 @@ public class MorestetDungeonControl
     @FXML
     void exitDungeon2(ActionEvent event) throws IOException 
     {
+    	mp.stop();
     	mdm.leaveDungeon(event);
     }
 
@@ -321,9 +332,11 @@ public class MorestetDungeonControl
 		 {
 			try 
 			{
+				mp.stop();
 				loadNextScene(event);
 			} 
-			catch (IOException e) 
+		
+			catch (IOException | URISyntaxException e) 
 			{
 				e.printStackTrace();
 			}
@@ -331,7 +344,11 @@ public class MorestetDungeonControl
 		 });
 		}
 
-	private void loadNextScene(ActionEvent event) throws IOException 
+
+	
+
+	private void loadNextScene(ActionEvent event) throws IOException, URISyntaxException 
+
 	{
 
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
@@ -357,6 +374,35 @@ public class MorestetDungeonControl
  
 				
 	}
+
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) 
+	{
+		try
+		{
+			Media media = new Media(getClass().getResource("/music/Dungeon.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.play();
+			mp.setVolume(0.5);
+			
+			//Test this and add to rest of classes with music
+			mp.setOnEndOfMedia(new Runnable() 
+			{
+			       public void run() 
+			       {
+			         mp.seek(Duration.ZERO);
+			       }
+			   });
+			  mp.play();
+		}
+		catch (URISyntaxException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	// TOD		
+	}
+
 
     
 }

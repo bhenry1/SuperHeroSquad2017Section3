@@ -1,12 +1,18 @@
 package application.MainMenu;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
 
 import Items.Inventory;
+import application.NewGameController;
 import application.CityElements.ShopControl;
 import application.CityElements.ShopModel;
 import javafx.event.ActionEvent;
@@ -26,6 +32,7 @@ import javafx.scene.media.MediaPlayer;
 
 public class MainMenuControl extends Items.Inventory implements Initializable
 {
+	NewGameController ngc = new NewGameController();
 	
     @FXML
     private Label mightyAxeAmount;
@@ -340,12 +347,28 @@ public class MainMenuControl extends Items.Inventory implements Initializable
     MainMenuModel mmm = new MainMenuModel();
 
     @FXML
-    void saveGame(ActionEvent event) {
-
+    void saveGame(ActionEvent event) throws IOException 
+    {
+    	try 
+    	{
+			BufferedWriter savedNames = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("SavedNames.txt"), "utf-8"));
+			savedNames.write(ngc.playerName);
+		} 
+    		catch (UnsupportedEncodingException e) 
+    	{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+    		catch (FileNotFoundException e) 
+    	{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @FXML
-    void loadGame(ActionEvent event) {
+    void loadGame(ActionEvent event) 
+    {
 
     }
 

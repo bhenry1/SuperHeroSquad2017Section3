@@ -1,6 +1,7 @@
 package application.Dungeons;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.SynchronousQueue;
@@ -22,6 +23,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -113,6 +116,8 @@ public class ClourtavDungeonControl implements Initializable
     public String monsterName;
     
     public boolean monster;
+    
+    MediaPlayer mp;
    
 
     @FXML
@@ -381,6 +386,8 @@ public class ClourtavDungeonControl implements Initializable
     void exitDungeon(ActionEvent event) throws IOException 
     {
     	mdm.leaveDungeon(event);
+		mp.stop();
+
     }
 
     @FXML
@@ -398,12 +405,7 @@ public class ClourtavDungeonControl implements Initializable
     	read.closeFile();
     }
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) 
-	{
-		//do stuff 
-		
-	}
+	
 	
 	
 	public String getRoomName(String roomName)
@@ -427,9 +429,11 @@ public class ClourtavDungeonControl implements Initializable
 		 {
 			try 
 			{
+				mp.stop();
+
 				loadNextScene(event);
 			} 
-			catch (IOException e) 
+			catch (IOException | URISyntaxException e) 
 			{
 				e.printStackTrace();
 			}
@@ -439,7 +443,7 @@ public class ClourtavDungeonControl implements Initializable
 
 
 
-	private void loadNextScene(ActionEvent event) throws IOException 
+	private void loadNextScene(ActionEvent event) throws IOException, URISyntaxException 
 	{
 
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
@@ -471,5 +475,34 @@ public class ClourtavDungeonControl implements Initializable
 	public void getRoomVisiblity()
 	{
 		room2.setVisible(true);
+	}
+
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) 
+	{
+		try
+		{
+			Media media = new Media(getClass().getResource("/music/Dungeon.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.play();
+			mp.setVolume(0.5);
+			
+			//Test this and add to rest of classes with music
+			mp.setOnEndOfMedia(new Runnable() 
+			{
+			       public void run() 
+			       {
+			         mp.seek(Duration.ZERO);
+			       }
+			   });
+			  mp.play();
+		}
+		catch (URISyntaxException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	// TODO Auto-ge		
 	}
 }

@@ -117,6 +117,31 @@ public class HifenourDungeonModel
 			
 			else return "Room " + roomNumber;
 		}
+	
+	public String getMonsterName(String roomName)
+	{
+		if(roomName.equals("Room 2"))
+		{
+			return "Devourer";
+		}
+		
+		if(roomName.equals("Room 4"))
+		{
+			return "Succubus";
+		}
+		
+		if(roomName.equals("Room 7"))
+		{
+			return "DM: Dark Knight";
+		}
+		
+		
+		
+	
+		
+		return "";
+		
+	}
 		
 	
 

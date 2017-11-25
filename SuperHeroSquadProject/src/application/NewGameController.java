@@ -1,7 +1,11 @@
 package application;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.Arrays;
 
 import javafx.event.ActionEvent;
@@ -18,8 +22,9 @@ import javafx.scene.layout.Pane;
  
  public class NewGameController 
  {
-	 NewGameModel ngm = new NewGameModel();
+	NewGameModel ngm = new NewGameModel();
 	 
+	public String playerName; 
 	 
     @FXML
     private Button beginButton;
@@ -54,10 +59,7 @@ import javafx.scene.layout.Pane;
     	else
     	{
     		ngm.backToWorldMap(event);
-    		PrintWriter savedNames = new PrintWriter("SuperHeroSquadProject/TextFiles/SavedNames.txt", "UTF-8");
-    		savedNames.println(charName.getText());
-    		savedNames.close();
-    		
+    		playerName = charName.getText();
     	}
     
    }

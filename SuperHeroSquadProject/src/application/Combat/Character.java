@@ -45,6 +45,26 @@ public class Character extends Inventory
 	public int elephantkinPower = 4;
 	public int thiefPower = 3;
 	public int dmGuardsmanPower = 6;
+
+	//Hackipon
+	public int angrySlimePower = 5;
+	public int bugoPower = 4;
+	public int tricksterPower = 4;
+	public int dmOgrePower = 8;
+	//Arthur
+	public int hellScoutPower = 4;
+	public int mercenaryPower = 5;
+	public int slimeKingPower = 7;
+	//Hifenoir
+	public int devourerPower = 6;
+	public int sucPower = 6;
+	public int darkKnightPower = 8;
+	
+
+
+	
+	
+
 	
 	public int monsterCounterAtk(String monsterName)
 	{
@@ -109,12 +129,136 @@ public class Character extends Inventory
 		if(monsterName.equals("Elephant Kin"))
 		{
 			damageRecived = elephantkinPower - playerDefense;
+
+    		damageRecived = 2 + (int)(Math.random() * ((damageRecived - 1) + 2));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("Thief"))
+		{
+			damageRecived = elephantkinPower - playerDefense;
+    		damageRecived = 2 + (int)(Math.random() * ((damageRecived - 1) + 2));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("DM: Guardsman"))
+		{
+			damageRecived = elephantkinPower - playerDefense;
+    		damageRecived = 4 + (int)(Math.random() * ((damageRecived - 1) + 4));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("Angry Slime"))
+		{
+			damageRecived = angrySlimePower - playerDefense;
+    		damageRecived = 4 + (int)(Math.random() * ((damageRecived - 1) + 4));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("Bugo"))
+		{
+			damageRecived = bugoPower - playerDefense;
     		damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 3));
 
 			return damageRecived;
 			
 		}
 		
+		
+		if(monsterName.equals("Trickster"))
+		{
+			damageRecived = tricksterPower - playerDefense;
+    		damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 3));
+
+			return damageRecived;
+			
+		}
+		
+	
+		
+		if(monsterName.equals("DM: Ogre"))
+		{
+			damageRecived = dmOgrePower - playerDefense;
+    		damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 3));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("Hell Scout"))
+		{
+			damageRecived = hellScoutPower - playerDefense;
+    		damageRecived = 2 + (int)(Math.random() * ((damageRecived - 1) + 1));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("Mercenary"))
+		{
+			damageRecived = mercenaryPower - playerDefense;
+    		damageRecived = 2 + (int)(Math.random() * ((damageRecived - 1) + 2));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("DM: Slime King"))
+		{
+			damageRecived = mercenaryPower - playerDefense;
+			damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 3));
+			return damageRecived;
+			
+		}
+		
+
+		if(monsterName.equals("Devourer"))
+		{
+			damageRecived = devourerPower - playerDefense;
+    		damageRecived = 5 + (int)(Math.random() * ((damageRecived - 1) + 3));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("Succubus"))
+		{
+			damageRecived = sucPower - playerDefense;
+    		damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 1));
+
+			return damageRecived;
+			
+		}
+		
+		if(monsterName.equals("DM: Dark Knight"))
+		{
+			damageRecived = darkKnightPower - playerDefense;
+    		damageRecived = 5 + (int)(Math.random() * ((damageRecived - 1) + 2));
+
+			return damageRecived;
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
 		
 		
 		
