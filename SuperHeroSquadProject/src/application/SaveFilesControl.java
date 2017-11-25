@@ -62,7 +62,9 @@ MediaPlayer mp;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) 
 	{
-
+		NewGameController ngc = new NewGameController();
+		
+		
 		Media media;
 		try 
 		{
@@ -76,6 +78,9 @@ MediaPlayer mp;
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
+		
+	
 
 }

@@ -1,6 +1,8 @@
 package application;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,7 +37,9 @@ import javafx.scene.layout.Pane;
     private ImageView startScreen;
 
     @FXML
-    private TextField charName;
+    public TextField charName;
+    
+    
 
     @FXML
     void saveCharName(ActionEvent event) throws IOException 
@@ -44,12 +48,16 @@ import javafx.scene.layout.Pane;
     	System.out.println(charName.getText());
     	if(charName.getText().equals(""))
     	{
-    		//validate
+    		ngm.emptyUserName(event);
     	}
     	
     	else
     	{
     		ngm.backToWorldMap(event);
+    		PrintWriter savedNames = new PrintWriter("SuperHeroSquadProject/TextFiles/SavedNames.txt", "UTF-8");
+    		savedNames.println(charName.getText());
+    		savedNames.close();
+    		
     	}
     
    }

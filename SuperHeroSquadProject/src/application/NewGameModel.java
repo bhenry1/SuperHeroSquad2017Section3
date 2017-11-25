@@ -30,4 +30,13 @@ public class NewGameModel
     	window.show();
 	}
 	
+	public void emptyUserName(ActionEvent event) throws IOException
+	{
+		Parent secondPane = FXMLLoader.load(getClass().getResource("emptymessage.fxml"));
+    	Scene scene2 = new Scene(secondPane);
+    	Stage emptyName = new Stage();  
+    	emptyName.setScene(scene2);
+    	emptyName.show();
+    	
+	}
 }
