@@ -87,5 +87,24 @@ public class MorestetDungeonModel
 	}
 	
 	
+	public String getMonsterName(String roomName)
+	{
+		if(roomName.equals("Room 3"))
+		{
+			return "Bat";
+		}
+		
+		if(roomName.equals("Room 4"))
+		{
+			return "DM: Goblin Capt.";
+		}
+		
+		
+		
+		return "";
+		
+	}
+	
+	
 	
 }

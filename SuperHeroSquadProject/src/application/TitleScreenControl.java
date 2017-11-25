@@ -60,7 +60,7 @@ MediaPlayer mp;
     @FXML
     void newGameOnClick(ActionEvent event) throws IOException 
     {
-    	model.changeToSaveScreen(event);
+    	model.newGameScreen(event);
     	mp.stop();
     }
     

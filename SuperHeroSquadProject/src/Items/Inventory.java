@@ -105,6 +105,13 @@ public class Inventory
 		map.put("DefensePotion", defensePotionCounter);
 	}
 	
+	public int removePotion()
+	{
+		potionCounter--;
+		return potionCounter;
+		
+	}
+	
 	
 	
 	

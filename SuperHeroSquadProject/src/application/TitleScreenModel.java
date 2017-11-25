@@ -37,6 +37,16 @@ public class TitleScreenModel
     	window.show();
 	}
 	
+	public void newGameScreen(ActionEvent event) throws IOException
+	{
+		Parent secondPane = FXMLLoader.load(getClass().getResource("NewGameView.fxml"));
+    	Scene scene2 = new Scene(secondPane);
+    	
+    	Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+    	window.setScene(scene2);
+    	window.show();
+	}
+	
 	public void playMusic(String startButton) throws URISyntaxException
 	{
 		

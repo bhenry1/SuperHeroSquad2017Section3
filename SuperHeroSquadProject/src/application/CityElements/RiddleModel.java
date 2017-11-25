@@ -27,6 +27,8 @@ public class RiddleModel
 		{
 			String clourtavRiddle = rInput.nextLine();
 			return clourtavRiddle;
+			
+			
 		}
 		
 		return "";

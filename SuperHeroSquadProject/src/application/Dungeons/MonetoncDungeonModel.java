@@ -72,6 +72,29 @@ public class MonetoncDungeonModel
 			
 			else return "Room " + roomNumber;
 		}
+	
+	public String getMonsterName(String roomName)
+	{
+		if(roomName.equals("Room 4"))
+		{
+			return "Elephant Kin";
+		}
+		
+		if(roomName.equals("Room 5"))
+		{
+			return "Thief";
+		}
+		
+		if(roomName.equals("Room 6"))
+		{
+			return "DM: Guardsman";
+		}
+		
+	
+		
+		return "";
+		
+	}
 		
 	
 

@@ -64,7 +64,7 @@ public class GatesOfHellControl implements Initializable
 			Media media = new Media(getClass().getResource("/music/TheGatesOfHell.mp3").toURI().toString());
 			mp = new MediaPlayer(media);
 			mp.play();
-			mp.setVolume(0.5);
+			mp.setVolume(0.3);
 			
 			//Test this and add to rest of classes with music
 			mp.setOnEndOfMedia(new Runnable() 

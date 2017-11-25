@@ -1,10 +1,14 @@
 package application.Combat;
 
-public class Character 
+import Items.Inventory;
+
+public class Character extends Inventory
 {
 	//Player
 	public int playerLevel = 1;
+	public int maxPlayerHealth =  20;
 	public int playerHealth =  20;
+
 	public int playerstrength = 1; 
 	public int playerDefense = 1; 
 	public int expirence;
@@ -28,22 +32,30 @@ public class Character
 
 
 
-	//Monster
+	//Monsters
 	public int monsterHealth;
 	public int damageRecived; 
 	public int jiggyAttackPower = 3;
+	public int jiggyHealth = 11;
 	public int zawAttackPower = 4;
 	public int streetRatPower = 3;
 	public int dungeonMasterZulPower = 7;
+	public int batPower = 3;
+	public int goblinComPower = 5;
+	public int elephantkinPower = 4;
+	public int thiefPower = 3;
+	public int dmGuardsmanPower = 6;
 	
 	public int monsterCounterAtk(String monsterName)
 	{
 		if(monsterName.equals("Jiggy"))
 		{
+			System.out.println(playerDefense);
 			damageRecived = jiggyAttackPower - playerDefense;
     		damageRecived = 2 + (int)(Math.random() * ((damageRecived - 1) + 1));
 
 			return damageRecived;
+		
 			
 		}
 		
@@ -74,7 +86,47 @@ public class Character
 			
 		}
 		
+		if(monsterName.equals("Bat"))
+		{
+			damageRecived = batPower - playerDefense;
+    		damageRecived = 1 + (int)(Math.random() * ((damageRecived - 1) + 1));
+
+			return damageRecived;
+			
+		}
+		
+		
+		if(monsterName.equals("DM: Goblin Capt."))
+		{
+			damageRecived = goblinComPower - playerDefense;
+    		damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 3));
+
+			return damageRecived;
+			
+		}
+		
+
+		if(monsterName.equals("Elephant Kin"))
+		{
+			damageRecived = elephantkinPower - playerDefense;
+    		damageRecived = 3 + (int)(Math.random() * ((damageRecived - 1) + 3));
+
+			return damageRecived;
+			
+		}
+		
+		
+		
+		
+		
 		return 0;
+	}
+	
+	public int getNewHealth(int monsterDamage)
+	{
+		playerHealth = playerHealth - monsterDamage;
+		return playerHealth;
+		
 	}
 	
 	

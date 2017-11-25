@@ -2,8 +2,14 @@ package application.Dungeons;
 
 import java.io.IOException;
 
+import application.Main;
+import application.Combat.CombatControl;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,6 +21,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class MonetoncDungeonControl 
 {
@@ -198,6 +206,7 @@ public class MonetoncDungeonControl
     private String discoveredBoss = "You have discovered the Dungeon Master. Prepare for a tough fight.";
     
     public int roomNumber;
+    public String monsterName;
     
     @FXML
     void moveUp(ActionEvent event) 
@@ -251,11 +260,16 @@ public class MonetoncDungeonControl
     		exit3.setVisible(true);
     		mdtm.tyingAnimationForMonsters(discoveredMonster, navigationTextArea);
         	elephantKinMonsterImage.setVisible(true);
-    		monsTerSymbolImage4.setVisible(true);    	
+    		monsTerSymbolImage4.setVisible(true);
+    		
+    		monsterName = mdm.getMonsterName(mdm.getRoomName(roomNumber));
+    		makeFadeOut();
+
     	}
     }
 
-    @FXML
+ 
+	@FXML
     void moveRight(ActionEvent event) 
     {
 
@@ -280,6 +294,11 @@ public class MonetoncDungeonControl
     		thiefMonsterImage.setVisible(true);
     		monsTerSymbolImage5.setVisible(true);
     		mdtm.tyingAnimationForMonsters(discoveredMonster, navigationTextArea);
+    		
+    		monsterName = mdm.getMonsterName(mdm.getRoomName(roomNumber));
+    		makeFadeOut();
+
+
 
     	}
     	
@@ -295,6 +314,9 @@ public class MonetoncDungeonControl
     		bossSymbolImage6.setVisible(true);
     		thiefMonsterImage.setVisible(false);
     		mdtm.tyingAnimationForMonsters(discoveredBoss, navigationTextArea);
+    		
+    		monsterName = mdm.getMonsterName(mdm.getRoomName(roomNumber));
+    		makeFadeOut();
 
     	}
     	
@@ -331,6 +353,9 @@ public class MonetoncDungeonControl
     		GuardsmanBossImage.setVisible(false);
     		thiefMonsterImage.setVisible(true);
     		mdtm.tyingAnimationForMonsters(discoveredMonster, navigationTextArea);
+    		
+    		monsterName = mdm.getMonsterName(mdm.getRoomName(roomNumber));
+    		makeFadeOut();
 
 
     	}
@@ -357,6 +382,52 @@ public class MonetoncDungeonControl
     	mdtm.closeFile();
 
     }
+    
+    private void makeFadeOut() 
+    {
+
+		 FadeTransition fadeTrans = new FadeTransition();
+		 fadeTrans.setDuration(Duration.millis(2000));
+		 fadeTrans.setNode(parentPane);
+		 fadeTrans.setFromValue(1);
+		 fadeTrans.setToValue(0);
+		 fadeTrans.play();
+		 
+		 fadeTrans.setOnFinished((ActionEvent event) ->
+		 {
+			try 
+			{
+				loadNextScene(event);
+			} 
+			catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		 }); 		
+ 	}
+
+	private void loadNextScene(ActionEvent event) throws IOException 
+	{
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
+		Parent root = (Parent) loader.load();
+
+		CombatControl cc = loader.getController();
+
+		cc.monsterName = this.monsterName;
+		
+		System.out.println(monsterName);
+
+		cc.setMonsterArea(monsterName);
+		
+    	Scene scene2 = new Scene(root);
+		Stage newWindow = (Stage) parentPane.getScene().getWindow();
+		newWindow.setScene(scene2);
+		newWindow.show();
+
+		
+	}
+
 
     
 

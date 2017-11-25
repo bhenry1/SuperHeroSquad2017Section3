@@ -23,7 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-public class ShopControl extends Observable
+public class ShopControl  extends Inventory
 
 {
 
@@ -112,62 +112,62 @@ public class ShopControl extends Observable
     private Button buyMightyAxeButton;
     
     
-    Inventory ivn = new Inventory();
    
 
     @FXML
     void buyKnife(ActionEvent event) throws IOException 
     {	
-    	ivn.addKnife();
+    	addKnife();
+    	//update gold
     }
 
     @FXML
     void buySword(ActionEvent event) throws IOException 
     {
-    	ivn.addSword();
+    	addSword();
     }
 
     @FXML
     void buyLongSword(ActionEvent event) 
     {
-    	ivn.addLongSword();
+    	addLongSword();
     }
 
     @FXML
     void buyGunBlade(ActionEvent event) 
     {
-    	ivn.addGunBlade();
+    	addGunBlade();
     }
 
     @FXML
     void buyMightyAxe(ActionEvent event) 
     {
-    	ivn.addMightyAxe();
+    	addMightyAxe();
     }
 
     @FXML
     void buyRobe(ActionEvent event) 
     {
-    	ivn.addRobe();
+    	addRobe();
     }
 
     @FXML
     void buyLeatherClothes(ActionEvent event) 
     {
-    	ivn.addLeatherClothes();
+    	addLeatherClothes();
     }
 
     @FXML
     void buyIronPlating(ActionEvent event) 
     {
-    	ivn.addIronPlating();
+    	addIronPlating();
 
     }
 
     @FXML
     void buySteelArmor(ActionEvent event) 
     {
-    	ivn.addSteelArmor();
+    	addSteelArmor();
     }
 
 	

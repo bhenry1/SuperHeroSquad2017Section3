@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="newGamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewGameController">
+   <children>
+      <ImageView fx:id="startScreen" fitHeight="800.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/newgamescreen.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="charName" layoutX="340.0" layoutY="238.0" prefHeight="0.0" prefWidth="324.0" promptText="Welcome to Matlock! Please name your character." />
+      <Button fx:id="beginButton" layoutX="471.0" layoutY="349.0" mnemonicParsing="false" onAction="#saveCharName" text="Begin" />
+      <Label fx:id="enterNameLabel" layoutX="411.0" layoutY="194.0" text="Please name your Character" />
+      <Button fx:id="backButton" layoutX="31.0" layoutY="29.0" mnemonicParsing="false" onAction="#backToTitleScreen" text="Back" />
+   </children>
+</Pane>

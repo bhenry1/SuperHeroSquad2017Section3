@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="victoryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Combat.VictoryControl">
+   <children>
+      <ImageView fx:id="victoryImage" fitHeight="609.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/victory.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="okBtn" layoutX="282.0" layoutY="225.0" mnemonicParsing="false" onAction="#rtnToDungeon" text="Ok!" />
+      <Label fx:id="goldLabel" layoutX="224.0" layoutY="132.0" text="Gold Gained:" textFill="WHITE">
+         <font>
+            <Font name="AutoREALM Blackletter" size="35.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

@@ -2,8 +2,14 @@ package application.Dungeons;
 
 import java.io.IOException;
 
+import application.Main;
+import application.Combat.CombatControl;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -15,165 +21,168 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class MorestetDungeonControl 
 {
 
     @FXML
-    private ImageView slimeKingMonsterImage;
+    public ImageView slimeKingMonsterImage;
 
     @FXML
-    private Circle playerLocation1;
+    public Circle playerLocation1;
 
     @FXML
-    private Circle playerLocation3;
+    public Circle playerLocation3;
 
     @FXML
-    private Circle playerLocation2;
+    public Circle playerLocation2;
 
     @FXML
-    private AnchorPane armPane;
+    public AnchorPane armPane;
 
     @FXML
-    private Circle playerLocation4;
+    public Circle playerLocation4;
 
     @FXML
-    private Rectangle exit4;
+    public Rectangle exit4;
 
     @FXML
-    private Rectangle exit3;
+    public Rectangle exit3;
 
     @FXML
-    private Rectangle exit2;
+    public Rectangle exit2;
 
     @FXML
-    private TextArea itemTextArea;
+    public TextArea itemTextArea;
 
     @FXML
-    private Button leftBtn2;
+    public Button leftBtn2;
 
     @FXML
-    private ImageView monsTerSymbolImage3;
+    public ImageView monsTerSymbolImage3;
 
     @FXML
-    private Button downBtn2;
+    public Button downBtn2;
 
     @FXML
-    private Tab itemTab;
+    public Tab itemTab;
 
     @FXML
-    private ImageView TreasureChestImage2;
+    public ImageView TreasureChestImage2;
 
     @FXML
-    private ImageView compassImage;
+    public ImageView compassImage;
 
     @FXML
-    private Label roomName;
+    public Label roomName;
 
     @FXML
-    private Tab navTab;
+    public Tab navTab;
 
     @FXML
-    private Label room3MapLabel;
+    public Label room3MapLabel;
 
     @FXML
-    private AnchorPane navPane;
+    public AnchorPane navPane;
 
     @FXML
-    private AnchorPane itemPane;
+    public AnchorPane itemPane;
 
     @FXML
-    private TabPane userTabPane;
+    public TabPane userTabPane;
 
     @FXML
-    private AnchorPane mapPane;
+    public AnchorPane mapPane;
 
     @FXML
-    private TextArea navigationTextArea;
+    public TextArea navigationTextArea;
 
     @FXML
-    private ScrollPane mapView;
+    public ScrollPane mapView;
 
     @FXML
-    private Rectangle room3;
+    public Rectangle room3;
 
     @FXML
-    private Rectangle room4;
+    public Rectangle room4;
 
     @FXML
-    private ImageView goblinComMonsterImage;
+    public ImageView goblinComMonsterImage;
 
     @FXML
-    private Rectangle dungeonEntrance;
+    public Rectangle dungeonEntrance;
 
     @FXML
-    private TextArea armorTextArea;
+    public TextArea armorTextArea;
 
     @FXML
-    private Rectangle room2;
+    public Rectangle room2;
 
     @FXML
-    private Button backToCity2;
+    public Button backToCity2;
 
     @FXML
-    private Label room2MapLabel;
+    public Label room2MapLabel;
 
     @FXML
-    private Button menuBtn;
+    public Button menuBtn;
 
     @FXML
-    private ImageView dungeonImage;
+    public ImageView dungeonImage;
 
     @FXML
-    private Pane parentPane;
+    public Pane parentPane;
 
     @FXML
-    private Tab ArmTab;
+    public Tab ArmTab;
 
     @FXML
-    private ImageView bossSymbolImage4;
+    public ImageView bossSymbolImage4;
 
     @FXML
-    private Button upBtn2;
+    public Button upBtn2;
 
     @FXML
-    private Label dungoenEntranceMapLabel;
+    public Label dungoenEntranceMapLabel;
 
     @FXML
-    private Button rightBtn2;
+    public Button rightBtn2;
 
     @FXML
-    private AnchorPane weaponPane;
+    public AnchorPane weaponPane;
 
     @FXML
-    private Label navigationLabel;
+    public Label navigationLabel;
 
     @FXML
-    private Label movementLabel;
+    public Label movementLabel;
 
     @FXML
-    private Label mapLabel;
+    public Label mapLabel;
 
     @FXML
-    private TextArea weaponTextArea;
+    public TextArea weaponTextArea;
 
     @FXML
-    private Label room4MapLabel;
+    public Label room4MapLabel;
 
     @FXML
-    private ImageView batMonsterImage;
+    public ImageView batMonsterImage;
 
     @FXML
-    private Tab WeaponTab;
+    public Tab WeaponTab;
 
     @FXML
-    private Button examineRoomBtn2;
+    public Button examineRoomBtn2;
 
     MorestetDungeonModel mdm = new MorestetDungeonModel();
     MorestetDungeonTextModel mdtm = new MorestetDungeonTextModel();
     private String discoveredMonster = "You have discovered a Monster. Prepare to fight.";
     private String discoveredBoss = "You have discovered the Dungeon Master. Prepare for a tough fight.";
     public int roomNumber;
+    public String monsterName;
     @FXML
     void moveUp2(ActionEvent event) 
     {
@@ -209,6 +218,10 @@ public class MorestetDungeonControl
     		goblinComMonsterImage.setVisible(true);
     		bossSymbolImage4.setVisible(true);
     		mdtm.tyingAnimationForMonsters(discoveredBoss, navigationTextArea);
+    		
+    		monsterName = mdm.getMonsterName(mdm.getRoomName(roomNumber));
+    		//System.out.println(monsterName);
+    		makeFadeOut();
 
     	}
     }
@@ -231,6 +244,10 @@ public class MorestetDungeonControl
     		batMonsterImage.setVisible(true);
     		mdtm.tyingAnimationForMonsters(discoveredMonster, navigationTextArea);
     		monsTerSymbolImage3.setVisible(true);
+    		
+    		monsterName = mdm.getMonsterName(mdm.getRoomName(roomNumber));
+    		//System.out.println(monsterName);
+    		makeFadeOut();
 
     	}
     	
@@ -288,6 +305,58 @@ public class MorestetDungeonControl
     	mdtm.tyingAnimationForRooms(mdtm.readFile(this.roomNumber), navigationTextArea);
     	mdtm.closeFile();
     }
+    
+    private void makeFadeOut() 
+	 {
+
+
+		 FadeTransition fadeTrans = new FadeTransition();
+		 fadeTrans.setDuration(Duration.millis(2000));
+		 fadeTrans.setNode(parentPane);
+		 fadeTrans.setFromValue(1);
+		 fadeTrans.setToValue(0);
+		 fadeTrans.play();
+		 
+		 fadeTrans.setOnFinished((ActionEvent event) ->
+		 {
+			try 
+			{
+				loadNextScene(event);
+			} 
+			catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
+			
+		 });
+		}
+
+	private void loadNextScene(ActionEvent event) throws IOException 
+	{
+
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
+		Parent root = (Parent) loader.load();
+
+		CombatControl cc = loader.getController();
+
+		cc.monsterName = this.monsterName;
+
+		cc.setMonsterArea(monsterName);
+		
+    	Scene scene2 = new Scene(root);
+		Stage newWindow = (Stage) parentPane.getScene().getWindow();
+		newWindow.setScene(scene2);
+		newWindow.show();
+
+
+		
+		//Parent root = FXMLLoader.load(Main.class.getResource("Combat/BattleView.fxml"));
+    	
+    	
+    	
+ 
+				
+	}
 
     
 }
