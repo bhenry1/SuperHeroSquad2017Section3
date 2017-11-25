@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class GatesOfHellModel 
@@ -31,6 +32,18 @@ public class GatesOfHellModel
     	window.setScene(scene2);
     	window.setTitle("Main Menu");
     	window.show();
+		
+	}
+	
+	public void goToFinalWarning(ActionEvent event) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("GatesOfHell/finalWarning.fxml"));
+    	Scene scene2 = new Scene(root);
+		Stage window = new Stage();  
+    	window.setScene(scene2);
+		window.setTitle("Warning!");
+    	window.initModality(Modality.APPLICATION_MODAL);
+		window.showAndWait();    	
 		
 	}
 	

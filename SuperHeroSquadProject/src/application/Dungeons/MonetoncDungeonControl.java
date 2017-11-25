@@ -1,6 +1,9 @@
 package application.Dungeons;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import application.Main;
 import application.Combat.CombatControl;
@@ -8,6 +11,7 @@ import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,184 +23,186 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class MonetoncDungeonControl 
+public class MonetoncDungeonControl implements Initializable 
 {
 
     @FXML
-    private Circle playerLocation1;
+    public Circle playerLocation1;
 
     @FXML
-    private Circle playerLocation3;
+    public Circle playerLocation3;
 
     @FXML
-    private Circle playerLocation2;
+    public Circle playerLocation2;
 
     @FXML
-    private AnchorPane armPane;
+    public AnchorPane armPane;
 
     @FXML
-    private Circle playerLocation5;
+    public Circle playerLocation5;
 
     @FXML
-    private Circle playerLocation4;
+    public Circle playerLocation4;
 
     @FXML
-    private Button examineRoomBtn;
+    public Button examineRoomBtn;
 
     @FXML
-    private Rectangle exit5;
+    public Rectangle exit5;
 
     @FXML
-    private Rectangle exit4;
+    public Rectangle exit4;
 
     @FXML
-    private Rectangle exit3;
+    public Rectangle exit3;
 
     @FXML
-    private Rectangle exit2;
+    public Rectangle exit2;
 
     @FXML
-    private Rectangle exit1;
+    public Rectangle exit1;
 
     @FXML
-    private TextArea itemTextArea;
+    public TextArea itemTextArea;
 
     @FXML
-    private Button leftBtn;
+    public Button leftBtn;
 
     @FXML
-    private ImageView monsTerSymbolImage5;
+    public ImageView monsTerSymbolImage5;
 
     @FXML
-    private ImageView GuardsmanBossImage;
+    public ImageView GuardsmanBossImage;
 
     @FXML
-    private ImageView monsTerSymbolImage4;
+    public ImageView monsTerSymbolImage4;
 
     @FXML
-    private Button backToCity;
+    public Button backToCity;
 
     @FXML
-    private Tab itemTab;
+    public Tab itemTab;
 
     @FXML
-    private ImageView bossSymbolImage6;
+    public ImageView bossSymbolImage6;
 
     @FXML
-    private ImageView TreasureChestImage2;
+    public ImageView TreasureChestImage2;
 
     @FXML
-    private ImageView compassImage;
+    public ImageView compassImage;
 
     @FXML
-    private Label roomName;
+    public Label roomName;
 
     @FXML
-    private Tab navTab;
+    public Tab navTab;
 
     @FXML
-    private Label room3MapLabel;
+    public Label room3MapLabel;
 
     @FXML
-    private AnchorPane navPane;
+    public AnchorPane navPane;
 
     @FXML
-    private AnchorPane itemPane;
+    public AnchorPane itemPane;
 
     @FXML
-    private TabPane userTabPane;
+    public TabPane userTabPane;
 
     @FXML
-    private AnchorPane mapPane;
+    public AnchorPane mapPane;
 
     @FXML
-    private Label room5MapLabel;
+    public Label room5MapLabel;
 
     @FXML
-    private TextArea navigationTextArea;
+    public TextArea navigationTextArea;
 
     @FXML
-    private Rectangle room5;
+    public Rectangle room5;
 
     @FXML
-    private ScrollPane mapView;
+    public ScrollPane mapView;
 
     @FXML
-    private Rectangle room6;
+    public Rectangle room6;
 
     @FXML
-    private Rectangle room3;
+    public Rectangle room3;
 
     @FXML
-    private Button downBtn;
+    public Button downBtn;
 
     @FXML
-    private Rectangle room4;
+    public Rectangle room4;
 
     @FXML
-    private Button rightBtn;
+    public Button rightBtn;
 
     @FXML
-    private Rectangle dungeonEntrance;
+    public Rectangle dungeonEntrance;
 
     @FXML
-    private TextArea armorTextArea;
+    public TextArea armorTextArea;
 
     @FXML
-    private Rectangle room2;
+    public Rectangle room2;
 
     @FXML
-    private Label room2MapLabel;
+    public Label room2MapLabel;
 
     @FXML
-    private ImageView elephantKinMonsterImage;
+    public ImageView elephantKinMonsterImage;
 
     @FXML
-    private Button menuBtn;
+    public Button menuBtn;
 
     @FXML
-    private ImageView dungeonImage;
+    public ImageView dungeonImage;
 
     @FXML
-    private Pane parentPane;
+    public Pane parentPane;
 
     @FXML
-    private Tab ArmTab;
+    public Tab ArmTab;
 
     @FXML
-    private Label dungoenEntranceMapLabel;
+    public Label dungoenEntranceMapLabel;
 
     @FXML
-    private Button upBtn;
+    public Button upBtn;
 
     @FXML
-    private AnchorPane weaponPane;
+    public AnchorPane weaponPane;
 
     @FXML
-    private Label mapLabel;
+    public Label mapLabel;
 
     @FXML
-    private TextArea weaponTextArea;
+    public TextArea weaponTextArea;
 
     @FXML
-    private Circle playerLocation6;
+    public Circle playerLocation6;
 
     @FXML
-    private Label room4MapLabel;
+    public Label room4MapLabel;
 
     @FXML
-    private Tab WeaponTab;
+    public Tab WeaponTab;
 
     @FXML
-    private ImageView thiefMonsterImage;
+    public ImageView thiefMonsterImage;
 
     @FXML
-    private Label room6MapLabel;
+    public Label room6MapLabel;
 
     
     MonetoncDungeonModel mdm = new MonetoncDungeonModel();
@@ -207,6 +213,8 @@ public class MonetoncDungeonControl
     
     public int roomNumber;
     public String monsterName;
+    
+    MediaPlayer mp;
     
     @FXML
     void moveUp(ActionEvent event) 
@@ -365,6 +373,7 @@ public class MonetoncDungeonControl
     @FXML
     void exitDungeon(ActionEvent event) throws IOException 
     {
+    	mp.stop();
     	mdm.leaveDungeon(event);
     }
 
@@ -397,9 +406,10 @@ public class MonetoncDungeonControl
 		 {
 			try 
 			{
+				mp.stop();
 				loadNextScene(event);
 			} 
-			catch (IOException e) 
+			catch (IOException | URISyntaxException e) 
 			{
 				e.printStackTrace();
 			}
@@ -407,7 +417,7 @@ public class MonetoncDungeonControl
 		 }); 		
  	}
 
-	private void loadNextScene(ActionEvent event) throws IOException 
+	private void loadNextScene(ActionEvent event) throws IOException, URISyntaxException 
 	{
 		FXMLLoader loader = new FXMLLoader(Main.class.getResource("Combat/BattleView.fxml"));
 		Parent root = (Parent) loader.load();
@@ -426,6 +436,33 @@ public class MonetoncDungeonControl
 		newWindow.show();
 
 		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) 
+	{
+		try
+		{
+			Media media = new Media(getClass().getResource("/music/Dungeon.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.play();
+			mp.setVolume(0.5);
+			
+			//Test this and add to rest of classes with music
+			mp.setOnEndOfMedia(new Runnable() 
+			{
+			       public void run() 
+			       {
+			         mp.seek(Duration.ZERO);
+			       }
+			   });
+			  mp.play();
+		}
+		catch (URISyntaxException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	// TODO Auto-ge				
 	}
 
 

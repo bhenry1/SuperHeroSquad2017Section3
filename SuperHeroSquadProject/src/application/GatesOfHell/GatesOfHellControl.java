@@ -51,9 +51,9 @@ public class GatesOfHellControl implements Initializable
     }
 
     @FXML
-    void enterFinalBoss(ActionEvent event) 
+    void enterFinalBoss(ActionEvent event) throws IOException 
     {
-    	mp.stop();
+    	gohm.goToFinalWarning(event);
     }
 
 	@Override

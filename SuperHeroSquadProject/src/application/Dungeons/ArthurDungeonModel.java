@@ -153,6 +153,30 @@ public class ArthurDungeonModel
     	window.show();
 	}
 	
+
+	public String getMonsterName(String roomName)
+	{
+		if(roomName.equals("Room 2"))
+		{
+			return "Hell Scout";
+		}
+		
+		if(roomName.equals("Room 7"))
+		{
+			return "Mercenary";
+		}
+		
+		if(roomName.equals("Room 10"))
+		{
+			return "DM: Slime King";
+		}
+		
+		
+		
+		return "";
+		
+	}
+	
 	public void goToMainMenu(ActionEvent event) throws IOException
 	{
 		Parent root = FXMLLoader.load(Main.class.getResource("MainMenu/MainMenuView.fxml"));
