@@ -173,8 +173,7 @@
             <Image url="@../../../Images/Guardsmen.png" />
          </image>
       </ImageView>
-<<<<<<< HEAD
-=======
+
       <ImageView fx:id="ogreBossImage" fitHeight="492.0" fitWidth="435.0" layoutX="311.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../../../Images/Ogre.png" />
@@ -225,6 +224,6 @@
             <Image url="@../../../Images/Succubus.png" />
          </image>
       </ImageView>
->>>>>>> 3f9684bc707c3491c33c0e62467b79dd6d5f198f
+
    </children>
 </Pane>

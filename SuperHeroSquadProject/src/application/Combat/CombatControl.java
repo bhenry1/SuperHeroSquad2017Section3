@@ -165,7 +165,7 @@ public class CombatControl extends Character implements Initializable
 	{
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	}	// TODO Auto-genera
+	}	// TODO Auto-general
 	
 		parentPane.setOpacity(0);
 		healthLabel.setText("Health: " + playerHealth);
