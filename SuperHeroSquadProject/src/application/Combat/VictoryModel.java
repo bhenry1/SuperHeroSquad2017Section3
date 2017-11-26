@@ -425,5 +425,16 @@ public class VictoryModel
 		window.show();
 	
 	}
+	
+	public void beatGame(ActionEvent event, String monsterName) throws IOException
+	{
+		Parent root = FXMLLoader.load(Main.class.getResource("GatesOfHell/FinScreen.fxml"));
+		Scene scene2 = new Scene(root);
+		Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+		window.setScene(scene2);
+		window.show();
+		
+	}
+	
 
 }

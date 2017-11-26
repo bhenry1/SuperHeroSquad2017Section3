@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GatesOfHell.FinScreenControl">
+   <children>
+      <ImageView fx:id="backgroundImage" fitHeight="823.0" fitWidth="1035.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/backgound.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="finLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="82.0" layoutY="451.0" prefHeight="228.0" prefWidth="839.0" text="Thanks for Playing!" textFill="WHITE">
+         <font>
+            <Font name="AutoREALM Blackletter" size="81.0" />
+         </font>
+      </Label>
+      <Label fx:id="devolpedByLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="20.0" prefHeight="119.0" prefWidth="1015.0" text="Devolped By..." textFill="#222222">
+         <font>
+            <Font name="AutoREALM Blackletter" size="96.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="superHeroSquadLogo" fitHeight="379.0" fitWidth="272.0" layoutX="366.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/SHSQ.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="newGameBtn" layoutX="448.0" layoutY="693.0" mnemonicParsing="false" onAction="#startOver" text="New Game +" />
+   </children>
+</AnchorPane>

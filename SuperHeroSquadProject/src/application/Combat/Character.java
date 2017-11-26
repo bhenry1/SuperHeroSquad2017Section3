@@ -6,8 +6,8 @@ public class Character extends Inventory
 {
 	//Player
 	public int playerLevel = 1;
-	public int maxPlayerHealth =  20;
-	public int playerHealth =  20;
+	public int maxPlayerHealth =  30;
+	public int playerHealth =  30;
 
 	public int playerstrength = 1; 
 	public int playerDefense = 1; 
@@ -59,6 +59,9 @@ public class Character extends Inventory
 	public int devourerPower = 6;
 	public int sucPower = 6;
 	public int darkKnightPower = 8;
+	
+	//final Boss
+	public int fBossPower = 10;
 	
 
 
@@ -246,6 +249,16 @@ public class Character extends Inventory
 			return damageRecived;
 			
 		}
+		
+		if(monsterName.equals("F. Boss:Satan Emp."))
+		{
+			damageRecived = fBossPower - playerDefense;
+    		damageRecived = 5 + (int)(Math.random() * ((damageRecived - 3) + 1));
+
+			return damageRecived;
+			
+		}
+		
 		
 		
 		

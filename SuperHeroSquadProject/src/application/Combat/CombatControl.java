@@ -65,6 +65,7 @@ public class CombatControl extends Character implements Initializable
     @FXML private ImageView darkKnightBossImage;
     @FXML private ImageView devourerMonsterImage;
     @FXML private ImageView succubusMonsterImage;
+    @FXML private ImageView satanEmp;
     
     
 
@@ -356,6 +357,31 @@ public class CombatControl extends Character implements Initializable
 			dungeonImage.setImage(img);
 		}
 		
+		if(this.monsterName.equals("F. Boss:Satan Emp."))
+		{
+	    	fleeBtn.setVisible(false);
+
+			mp.stop();
+			Media media = new Media(getClass().getResource("/music/FinalBattle.mp3").toURI().toString());
+			mp = new MediaPlayer(media);
+			mp.setVolume(0.5);
+			mp.play();
+			
+			mp.setOnEndOfMedia(new Runnable() 
+			{
+			       public void run() 
+			       {
+			         mp.seek(Duration.ZERO);
+			       }
+			   });
+			  mp.play();
+			
+			satanEmp.setVisible(true);
+			Image img = new Image("file:Images/Hell.jpg");
+			dungeonImage.setImage(img);
+
+		}
+		
 		
 		
 		
@@ -371,21 +397,17 @@ public class CombatControl extends Character implements Initializable
     @FXML
     void flee(ActionEvent event) throws IOException 
     {
+    	mp.stop();
 
     	if(monsterName.equals("Bat") || monsterName.equals("DM: Goblin Capt."))
     	cbm.fleeMorstetBattle(event);
     	
-    	if(monsterName.equals("Elephant Kin") || monsterName.equals("Thief") || monsterName.equals("DM: Guardsman"))
+    	else if(monsterName.equals("Elephant Kin") || monsterName.equals("Thief") || monsterName.equals("DM: Guardsman"))
     	cbm.fleeMonetoncBattle(event);
     	
-    	else	
-
-    	mp.stop();
-    	
-    	if( (monsterName.equals("Bat")) || (monsterName.equals("DM: Goblin Capt.")) )
-    	{
+    	else if( (monsterName.equals("Bat")) || (monsterName.equals("DM: Goblin Capt.")) )
     	cbm.fleeMorstetBattle(event);
-    	}
+    	
     	else if((monsterName.equals("Elephant Kin")) || (monsterName.equals("Thief")) || (monsterName.equals("DM: Guardsman")) )
     	cbm.fleeMonetoncBattle(event);
     	
@@ -397,6 +419,9 @@ public class CombatControl extends Character implements Initializable
     	
     	else if((monsterName.equals("Devourer")) || (monsterName.equals("Succubus")) || (monsterName.equals("DM: Dark Knight")) )
         cbm.fleeHifenourBattle(event);
+    	
+	
+			
     	
     	else
     	{
@@ -432,7 +457,7 @@ public class CombatControl extends Character implements Initializable
         	        	
         	if(monsterHealth <= 0)
         	{
-        		//run a method to show victory screen
+        		newHealth = 30;
         		winBattle(event, monsterName);
         	}
         	
@@ -443,6 +468,15 @@ public class CombatControl extends Character implements Initializable
         	damageRecived = monsterCounterAtk(monsterName);
         	newHealth = getNewHealth(damageRecived); 
         	healthLabel.setText("Health: " + newHealth);
+        	
+        	if(newHealth <= 0)
+        	{
+        		mp.stop();
+        		Media media2 = new Media(getClass().getResource("/music/death.mp3").toURI().toString());
+                mp2 = new MediaPlayer(media2);
+                mp2.play();
+        		cbm.die(event);
+        	}
         	//playerHealth = playerHealth - damageRecived;
         	//cbmtm.typingAnimationForBattles(displayDamageRecived + damageRecived + " damage", battleTextArea);
     	}
@@ -464,7 +498,7 @@ public class CombatControl extends Character implements Initializable
         	
         	if(monsterHealth <= 0)
         	{
-        		//run a method to show victory screen
+        		newHealth = 30;
         		winBattle(event, monsterName);
         	}
 
@@ -479,6 +513,14 @@ public class CombatControl extends Character implements Initializable
         	
         	//playerHealth = playerHealth - damageRecived;
 
+        	if(newHealth <= 0)
+        	{
+        		mp.stop();
+        		Media media2 = new Media(getClass().getResource("/music/death.mp3").toURI().toString());
+                mp2 = new MediaPlayer(media2);
+                mp2.play();
+        		cbm.die(event);
+        	}
 
     	}
     	if(longSwordEquipped)
@@ -498,7 +540,7 @@ public class CombatControl extends Character implements Initializable
         	
         	if(monsterHealth <= 0)
         	{
-        		//run a method to show victory screen
+        		newHealth = 30;
         		winBattle(event, monsterName);
         	}
 
@@ -513,6 +555,15 @@ public class CombatControl extends Character implements Initializable
         	healthLabel.setText("Health: " + newHealth);
         	
         	//playerHealth = playerHealth - damageRecived;
+        	
+        	if(newHealth <= 0)
+        	{
+        		mp.stop();
+        		Media media2 = new Media(getClass().getResource("/music/death.mp3").toURI().toString());
+                mp2 = new MediaPlayer(media2);
+                mp2.play();
+        		cbm.die(event);
+        	}
 
     	}
     	if(gunBladeEquipped)
@@ -533,7 +584,7 @@ public class CombatControl extends Character implements Initializable
         	
         	if(monsterHealth <= 0)
         	{
-        		//run a method to show victory screen
+        		newHealth = 30;
         		winBattle(event, monsterName);
         	}
 
@@ -550,6 +601,14 @@ public class CombatControl extends Character implements Initializable
         	newHealth = getNewHealth(damageRecived); 
         	healthLabel.setText("Health: " + newHealth);
         	
+        	if(newHealth <= 0)
+        	{
+        		mp.stop();
+        		Media media2 = new Media(getClass().getResource("/music/death.mp3").toURI().toString());
+                mp2 = new MediaPlayer(media2);
+                mp2.play();
+        		cbm.die(event);
+        	}
         	//playerHealth = playerHealth - damageRecived;
 
     	}
@@ -570,7 +629,7 @@ public class CombatControl extends Character implements Initializable
     	
     	if(monsterHealth <= 0)
     	{
-    		//run a method to show victory screen
+    		newHealth = 30;
     		winBattle(event, monsterName);
     	}
 
@@ -586,19 +645,14 @@ public class CombatControl extends Character implements Initializable
     	healthLabel.setText("Health: " + newHealth);
     	
 
-    	
-    	makeFadeOut();
-    	
-    	cbmtm.typingAnimationForBattles(displayDamageDealt + damageDealt + " damage." , battleTextArea);
-    	attkBtn.setVisible(false);
-    	
-    	damageRecived = monsterCounterAtk(monsterName);
-    	newHealth = getNewHealth(damageRecived); 
-    	healthLabel.setText("Health: " + newHealth);
-    	
-
-    	//playerHealth = playerHealth - damageRecived;
-
+    	if(newHealth <= 0)
+    	{
+    		mp.stop();
+    		Media media2 = new Media(getClass().getResource("/music/death.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media2);
+            mp2.play();
+    		cbm.die(event);
+    	}
 
     	}
     	else if((knifeEquipped== false) && (swordEquipped== false) && (longSwordEquipped== false) &&  (gunBladeEquipped== false) && (mightyAxeEquipped== false)  )
@@ -830,7 +884,7 @@ public class CombatControl extends Character implements Initializable
     }
     
     @FXML
-    void usePotion(ActionEvent event) throws IOException 
+    void usePotion(ActionEvent event) throws IOException, URISyntaxException 
     {
     	potionCounter++;
     	if( (map.get("Potion") == null) || (map.get("Potion") == 0) || (map.get("Potion") == potionCounter) )
@@ -838,9 +892,10 @@ public class CombatControl extends Character implements Initializable
     		cbm.outOfItems(event);
     	}
     	
+    
        	
     	
-    	else if((playerHealth >= 20) || (newHealth >= 20) )
+    	else if((playerHealth >= 30) || (newHealth >= 30) )
     	{
     		System.out.println("You cannot use a potion as your health is already full");
     		
@@ -848,11 +903,14 @@ public class CombatControl extends Character implements Initializable
     	
     	else
     	{
+    	Media media = new Media(getClass().getResource("/music/drinkPotion.mp3").toURI().toString());
+        mp2 = new MediaPlayer(media);
+        mp2.play();
     	newHealth = newHealth + (newHealth/4);
     	playerHealth = newHealth;
-    		if(newHealth >= 20)
+    		if(newHealth >= 30)
     		{
-    			healthLabel.setText("Health: "  + 20);
+    			healthLabel.setText("Health: "  + 30);
     		}
     		
     		else
@@ -863,7 +921,7 @@ public class CombatControl extends Character implements Initializable
     
 
     @FXML
-    void useHighPotion(ActionEvent event) throws IOException 
+    void useHighPotion(ActionEvent event) throws IOException, URISyntaxException 
     {
     		highPotionCounter++;
     		if( (map.get("HighPotion") == null) || (map.get("HighPotion") == 0) || (map.get("HighPotion") == highPotionCounter) )
@@ -873,7 +931,7 @@ public class CombatControl extends Character implements Initializable
     		
     		
 
-        	else if((playerHealth >= 20) || (newHealth >= 20) )
+        	else if((playerHealth >= 30) || (newHealth >= 30) )
         	{
         		System.out.println("You cannot use a potion as your health is already full");
         		
@@ -881,11 +939,14 @@ public class CombatControl extends Character implements Initializable
         	
         	else
         	{
+        	Media media = new Media(getClass().getResource("/music/drinkPotion.mp3").toURI().toString());
+            mp2 = new MediaPlayer(media);
+            mp2.play();
         	newHealth = newHealth + (newHealth/2);
         	playerHealth = newHealth;
-        		if(newHealth >= 20)
+        		if(newHealth >= 30)
         		{
-        			healthLabel.setText("Health: "  + 20);
+        			healthLabel.setText("Health: "  + 30);
         		}
         		
         		else
@@ -899,7 +960,7 @@ public class CombatControl extends Character implements Initializable
     
 
     @FXML
-    void usePowerPotion(ActionEvent event) throws IOException 
+    void usePowerPotion(ActionEvent event) throws IOException, URISyntaxException 
     {
 		powerPotionCounter++;
     	if( (map.get("PowerPotion") == null) || (map.get("PowerPotion") == 0) || (map.get("PowerPotion") == powerPotionCounter) )
@@ -909,7 +970,7 @@ public class CombatControl extends Character implements Initializable
     	
     	
 
-    	else if((playerHealth >= 20) || (newHealth >= 20) )
+    	else if((playerHealth >= 30) || (newHealth >= 30) )
     	{
     		System.out.println("You cannot use a potion as your health is already full");
     		
@@ -917,11 +978,15 @@ public class CombatControl extends Character implements Initializable
     	
     	else
     	{
+    	Media media = new Media(getClass().getResource("/music/drinkPotion.mp3").toURI().toString());
+        mp2 = new MediaPlayer(media);
+        mp2.play();
+        
     	newHealth = newHealth + (newHealth/4);
     	playerHealth = newHealth;
-    		if(newHealth >= 20)
+    		if(newHealth >= 30)
     		{
-    			healthLabel.setText("Health: "  + 20);
+    			healthLabel.setText("Health: "  + 30);
     		}
     		
     		else
@@ -932,7 +997,7 @@ public class CombatControl extends Character implements Initializable
     
 
     @FXML
-    void useDefensePotion(ActionEvent event) throws IOException 
+    void useDefensePotion(ActionEvent event) throws IOException, URISyntaxException 
     {
 		defensePotionCounter++;
     	if( (map.get("DefensePotion") == null) || (map.get("DefensePotion") == 0) || (map.get("DefensePotion") == defensePotionCounter) )
@@ -942,7 +1007,7 @@ public class CombatControl extends Character implements Initializable
     	
     	
 
-    	else if((playerHealth >= 20) || (newHealth >= 20) )
+    	else if((playerHealth >= 30) || (newHealth >= 30) )
     	{
     		System.out.println("You cannot use a potion as your health is already full");
     		
@@ -950,11 +1015,14 @@ public class CombatControl extends Character implements Initializable
     	
     	else
     	{
+    	Media media = new Media(getClass().getResource("/music/drinkPotion.mp3").toURI().toString());
+        mp2 = new MediaPlayer(media);
+        mp2.play();
     	newHealth = newHealth + (newHealth/4);
     	playerHealth = newHealth;
-    		if(newHealth >= 20)
+    		if(newHealth >= 30)
     		{
-    			healthLabel.setText("Health: "  + 20);
+    			healthLabel.setText("Health: "  + 30);
     		}
     		
     		else
@@ -967,13 +1035,16 @@ public class CombatControl extends Character implements Initializable
 
 
     @FXML
-    void examineMonster(ActionEvent event) 
+    void examineMonster(ActionEvent event) throws IOException 
     {
-    	System.out.println("Return Monster Description and Heatlh");
+    	System.out.println(monsterName);
+    	cbmtm.openMonsterFile();
+    	cbmtm.typingAnimationForExaminingMonsters(cbmtm.readMonsterFile(monsterName), battleTextArea);
+    	cbmtm.closeFile();
     }
 
 
-    private void makeFadeOut() 
+    protected void makeFadeOut() 
 	 {
 
 

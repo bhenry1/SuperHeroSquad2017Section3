@@ -28,6 +28,7 @@ public class Main extends Application
 			Scene scene = new Scene(mainPane, 1000, 800);
 			window.setScene(scene);
 			window.setTitle("Matlock");
+			window.setResizable(false);
 			window.show();
 		} 
 		catch (IOException e) 

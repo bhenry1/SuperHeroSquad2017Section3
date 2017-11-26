@@ -70,6 +70,16 @@ public class CombatModel extends Character
 			window.setScene(scene2);
 			window.show();
 		}
+		
+		public void die(ActionEvent event) throws IOException
+		{
+			Parent root = FXMLLoader.load(Main.class.getResource("Combat/DeathScreen.fxml"));
+			Scene scene2 = new Scene(root);
+			Stage window = (Stage) (((Node) event.getSource()).getScene().getWindow());  
+			window.setScene(scene2);
+			window.show();
+		}
+	
 	
 	
 
@@ -148,7 +158,6 @@ public class CombatModel extends Character
 				case "Elephant Kin" : return 10;
 				case "Thief" : return 10;
 				case "DM: Guardsman" : return 17;
-
 				case "Angry Slime" : return 25;
 				case "Bugo" : return 23;
 				case "Trickster" : return 24;
@@ -159,6 +168,7 @@ public class CombatModel extends Character
 				case "Devourer" : return 31;
 				case "Succubus" : return 33;
 				case "DM: Dark Knight" : return 55;
+				case "F. Boss:Satan Emp." : return 100;
 				
 				
 

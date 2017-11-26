@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="parentPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Combat.DeathScreenControl">
+   <children>
+      <ImageView fx:id="deathImage" fitHeight="634.0" fitWidth="1022.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/deathscreen1.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="ripLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-7.0" layoutY="8.0" prefHeight="119.0" prefWidth="1015.0" text="R.I.P" textFill="WHITE">
+         <font>
+            <Font name="Copperplate Gothic Bold" size="96.0" />
+         </font>
+      </Label>
+      <Button fx:id="continueBtn" layoutX="456.0" layoutY="491.0" mnemonicParsing="false" onAction="#continueGame" text="Continue..." />
+   </children>
+</AnchorPane>

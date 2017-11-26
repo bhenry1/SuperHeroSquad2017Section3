@@ -5,15 +5,23 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+
+import application.Main;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 
 public class VictoryControl extends CombatControl implements Initializable
@@ -76,10 +84,57 @@ public class VictoryControl extends CombatControl implements Initializable
     		vm.backToHifenourDungeon(event, name);
     	}
     	
+    	else if(name.equals("F. Boss:Satan Emp."))
+    	{
+    		fadeOut();
+    	}
+    	
 
     	else
     	vm.backToClourtavDungeon(event, name);
     }
+    
+    
+
+	private void fadeOut() 
+	{
+			 FadeTransition fadeTrans = new FadeTransition();
+			 fadeTrans.setDuration(Duration.millis(3000));
+			 fadeTrans.setNode(victoryPane);
+			 fadeTrans.setFromValue(1);
+			 fadeTrans.setToValue(0);
+			 fadeTrans.play();
+			 
+			 fadeTrans.setOnFinished((ActionEvent event) ->
+			 {
+				try 
+				{
+
+					loadNextScene(event);
+				} 
+				catch (IOException e) 
+				{
+					e.printStackTrace();
+				}
+				
+			 });
+					
+	}
+
+
+
+	private void loadNextScene(ActionEvent event) throws IOException 
+	{
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("GatesOfHell/FinScreen.fxml"));
+		Parent root = (Parent) loader.load();
+
+    	Scene scene2 = new Scene(root);
+		Stage newWindow = (Stage) victoryPane.getScene().getWindow();
+		newWindow.setScene(scene2);
+		newWindow.show();		
+	}
+
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 

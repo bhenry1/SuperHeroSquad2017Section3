@@ -3,11 +3,13 @@ package application.GatesOfHell;
 import java.io.IOException;
 
 import application.Main;
+import application.Combat.CombatControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -37,13 +39,18 @@ public class GatesOfHellModel
 	
 	public void goToFinalWarning(ActionEvent event) throws IOException
 	{
-		Parent root = FXMLLoader.load(Main.class.getResource("GatesOfHell/finalWarning.fxml"));
+		/*
+		FXMLLoader loader = new FXMLLoader(Main.class.getResource("GatesOfHell/finalWarning.fxml"));
+		Parent root = (Parent) loader.load();
+
+
+
+		
     	Scene scene2 = new Scene(root);
-		Stage window = new Stage();  
-    	window.setScene(scene2);
-		window.setTitle("Warning!");
-    	window.initModality(Modality.APPLICATION_MODAL);
-		window.showAndWait();    	
+		Stage newWindow = (Stage) parentPane.getScene().getWindow();
+		newWindow.setScene(scene2);
+		newWindow.show(); 	
+		*/
 		
 	}
 	

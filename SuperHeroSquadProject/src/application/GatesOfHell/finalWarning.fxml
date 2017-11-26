@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane fx:id="displayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="326.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GatesOfHell.finalWarningControl">
+
+<Pane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GatesOfHell.finalWarningControl">
    <children>
-      <Button fx:id="confirmBtn" layoutX="89.0" layoutY="146.0" mnemonicParsing="false" onAction="#startFinalBattle" prefHeight="31.0" prefWidth="136.0" text="Save the Relm" />
-      <Label fx:id="displayWarningLabel" layoutX="44.0" layoutY="41.0" text="The final monster: Satan Emperor&#10;has wrecked havoc upon this land&#10;for centuries. He is even rumored to&#10;be immortal. Make sure you are&#10;fully prepared before facing him" />
-      <Label fx:id="warningLabel" layoutX="84.0" text="WARNING!" textFill="RED">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Label>
-      <Button fx:id="closeWindowBtn" layoutX="29.0" layoutY="192.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="31.0" prefWidth="255.0" text="I need more time to prepare" />
-      <ImageView fx:id="warningIcon1" fitHeight="40.0" fitWidth="44.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../Images/warningIcon.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="warningIcon2" fitHeight="40.0" fitWidth="44.0" layoutX="275.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../Images/warningIcon.png" />
-         </image>
-      </ImageView>
+      <Pane fx:id="displayPane" blendMode="ADD" layoutX="345.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="237.0" prefWidth="326.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="confirmBtn" layoutX="89.0" layoutY="146.0" mnemonicParsing="false" onAction="#startFinalBattle" prefHeight="31.0" prefWidth="136.0" text="Save the Relm" />
+            <Label fx:id="displayWarningLabel" layoutX="44.0" layoutY="41.0" text="The final monster: Satan Emperor&#10;has wrecked havoc upon this land&#10;for centuries. He is even rumored to&#10;be immortal. Make sure you are&#10;fully prepared before facing him" />
+            <Label fx:id="warningLabel" layoutX="84.0" text="WARNING!" textFill="RED">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Button fx:id="closeWindowBtn" layoutX="29.0" layoutY="192.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="31.0" prefWidth="255.0" text="I need more time to prepare" />
+            <ImageView fx:id="warningIcon1" fitHeight="40.0" fitWidth="44.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/warningIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="warningIcon2" fitHeight="40.0" fitWidth="44.0" layoutX="275.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/warningIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </Pane>
