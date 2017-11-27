@@ -24,6 +24,7 @@ public class Inventory
     public int powerPotionCounter;
     public int defensePotionCounter;
 
+    public int gold;
 
 	public void addKnife()
 	{
@@ -111,6 +112,14 @@ public class Inventory
 		return potionCounter;
 		
 	}
+	
+	
+	public void getMoreGold()
+	{
+		gold+=50;
+		System.out.println(gold);
+	}
+	
 	
 	
 	

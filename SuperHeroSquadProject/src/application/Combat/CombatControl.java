@@ -457,7 +457,7 @@ public class CombatControl extends Character implements Initializable
         	        	
         	if(monsterHealth <= 0)
         	{
-        		newHealth = 30;
+        		playerHealth = 30;
         		winBattle(event, monsterName);
         	}
         	
@@ -498,7 +498,7 @@ public class CombatControl extends Character implements Initializable
         	
         	if(monsterHealth <= 0)
         	{
-        		newHealth = 30;
+        		playerHealth = 30;
         		winBattle(event, monsterName);
         	}
 
@@ -540,7 +540,7 @@ public class CombatControl extends Character implements Initializable
         	
         	if(monsterHealth <= 0)
         	{
-        		newHealth = 30;
+        		playerHealth = 30;
         		winBattle(event, monsterName);
         	}
 
@@ -584,7 +584,7 @@ public class CombatControl extends Character implements Initializable
         	
         	if(monsterHealth <= 0)
         	{
-        		newHealth = 30;
+        		playerHealth = 30;
         		winBattle(event, monsterName);
         	}
 
@@ -629,7 +629,7 @@ public class CombatControl extends Character implements Initializable
     	
     	if(monsterHealth <= 0)
     	{
-    		newHealth = 30;
+    		playerHealth = 30;
     		winBattle(event, monsterName);
     	}
 

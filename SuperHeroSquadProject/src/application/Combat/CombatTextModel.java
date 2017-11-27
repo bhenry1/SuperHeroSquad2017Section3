@@ -182,6 +182,8 @@ private Scanner txtReader;
 
 	    };
 	    animation.play();
+	    
+	  
 		
 		
 	}

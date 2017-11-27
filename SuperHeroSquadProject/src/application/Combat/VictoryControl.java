@@ -7,7 +7,9 @@ import java.util.Random;
 import java.util.ResourceBundle;
 
 import application.Main;
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
+import javafx.animation.Transition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -40,25 +43,33 @@ public class VictoryControl extends CombatControl implements Initializable
     @FXML
     private Pane victoryPane;
     
+    @FXML
+    private Label gainedBoatPiece;
+    
     public String name;
 
 	MediaPlayer mp;
+	int goldGained;
+	int currentGold;
+	
 
 
 
     @FXML
     void rtnToDungeon(ActionEvent event) throws IOException 
     {
-
-    	if(name.equals("DM: Goblin Capt."))
-    	{
-        	mp.stop();
-
-    	}
     	
-    	//mp.stop();
+    	
 
-    	if(name.equals("Bat") || (name.equals("DM: Goblin Capt.") ))
+    	//if(name.equals("DM: Guardsman") || (name.equals("DM: Goblin Capt.")) || (name.equals("DM: Ogre")) || (name.equals("DM: Slime King")) || (name.equals("DM: Dark Knight")) || (name.equals("Dungeon Master Zul")) )
+    	//{	
+    		//gainedBoatPiece.setVisible(true);
+    		
+    	//}
+
+    
+
+    	 if(name.equals("Bat") || (name.equals("DM: Goblin Capt.") ))
     	{	
     		vm.backToMorestetDungeon(event, name);
     	}
@@ -133,6 +144,10 @@ public class VictoryControl extends CombatControl implements Initializable
 		newWindow.setScene(scene2);
 		newWindow.show();		
 	}
+	
+	
+
+	
 
 
 
@@ -140,9 +155,19 @@ public class VictoryControl extends CombatControl implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
 		Random r = new Random();
-		int goldGained = r.nextInt(100-1) + 1;
 		
+
+		goldGained = r.nextInt(100 - 1) + 1;
 		goldLabel.setText("Gold Gained: " + goldGained);
+
+	
+		
+		//System.out.println("I have " + map.get("Gold") + " gold.");
+		
+		//goldLabel.setText("Gold Gained: " + goldGained);
+		
+		//System.out.println("I have: " + getGold());
+		
 		
 
 		try 
