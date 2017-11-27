@@ -1,6 +1,7 @@
 package application.Dungeons;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import application.Main;
 import javafx.event.ActionEvent;
@@ -8,16 +9,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class ArthurDungeonModel 
 {
+    MediaPlayer mp;
+
 	
-	public int getRoomNumber4MovingUp(int roomNumber)
+	public int getRoomNumber4MovingUp(int roomNumber) 
 	{
+		//Media media;
+		//media = new Media(getClass().getResource("/music/wrong.mp3").toURI().toString());
+		//mp = new MediaPlayer(media);  
+		
+		
 		if(roomNumber == 0) return 2;
 		
 		if(roomNumber == 2) return 2;
+			
 		
 		if(roomNumber == 6) return 6;
 		

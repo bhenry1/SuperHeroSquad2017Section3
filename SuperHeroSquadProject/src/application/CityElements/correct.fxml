@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="displayPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Combat.OutOfItemControl">
+   <children>
+      <ImageView fitHeight="209.0" fitWidth="329.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/Einstein.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="outOfItemLabel" alignment="CENTER" layoutX="17.0" layoutY="41.0" prefHeight="159.0" prefWidth="267.0" text="Congratulations! You &#10;answered the riddle &#10;correctly! &#10;You have been awarded&#10; a boat piece!" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font></Label>
+   </children>
+</Pane>

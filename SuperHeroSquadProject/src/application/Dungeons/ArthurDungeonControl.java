@@ -282,7 +282,7 @@ public class ArthurDungeonControl implements Initializable
     MediaPlayer mp;
     
     @FXML
-    void moveUp2(ActionEvent event) 
+    void moveUp2(ActionEvent event)
     {
     	int roomNumber = adm.getRoomNumber4MovingUp(this.roomNumber);
     	roomName.setText(adm.getRoomName(roomNumber));

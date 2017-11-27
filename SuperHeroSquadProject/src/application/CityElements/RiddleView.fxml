@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <Pane fx:id="riddlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="416.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CityElements.RiddleControl">
    <children>
       <ImageView fx:id="scrollImage" fitHeight="400.0" fitWidth="416.0" layoutX="9.0" pickOnBounds="true" preserveRatio="true">
@@ -17,6 +16,6 @@
       <TextField fx:id="riddleTextfield" layoutX="125.0" layoutY="173.0" />
       <Button fx:id="checkButton" layoutX="177.0" layoutY="221.0" mnemonicParsing="false" onAction="#validateAnswer" text="Submit" />
       <Label fx:id="riddleHintDisplay" layoutX="139.0" layoutY="279.0" text="Go to tavern for a hint!" visible="false" />
-      <TextArea fx:id="riddleTextField" layoutX="139.0" layoutY="63.0" prefHeight="101.0" prefWidth="139.0" wrapText="true" />
+      <TextArea fx:id="riddleTextArea" layoutX="139.0" layoutY="63.0" prefHeight="101.0" prefWidth="139.0" wrapText="true" />
    </children>
 </Pane>

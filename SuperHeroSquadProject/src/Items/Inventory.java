@@ -7,6 +7,7 @@ public class Inventory
 {
 
 	public static final HashMap<String, Integer> map = new HashMap<>();
+
 	
     public int knifeCounter;
 	public int swordCounter;

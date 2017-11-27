@@ -7,6 +7,7 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
+import Items.Inventory;
 import application.CityElements.RiddleControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +19,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
 
-public class WorldMapControl implements  Initializable
+public class WorldMapControl extends Inventory implements  Initializable
 {
 	WorldMapModel wm = new WorldMapModel();
 
@@ -59,6 +60,7 @@ public class WorldMapControl implements  Initializable
     @FXML
     void enterMorestet(ActionEvent event) throws IOException, URISyntaxException
     {
+    	map.put("Cities", 0);
     	wm.goToMorestet(event);
     	mp.stop();
     }
@@ -67,6 +69,7 @@ public class WorldMapControl implements  Initializable
     @FXML
     void enterMonetonc(ActionEvent event) throws IOException, URISyntaxException 
     {
+    	map.put("Cities", 1);
     	wm.goToMonetonc(event);
     	mp.stop();
     }
@@ -74,6 +77,7 @@ public class WorldMapControl implements  Initializable
     @FXML
     void enterCloutav(ActionEvent event) throws IOException, URISyntaxException 
     {
+    	map.put("Cities", 2);
     	wm.goToClourtav(event);
     	mp.stop();
     }
@@ -81,6 +85,7 @@ public class WorldMapControl implements  Initializable
     @FXML
     void enterHackipon(ActionEvent event) throws IOException, URISyntaxException 
     {
+    	map.put("Cities", 3);
     	wm.goToHackipon(event);
     	mp.stop();
 
@@ -89,6 +94,7 @@ public class WorldMapControl implements  Initializable
     @FXML
     void enterArthor(ActionEvent event) throws IOException, URISyntaxException 
     {
+    	map.put("Cities", 4);
     	wm.goToArthur(event);
     	mp.stop();
 
@@ -97,6 +103,7 @@ public class WorldMapControl implements  Initializable
     @FXML
     void enterHifenour(ActionEvent event) throws IOException, URISyntaxException 
     {
+    	map.put("Cities", 5);
     	wm.goToHifenour(event);
     	mp.stop();
     }

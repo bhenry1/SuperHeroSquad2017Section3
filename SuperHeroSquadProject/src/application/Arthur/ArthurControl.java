@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Items.Inventory;
 import application.CityElements.RiddleControl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
